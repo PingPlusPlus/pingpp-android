@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://D:/Download/pingpp-sdk-android-1.0.2/alipay_lib/alipay_lib.iml" filepath="D:/Download/pingpp-sdk-android-1.0.2/alipay_lib/alipay_lib.iml" />
+      <module fileurl="file://D:/Download/pingpp-sdk-master/pingpp-android/alipay_lib/alipay_lib1.iml" filepath="D:/Download/pingpp-sdk-master/pingpp-android/alipay_lib/alipay_lib1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pinus.iml" filepath="$PROJECT_DIR$/pinus.iml" />
+    </modules>
+  </component>
+</project>
+

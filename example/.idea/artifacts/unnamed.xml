@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="apk" name="unnamed">
+    <output-path>$PROJECT_DIR$/out/artifacts/unnamed</output-path>
+    <properties id="android-properties">
+      <options>
+        <option name="keyStoreUrl" value="file://" />
+      </options>
+    </properties>
+    <root id="archive" name="unnamed.apk" />
+  </artifact>
+</component>

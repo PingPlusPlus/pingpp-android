@@ -1,0 +1,3 @@
+# view AndroidManifest.xml #generated:13
+-keep class com.alipay.android.app.sdk.WapPayActivity { <init>(...); }
+

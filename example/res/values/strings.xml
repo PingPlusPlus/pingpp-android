@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="appName">心益</string>
+    <string name="ok">完成</string>
+    <string name="wechant">微信</string>
+    <string name="alipay">支付宝</string>
+    <string name="upmp">银联</string>
+    <string name="confirm">确认</string>
+    <string name="yuan">元</string>
+    <string name="donateFailMessage">\u3000\u3000感谢你的爱心，\n但是系统出现了一些错误</string>
+    <string name="validationErrors">错误</string>
+    <string name="notInstalled">未安装支付软件</string>
+    <string name="amount">支付金额</string>
+</resources>
