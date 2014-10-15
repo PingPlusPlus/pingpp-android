@@ -144,7 +144,7 @@ class PaymentTask extends AsyncTask<PaymentRequest, Void, String> {
         Intent intent = new Intent();
     	String packageName = getPackageName();
     	ComponentName componentName = new ComponentName(packageName, packageName + ".wxapi.WXPayEntryActivity");
-    	intent.setClass(PinusActivity.this, PaymentActivity.class);
+        intent.setComponent(componentName);
     	intent.putExtra(PaymentActivity.EXTRA_CHARGE,data);
     	startActivityForResult(intent, REQUEST_CODE_PAYMENT);
 
