@@ -18,5 +18,8 @@ Android SDK 要求 Android 2.3 及以上版本
 ##更新日志
 
 ###1.0.4
-* 修复了以下BUG:<br>
+* 修复了以下 BUG:<br>
 测试环境异常
+* 修正了一个错误:<br>
+将 onActivityResult 方法的：`intent.setClass(PinusActivity.this, PaymentActivity.class);`
+更换成了：`intent.setComponent(componentName);`
