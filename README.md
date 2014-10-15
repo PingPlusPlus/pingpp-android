@@ -4,7 +4,7 @@ Android SDK
 ##简介
 
 lib 文件夹下是 Android SDK 文件，<br>
-example 文件夹里面是一个简单的接入示例，该示例仅供参考。
+example 文件夹里面是一个简单的接入示例，该示例仅供参考。<br>
 安卓端如果应用没有安装银联支付控件：请到 http://mobile.unionpay.com/getclient?platform=android&type=securepayplugin 下载。
 
 ##版本要求
