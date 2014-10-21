@@ -31,23 +31,23 @@ import com.squareup.okhttp.Response;
 
 public class PinusActivity extends Activity implements View.OnClickListener{
 
-	private static final String URL = "YOUR-URL";
-	private static final int REQUEST_CODE_PAYMENT = 1;
+    private static final String URL = "YOUR-URL";
+    private static final int REQUEST_CODE_PAYMENT = 1;
     private static final String CHANNEL_UPMP = "upmp";
     private static final String CHANNEL_WECHAT = "wx";
     private static final String CHANNEL_ALIPAY = "alipay";
-	
-	private EditText amountEditText;
+
+    private EditText amountEditText;
     private Button wechatButton;
     private Button alipayButton;
     private Button upmpButton;
     
     private String currentAmount = "";
 
-	@Override
-	public void onCreate(Bundle savedInstanceState)
-	{
-		super.onCreate(savedInstanceState);
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
         amountEditText = (EditText) findViewById(R.id.amountEditText);
@@ -57,8 +57,8 @@ public class PinusActivity extends Activity implements View.OnClickListener{
          wechatButton.setOnClickListener(PinusActivity.this);
         alipayButton.setOnClickListener(PinusActivity.this);
         upmpButton.setOnClickListener(PinusActivity.this);
-	
-	amountEditText.addTextChangedListener(new TextWatcher() {
+    
+    amountEditText.addTextChangedListener(new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
         }
@@ -142,11 +142,11 @@ class PaymentTask extends AsyncTask<PaymentRequest, Void, String> {
     protected void onPostExecute(String data) {
 
         Intent intent = new Intent();
-    	String packageName = getPackageName();
-    	ComponentName componentName = new ComponentName(packageName, packageName + ".wxapi.WXPayEntryActivity");
-    	intent.setComponent(componentName);
-    	intent.putExtra(PaymentActivity.EXTRA_CHARGE,data);
-    	startActivityForResult(intent, REQUEST_CODE_PAYMENT);
+        String packageName = getPackageName();
+        ComponentName componentName = new ComponentName(packageName, packageName + ".wxapi.WXPayEntryActivity");
+        intent.setComponent(componentName);
+        intent.putExtra(PaymentActivity.EXTRA_CHARGE,data);
+        startActivityForResult(intent, REQUEST_CODE_PAYMENT);
 
     }
 
