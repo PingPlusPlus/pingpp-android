@@ -106,13 +106,13 @@ public class PinusActivity extends Activity implements View.OnClickListener{
 
     class PaymentTask extends AsyncTask<PaymentRequest, Void, String> {
 
-            @Override
-            protected void onPreExecute() {
+        @Override
+        protected void onPreExecute() {
 
-                //按键点击之后的禁用，防止重复点击
-                wechatButton.setOnClickListener(null);
-                alipayButton.setOnClickListener(null);
-                upmpButton.setOnClickListener(null);
+            //按键点击之后的禁用，防止重复点击
+            wechatButton.setOnClickListener(null);
+            alipayButton.setOnClickListener(null);
+            upmpButton.setOnClickListener(null);
         }
 
         @Override
