@@ -1,4 +1,4 @@
-Android SDK
+pingpp Android SDK
 ============
 
 ##简介
