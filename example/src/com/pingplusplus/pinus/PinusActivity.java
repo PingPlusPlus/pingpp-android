@@ -68,10 +68,10 @@ public class PinusActivity extends Activity implements View.OnClickListener{
                 if (!s.toString().equals(currentAmount)) {
                     amountEditText.removeTextChangedListener(this);
 
-                    String replaceable = String.format("[%s,.]", NumberFormat.getCurrencyInstance().getCurrency().getSymbol());
+                    String replaceable = String.format("[%s, \\s.]", NumberFormat.getCurrencyInstance().getCurrency().getSymbol());
                     String cleanString = s.toString().replaceAll(replaceable, "");
 
-                    if (new BigDecimal(cleanString).toString().equals("0")) {
+                    if (cleanString == "" || new BigDecimal(cleanString).toString().equals("0")) {
                         amountEditText.setText(null);
                     } else {
                         double parsed = Double.parseDouble(cleanString);
@@ -90,7 +90,7 @@ public class PinusActivity extends Activity implements View.OnClickListener{
         String amountText = amountEditText.getText().toString();
         if (amountText.equals("")) return;
 
-        String replaceable = String.format("[%s,.]", NumberFormat.getCurrencyInstance().getCurrency().getSymbol());
+        String replaceable = String.format("[%s,\\s.]", NumberFormat.getCurrencyInstance().getCurrency().getSymbol());
         String cleanString = amountText.toString().replaceAll(replaceable, "");
         int amount = Integer.valueOf(new BigDecimal(cleanString).toString());
 
