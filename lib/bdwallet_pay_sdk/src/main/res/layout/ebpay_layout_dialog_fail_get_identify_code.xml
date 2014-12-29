@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:background="@color/ebpay_white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <!-- <TextView -->
+    <!-- android:layout_width="wrap_content" -->
+    <!-- android:layout_height="wrap_content" -->
+    <!-- android:text="@string/ebpay_cvv2_tip_title" -->
+    <!-- android:textColor="@color/ebpay_text_hint" -->
+    <!-- android:textSize="@dimen/ebpay_text_size_18" /> -->
+
+    <TextView
+        android:id="@+id/dialog_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="1dp"
+        android:text="@string/ebpay_not_receive_sms"
+        android:contentDescription="@null"
+        android:singleLine="true"
+        />
+
+    <TextView
+        android:id="@+id/dialog_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="@string/ebpay_operation_tip"
+        android:contentDescription="@null"
+        android:singleLine="false"
+         />
+
+    <TextView
+        android:id="@+id/dialog_bank_service_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        />
+
+    <TextView
+        android:id="@+id/dialog_baidu_service_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        />
+    
+    
+</LinearLayout>

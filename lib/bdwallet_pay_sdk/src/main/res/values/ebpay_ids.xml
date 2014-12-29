@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="ebpay_card_no_id" type="id"/>
+    <item name="ebpay_cvv2_id" type="id"/>
+    <item name="ebpay_bank_name_id" type="id"/>
+    <item name="ebpay_true_name_id" type="id"/>
+    <item name="ebpay_identity_type_id" type="id"/>
+    <item name="ebpay_identity_code_id" type="id"/>
+    <item name="ebpay_mobile_phone_id" type="id"/>
+    <item name="ebpay_need_bind_card_id" type="id"/>
+    <item name="ebpay_repair_ture_name_id" type="id"/>
+    <item name="ebpay_pay_pwd_id" type="id"/>
+    <item name="ebpay_confirm_pay_pwd_id" type="id"/>
+    <item name="ebpay_who_id" type="id"/>
+    <item name="ebpay_type_id" type="id"/>
+    <item name="ebpay_bond_card_list_id" type="id"/>
+</resources>

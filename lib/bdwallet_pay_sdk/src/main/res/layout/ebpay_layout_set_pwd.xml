@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/pwd_tip"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="20dip"
+            android:gravity="left"
+            android:text="@string/ebpay_pwd_set_tip" />
+
+        <com.baidu.android.pay.view.SixNumberPwdView
+            android:id="@+id/pwdInputBox"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip" >
+        </com.baidu.android.pay.view.SixNumberPwdView>
+
+        <RelativeLayout
+            android:id="@+id/error_area"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip" >
+
+            <TextView
+                android:id="@+id/forget_pwd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:singleLine="true"
+                android:text="@string/ebpay_pwd_forget"
+                android:textColor="@color/ebpay_click_text_color" />
+
+            <TextView
+                android:id="@+id/error_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="30dp"
+                android:layout_toLeftOf="@id/forget_pwd"
+                android:text="@string/ebpay_pwd_changed"
+                android:textColor="@color/ebpay_red" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/pwd_done"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/ebpay_bt_height"
+            android:layout_marginTop="20dip"
+            android:background="@drawable/ebpay_bg_confrim_selector"
+            android:enabled="false"
+            android:text="@string/ebpay_pwd_done"
+            android:textColor="@color/ebpay_white" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dip" >
+
+            <CheckBox
+                android:id="@+id/nopass_ckbox"
+                style="@style/EbpayCheckBox"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="10dip"
+                android:checked="true"
+                android:clickable="true"
+                android:visibility="gone"/>
+            <TextView
+                android:id="@+id/nopass_ckbox_lable"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginLeft="5dip"
+                android:gravity="left|center"
+                android:text="@string/ebpay_checkbox_lable"
+                android:textColor="@color/ebpay_text_normal2"
+                android:textSize="12sp"
+                android:visibility="gone"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

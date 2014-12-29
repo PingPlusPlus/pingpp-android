@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/ebpay_dialog_width"
+    android:layout_height="wrap_content"
+    android:background="@color/ebpay_window_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ebpay_title_heigth" >
+
+        <TextView
+            android:id="@+id/dialog_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/ebpay_title_heigth"
+            android:background="@color/ebpay_title_bg"
+            android:gravity="center_vertical|left"
+            android:paddingLeft="@dimen/ebpay_line_margin_10"
+            android:text="@string/ebpay_tip"
+            android:textColor="@color/ebpay_white"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/dialog_title_close"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/ebpay_bg_clear_selector"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <!-- <View -->
+    <!-- android:id="@+id/dialog_title_line" -->
+    <!-- android:layout_width="match_parent" -->
+    <!-- android:layout_height="2dp" -->
+    <!-- android:background="@color/ebpay_blue" /> -->
+
+
+    <!-- <TextView -->
+    <!-- android:id="@+id/dialog_msg" -->
+    <!-- android:layout_width="match_parent" -->
+    <!-- android:layout_height="wrap_content" -->
+    <!-- android:paddingBottom="20dp" -->
+    <!-- android:paddingLeft="30dp" -->
+    <!-- android:paddingRight="30dp" -->
+    <!-- android:paddingTop="20dp" -->
+    <!-- android:text="@string/confirm_exit" -->
+    <!-- android:textSize="15sp" /> -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ebpay_window_bg"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/dialog_content_layout"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" />
+
+        <LinearLayout
+            android:id="@+id/dialog_btns"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/ebpay_line_margin_10"
+            android:layout_marginLeft="@dimen/ebpay_line_margin_15"
+            android:layout_marginRight="@dimen/ebpay_line_margin_15"
+            android:orientation="horizontal"
+            android:paddingTop="1dp" >
+
+            <Button
+                android:id="@+id/negative_btn"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/ebpay_bt_height"
+                android:layout_marginRight="7dip"
+                android:layout_weight="1"
+                android:background="@drawable/bd_wallet_neg_btn_bg"
+                android:text="@string/ebpay_not_exit"
+                android:textColor="@color/ebpay_white"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/positive_btn"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/ebpay_bt_height"
+                android:layout_marginLeft="7dip"
+                android:layout_weight="1"
+                android:background="@drawable/ebpay_bg_confrim_selector"
+                android:text="@string/ebpay_exit"
+                android:textColor="@color/ebpay_white"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

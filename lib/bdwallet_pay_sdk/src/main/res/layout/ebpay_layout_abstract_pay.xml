@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_view"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/ebpay_window_bg" >
+
+    <include
+        android:id="@+id/title_bar"
+        android:layout_alignParentTop="true"
+        layout="@layout/ebpay_view_title_bar" />
+
+    <LinearLayout
+        android:id="@+id/wrap"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/title_bar"
+        android:orientation="vertical" >
+
+        <ScrollView
+            android:id="@+id/content_with_scroll"
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:scrollbarSize="5dp"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbarThumbVertical="@drawable/ebpay_shape_scrollbar"
+            android:scrollbars="vertical" >
+
+            <LinearLayout
+                android:id="@+id/content_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <Button
+                    android:id="@+id/submit_btn"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/ebpay_bt_height"
+                    android:layout_marginBottom="@dimen/ebpay_line_margin_10"
+                    android:layout_marginLeft="@dimen/ebpay_line_margin_10"
+                    android:layout_marginRight="@dimen/ebpay_line_margin_10"
+                    android:layout_marginTop="@dimen/ebpay_line_margin_20"
+                    android:background="@drawable/ebpay_bg_confrim_selector"
+                    android:text="@string/ebpay_submit_pay"
+                    android:textColor="@color/ebpay_white"
+                    android:textSize="@dimen/ebpay_text_size_18" />
+
+                <TextView
+                    android:id="@+id/assist_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:padding="10dip"
+                    android:textColor="@color/ebpay_text_blue"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </ScrollView>
+
+        <android.inputmethodservice.KeyboardView
+            android:id="@+id/keyboardview"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <!-- 由于scrollview里面放入listview会引起滚动条的冲突，故用一个线性布局用来承载具有listview的视图 -->
+
+    <LinearLayout
+        android:id="@+id/content_with_list_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_bar"
+        android:orientation="vertical"
+        android:visibility="gone" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/account_layout"
+        android:layout_width="140dp"
+        android:layout_height="89dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/title_bar"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="-8dp"
+        android:background="@drawable/ebpay_bg_account"
+        android:orientation="vertical"
+        android:padding="3dp"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/account_name"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="2dp"
+            android:layout_weight="1"
+            android:background="@color/ebpay_white"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:singleLine="true" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@color/ebpay_gray" />
+
+        <TextView
+            android:id="@+id/change_account"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/ebpay_white"
+            android:clickable="true"
+            android:gravity="center"
+            android:padding="7dp"
+            android:text="@string/ebpay_logout" />
+    </LinearLayout>
+
+</RelativeLayout>

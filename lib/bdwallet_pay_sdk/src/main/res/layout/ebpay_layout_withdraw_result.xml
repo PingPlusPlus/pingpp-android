@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/ebpay_gray"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/title_bar"
+        layout="@layout/ebpay_view_title_bar" />
+
+    <ImageView
+        android:id="@+id/ebpay_withdraw_result_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="25dp"
+        android:contentDescription="@null"
+        android:src="@drawable/ebpay_result_success" />
+
+    <TextView
+        android:id="@+id/ebpay_withdraw_result_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/ebpay_withdraw_success"
+        android:textColor="@color/ebpay_text_normal"
+        android:textSize="@dimen/ebpay_text_size_25"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/ebpay_withdraw_other_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="@string/ebpay_withdraw_success_tips"
+        android:textColor="@color/ebpay_text_normal"
+        android:textSize="@dimen/ebpay_text_size_15" />
+
+    <Button
+        android:id="@+id/withdraw_success_bt"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/ebpay_bt_height"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/ebpay_bg_confrim_selector"
+        android:text="@string/ebpay_confirm"
+        android:textColor="@color/ebpay_white"
+        android:textSize="@dimen/ebpay_text_size_15" />
+
+
+</LinearLayout>

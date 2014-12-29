@@ -1,0 +1,30 @@
+<resources>
+
+    <dimen name="ebpay_line_margin_20">20dp</dimen>
+    <dimen name="ebpay_line_margin_10">10dp</dimen>
+    <dimen name="ebpay_line_margin_15">15dp</dimen>
+    <!-- 和庆男确认过标题高度统一50 -->
+    <dimen name="ebpay_title_heigth">50dp</dimen>
+    <dimen name="ebpay_dimen_20dp">20dp</dimen>
+    <dimen name="ebpay_dimen_30dp">30dp</dimen>
+    <dimen name="ebpay_bt_height">45dip</dimen>
+    <dimen name="ebpay_white_line_height">46dip</dimen>
+    <dimen name="ebpay_white_line_height_2_more">48dp</dimen>
+    <dimen name="ebpay_dialog_width">300dip</dimen>
+    <dimen name="ebpay_dialog_img_width">260dp</dimen>
+    <dimen name="ebpay_dialog_img_height">150dp</dimen>
+    <dimen name="ebpay_text_size_25">25sp</dimen>
+    <dimen name="ebpay_text_size_20">20sp</dimen>
+    <dimen name="ebpay_text_size_18">18sp</dimen>
+    <dimen name="ebpay_text_size_15">15sp</dimen>
+    <dimen name="ebpay_text_size_12">12sp</dimen>
+    <dimen name="ebpay_key_height">50dip</dimen>
+    <dimen name="ebpay_fast_max_width">68dp</dimen>
+    <dimen name="ebpay_logo_width">100dp</dimen>
+    <dimen name="ebpay_logo_height">28dp</dimen>
+    <dimen name="bd_wallet_withdraw_tip_width">80dp</dimen>
+
+    <dimen name="ebpay_order_padding_top">27dp</dimen>
+    <dimen name="ebpay_order_padding_bottom">23dp</dimen>
+    <dimen name="ebpay_order_text_pitch">25dp</dimen>
+</resources>

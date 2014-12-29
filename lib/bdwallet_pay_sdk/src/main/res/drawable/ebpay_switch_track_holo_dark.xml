@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<!--     <item android:state_enabled="false" android:drawable="@drawable/switch_bg_disabled_holo_dark" />
+    <item android:state_focused="true"  android:drawable="@drawable/switch_bg_focused_holo_dark" />
+    <item                               android:drawable="@drawable/switch_bg_holo_dark" /> -->
+    
+    <item android:state_enabled="false" android:drawable="@drawable/ebpay_setting_bg_switch" />
+    <item android:state_focused="true"  android:drawable="@drawable/ebpay_setting_bg_switch" />
+    <item                               android:drawable="@drawable/ebpay_setting_bg_switch" />
+    
+</selector>

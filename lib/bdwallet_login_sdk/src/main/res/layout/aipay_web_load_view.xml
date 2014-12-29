@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/aipay_gray"
+    android:orientation="vertical" >
+
+    <com.baifubao.pay.mobile.iapppaysecservice.res2jar.layout4portrait.TitleViewBar 
+        android:id="@+id/v_title_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+    
+    <ProgressBar
+        android:id="@+id/pro_h_loading"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="4dip"/>
+
+    <WebView
+        android:id="@+id/wv_web_view" 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"/>
+
+</LinearLayout>

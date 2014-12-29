@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/ebpay_window_bg"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/title_bar"
+        layout="@layout/ebpay_view_title_bar" />
+  
+
+        <TextView
+            android:id="@+id/select_pay_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="@dimen/ebpay_line_margin_20"
+            android:text="@string/ebpay_complete_tip"
+            android:textColor="@color/ebpay_text_333333"
+            android:textSize="@dimen/ebpay_text_size_15" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ebpay_line_margin_10"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingBottom="0dip"
+            android:paddingTop="0dip" >
+
+            <ListView
+                android:id="@+id/lv_bond_card_list"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:cacheColorHint="#00000000"
+                android:divider="#00000000"
+                android:dividerHeight="1dp"
+                android:listSelector="#00000000"
+                android:scrollbars="@null" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/add_new_card"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/ebpay_bt_height"
+            android:layout_marginLeft="@dimen/ebpay_line_margin_10"
+            android:layout_marginRight="@dimen/ebpay_line_margin_10"
+            android:layout_marginTop="@dimen/ebpay_line_margin_20"
+            android:background="@drawable/ebpay_dash_btn_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/ebpay_use_new_card"
+            android:textColor="@color/ebpay_bg_blue"
+            android:textSize="@dimen/ebpay_text_size_18" />
+
+        <!--
+           <Button
+          android:id="@+id/next_botton"
+          android:layout_width="fill_parent"
+          android:layout_height="@dimen/ebpay_bt_height"
+          android:layout_marginBottom="@dimen/ebpay_line_margin_10"
+          android:layout_marginLeft="@dimen/ebpay_line_margin_10"
+          android:layout_marginRight="@dimen/ebpay_line_margin_10"
+          android:layout_marginTop="@dimen/ebpay_line_margin_20"
+          android:background="@drawable/ebpay_bg_confrim_selector"
+          android:text="@string/ebpay_pay_next"
+          android:textColor="@color/ebpay_white"
+          android:textSize="@dimen/ebpay_text_size_18" />
+        -->
+
+
+</LinearLayout>
