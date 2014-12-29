@@ -13,14 +13,19 @@ Android SDK 要求 Android 2.3 及以上版本
 
 ## 接入方法
 
-关于如何使用 SDK 请参考 [技术文档](https://pingplusplus.com/document) 或者参考 [example](https://github.com/PingPlusPlus/pingpp-android/tree/master/example) 文件夹里的示例。
+关于如何使用 SDK 请参考 [技术文档](https://pingxx.com/document) 或者参考 [example](https://github.com/PingPlusPlus/pingpp-android/tree/master/example) 文件夹里的示例。
 
 ## 更新日志
 
-### 1.0.4
+### 2.0.0
 * 更改：<br>
-更换了测试环境 URL
+添加新渠道：百付宝
+callback 添加返回错误信息
 
 ### 1.0.5
 * 修复：<br>
 微信未登录情况下，点返回，应用无响应，需要再按一次返回才能继续操作
+
+### 1.0.4
+* 更改：<br>
+更换了测试环境 URL
