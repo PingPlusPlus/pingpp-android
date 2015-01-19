@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="card_detection_description1">请将银行卡正面置于此区域</string>
+    <string name="card_detection_description2">尝试对齐边缘</string>
+    <string name="camera_decode_bitmap_failed">识别不成功，请重新识别</string>
+    <string name="card_detection_carmera_failed">摄像头初始化失败</string>
+    <string name="card_detection_compare_text1">请核对卡号后进行确认</string>
+    <string name="card_detection_compare_text2">若卡号有误,请返回重拍</string>
+    <string name="card_detection_compare_confirm">确认</string>
+</resources>

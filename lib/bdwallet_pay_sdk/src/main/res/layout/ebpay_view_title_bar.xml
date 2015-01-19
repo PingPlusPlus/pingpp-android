@@ -26,7 +26,7 @@
         android:textColor="@color/ebpay_white"
         android:textSize="@dimen/ebpay_text_size_20" />
 
-    <com.baidu.android.pay.view.RemoteImageView
+    <ImageView
         android:id="@+id/title_bar_right_img"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -39,7 +39,7 @@
     <Button
         android:id="@+id/btn_Login_or_reg"
         android:layout_width="58dp"
-        android:layout_height="@dimen/ebpay_title_heigth"
+        android:layout_height="fill_parent"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:background="@drawable/ebpay_title_btn_selector"
@@ -63,7 +63,7 @@
             android:layout_height="fill_parent"
             android:layout_gravity="center"
             android:scaleType="fitXY"
-            android:src="@drawable/ebpay_title_back_selector"
+            android:src="@drawable/wallet_base_title_back_selector"
             android:contentDescription="@string/ebpay_img" />
 
         <View

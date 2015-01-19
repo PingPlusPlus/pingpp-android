@@ -5,6 +5,7 @@
 .DS_Store
 /build
 
+.idea/dictionaries/*.xml
 
 # Built application files
 *.apk

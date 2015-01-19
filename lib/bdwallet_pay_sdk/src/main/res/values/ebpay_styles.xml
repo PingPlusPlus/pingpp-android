@@ -2,10 +2,10 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <style name="EbpayActivityAnim">
-        <item name="@android:activityOpenEnterAnimation">@anim/ebpay_slide_from_right</item>
-        <item name="@android:activityOpenExitAnimation">@anim/ebpay_slide_to_left</item>
-        <item name="@android:activityCloseEnterAnimation">@anim/ebpay_slide_from_left</item>
-        <item name="@android:activityCloseExitAnimation">@anim/ebpay_slide_to_right</item>
+        <item name="@android:activityOpenEnterAnimation">@anim/wallet_base_slide_from_right</item>
+        <item name="@android:activityOpenExitAnimation">@anim/wallet_base_slide_to_left</item> 
+        <item name="@android:activityCloseEnterAnimation">@anim/wallet_base_slide_from_left</item>
+        <item name="@android:activityCloseExitAnimation">@anim/wallet_base_slide_to_right</item> 
         <!-- <item name="android:taskOpenEnterAnimation">@anim/ebpay_slide_from_left</item> -->
         <!-- <item name="android:taskOpenExitAnimation">@anim/ebpay_slide_to_right</item> -->
         <!-- <item name="android:taskCloseEnterAnimation">@anim/ebpay_slide_from_right</item> -->
@@ -17,10 +17,10 @@
     </style>
     
     <style name="EbpayActivityAnim2">
-        <item name="@android:activityOpenEnterAnimation">@anim/ebpay_show_dialog_anim</item>
-        <item name="@android:activityOpenExitAnimation">@anim/ebpay_dismiss_dialog_anim</item>
-        <item name="@android:activityCloseEnterAnimation">@anim/ebpay_show_dialog_anim</item>
-        <item name="@android:activityCloseExitAnimation">@anim/ebpay_dismiss_dialog_anim</item>
+        <item name="@android:activityOpenEnterAnimation">@anim/wallet_base_show_dialog_anim</item>
+        <item name="@android:activityOpenExitAnimation">@anim/wallet_base_dismiss_dialog_anim</item>
+        <item name="@android:activityCloseEnterAnimation">@anim/wallet_base_show_dialog_anim</item>
+        <item name="@android:activityCloseExitAnimation">@anim/wallet_base_dismiss_dialog_anim</item>
     </style>
 
     <style name="EbpayThemeActivityBase" parent="@android:style/Theme.NoTitleBar">
@@ -30,36 +30,15 @@
         <item name="android:textSize">15sp</item>
         <item name="android:screenOrientation">portrait</item>
     </style>
-
-    <style name="EbpayThemeActivit" parent="EbpayThemeActivityBase">
-        <item name="android:windowBackground">@color/ebpay_gray</item>
-        <item name="android:windowIsTranslucent">false</item>
-    </style>
-
+ 
     <style name="EbpayThemeActivitTranslucent" parent="EbpayThemeActivityWelcome">
         <item name="android:windowAnimationStyle">@style/EbpayActivityAnim2</item>
     </style>
-    <style name="EbpayThemeActivityWelcome" parent="@android:style/Theme.Translucent.NoTitleBar">
+
+    <style name="EbpayThemeActivityWelcome" parent="@android:style/Theme.Translucent.NoTitleBar">
         <item name="android:textColor">@color/ebpay_black</item>
         <item name="android:textSize">15sp</item>
         <item name="android:screenOrientation">portrait</item>
     </style>
 
-    <style name="EbpayPromptDialog" parent="@android:style/Theme.Dialog">
-        <item name="android:windowFrame">@null</item>
-        <item name="android:textColor">@color/ebpay_black</item>
-        <item name="android:windowBackground">@color/ebpay_transparent</item>
-        <item name="android:windowIsFloating">true</item>
-        <item name="android:background">@color/ebpay_transparent</item>
-    </style>
-
-    <style name="EditCommonStyle">
-        <item name="android:singleLine">true</item>
-        <item name="android:textSize">@dimen/ebpay_text_size_15</item>
-        <item name="android:background">@null</item>
-        <item name="android:textColorHint">@color/ebpay_6c</item>
-    </style>
-    <style name="EbpayCheckBox" parent="@android:style/Widget.CompoundButton.CheckBox">
-        <item name="android:button">@drawable/ebpay_bg_checkbox_seletor</item>
-    </style>
 </resources>

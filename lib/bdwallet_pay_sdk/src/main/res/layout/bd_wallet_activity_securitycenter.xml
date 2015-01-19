@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/wallet_base_window_bg"
+    android:orientation="vertical" >
+
+    <com.baidu.wallet.base.widget.BdActionBar
+        android:id="@+id/bdactionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:id="@+id/title_block_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bdactionbar"
+        android:background="@color/wallet_base_blue"
+        android:paddingBottom="@dimen/security_text_padding_btm" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:contentDescription="@null"
+            android:src="@drawable/wallet_base_trans_noneed_pay" />
+
+        <TextView
+            android:id="@+id/security_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/security_text_margin_top"
+            android:text="@string/bd_wallet_pay_security_title"
+            android:textColor="@color/bd_wallet_fp_text_white"
+            android:textSize="30sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/version_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/security_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/bd_wallet_fp_text_white"
+            android:textSize="@dimen/bd_wallet_text_size_normal"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/security_desp_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/version_no"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp"
+            android:text="@string/bd_wallet_pay_security_desp_1"
+            android:textColor="@color/bd_wallet_fp_text_white"
+            android:textSize="@dimen/bd_wallet_text_size_normal"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/security_desp_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/security_desp_1"
+            android:layout_centerHorizontal="true"
+            android:text="@string/bd_wallet_pay_security_desp_2"
+            android:textColor="@color/bd_wallet_fp_text_white"
+            android:textSize="@dimen/bd_wallet_text_size_normal"
+            android:textStyle="italic" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scroll_items_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_block_layout"
+        android:layout_above="@+id/sercrity_mobile_layout"
+        android:scrollbars="@null" >
+
+        <LinearLayout
+            android:id="@+id/security_item_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/wallet_base_listview_item_bg"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <RelativeLayout
+                android:id="@+id/security_mobile_pwd_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bd_wallet_transfer_item_height"
+                android:background="@drawable/wallet_base_bank_item_selector"
+                android:visibility="gone" >
+
+                <ImageView
+                    android:id="@+id/security_phone_pay_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/bd_wallet_pwd_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@id/security_phone_pay_img"
+                    android:text="@string/bd_wallet_phone_pwd"
+                    android:textColor="@color/bd_wallet_black"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/wallet_base_indicator_arrow" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/security_protection_layout_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/wallet_base_6c"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:id="@+id/security_protection_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bd_wallet_transfer_item_height"
+                android:background="@drawable/wallet_base_bank_item_selector"
+                android:visibility="gone" >
+
+                <ImageView
+                    android:id="@+id/security_protection_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/bd_wallet_security_protection_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@id/security_protection_img"
+                    android:text="@string/bd_wallet_pay_security_protection"
+                    android:textColor="@color/bd_wallet_black"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/security_protection_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/wallet_base_indicator_arrow" />
+
+                <TextView
+                    android:id="@+id/security_protection_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:layout_toLeftOf="@id/security_protection_detail"
+                    android:textColor="@color/bd_wallet_black"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/security_pp_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/wallet_base_6c" />
+
+            <RelativeLayout
+                android:id="@+id/security_pp_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bd_wallet_transfer_item_height"
+                android:background="@drawable/wallet_base_bank_item_selector"
+                android:visibility="gone" >
+
+                <ImageView
+                    android:id="@+id/security_pp_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/bd_wallet_pp_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@id/security_pp_img"
+                    android:text="@string/bd_wallet_pay_security_pp"
+                    android:textColor="@color/bd_wallet_black"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/wallet_base_indicator_arrow" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/wallet_base_6c" />
+
+            <RelativeLayout
+                android:id="@+id/security_tips_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bd_wallet_transfer_item_height"
+                android:background="@drawable/wallet_base_bank_item_selector"
+                android:visibility="gone" >
+
+                <ImageView
+                    android:id="@+id/security_tips_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/bd_wallet_security_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@id/security_tips_img"
+                    android:text="@string/bd_wallet_pay_security_tip"
+                    android:textColor="@color/bd_wallet_black"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/wallet_base_indicator_arrow" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/wallet_base_6c" />
+
+            <RelativeLayout
+                android:id="@+id/security_faq_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bd_wallet_transfer_item_height"
+                android:background="@drawable/wallet_base_bank_item_selector"
+                android:visibility="gone" >
+
+                <ImageView
+                    android:id="@+id/security_faq_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/bd_wallet_faq_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@id/security_faq_img"
+                    android:text="@string/bd_wallet_pay_securtiy_faq"
+                    android:textColor="@color/bd_wallet_black"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/wallet_base_indicator_arrow" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/sercrity_mobile_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/bd_wallet_service_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bd_wallet_pay_security_services_tip"
+            android:textColor="@color/bd_wallet_text_gray" />
+
+        <TextView
+            android:id="@+id/security_service_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wallet_base_help_phone_no"
+            android:textColor="@color/bd_wallet_blue" />
+    </LinearLayout>
+
+</RelativeLayout>

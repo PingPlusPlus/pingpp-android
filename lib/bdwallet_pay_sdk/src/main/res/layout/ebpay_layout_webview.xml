@@ -3,14 +3,17 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
-    <include
-        android:id="@+id/title_bar"
-        android:layout_alignParentTop="true"
-        layout="@layout/ebpay_view_title_bar" />
+
+    <com.baidu.wallet.base.widget.BdActionBar
+        android:id="@+id/bdactionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
     <WebView
         android:id="@+id/cust_webview"
-        android:layout_below="@+id/title_bar"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" />
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/bdactionbar" />
 
 </RelativeLayout>

@@ -4,7 +4,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:background="@color/ebpay_black_transparent"
+    android:background="@drawable/wallet_base_toast_bg"
     android:gravity="center"
     android:paddingBottom="20dp"
     android:paddingLeft="30dp"
@@ -23,7 +23,7 @@
         android:id="@+id/loading_progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:indeterminateDrawable="@drawable/ebpay_loading"
+        android:indeterminateDrawable="@drawable/wallet_base_loading"
         android:minHeight="33.5dp"
         android:minWidth="28.5dp" />
 

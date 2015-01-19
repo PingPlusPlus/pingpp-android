@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/ebpay_cvv2_tip"
-        android:textColor="@color/ebpay_text_normal"
+        android:textColor="@color/bd_wallet_dialog_contenttext"
         android:textSize="@dimen/ebpay_text_size_15" />
 
 </LinearLayout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/wallet_base_window_bg"
+    android:orientation="vertical" >
+
+    <com.baidu.wallet.base.widget.BdActionBar
+        android:id="@+id/bdactionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/security_item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bd_wallet_single_item_bg"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/bd_wallet_security_item_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bd_wallet_transfer_item_height"
+            android:background="@drawable/wallet_base_bank_item_selector"
+            android:clickable="false"
+            android:paddingLeft="19dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="@string/bd_wallet_pay_security_pp"
+                android:textColor="@color/bd_wallet_black"
+                android:textSize="15sp" />
+
+            <ImageButton
+                android:id="@+id/bd_wallet_security_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="19dp"
+                android:background="@drawable/wallet_base_btn_switch"
+                android:clickable="true" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/wallet_base_6c" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/bd_wallet_security_tip_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/bd_wallet_pay_security_pp_tip"
+        android:textColor="@color/bd_wallet_text_gray"
+        android:textSize="15sp" />
+
+</LinearLayout>

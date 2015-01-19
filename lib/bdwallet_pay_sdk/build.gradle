@@ -11,14 +11,13 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled true
-            proguardFiles 'proguard.cfg'
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
 }
 
 dependencies {
-    compile files('libs/android_api_1.3_forsdk.jar')
-    compile files('libs/need_lib.jar')
-    compile files('libs/shuyu_paysdk_v2.3.1.jar')
+    compile 'com.android.support:support-v4:21.0.3'
+    compile files('libs/paySDk3.4.1.jar')
 }

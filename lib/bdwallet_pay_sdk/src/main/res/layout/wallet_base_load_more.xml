@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="vertical"
+    android:visibility="visible" >
+
+    <View
+        android:id="@+id/top_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/wallet_base_window_bg"
+        android:visibility="visible"  />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bd_wallet_footer_height"
+        android:gravity="center" 
+        android:layout_below="@+id/top_divider">
+
+        <ProgressBar
+            android:id="@+id/bd_wallet_progress_footer"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="false"
+            android:indeterminateDrawable="@drawable/wallet_base_refresh_loading_small" />
+
+        <TextView
+            android:id="@+id/bd_wallet_loadmore_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="@string/bd_wallet_refresh_loading"
+            android:textColor="@color/ebpay_text_normal"
+            android:textSize="@dimen/bd_wallet_text_size_normal" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,5 +1,0 @@
-<resources>
-<!--     和庆男确认过标题高度统一98像素 -->
-    <dimen name="aipay_title_heigth">49dp</dimen>
-	<dimen name="aipay_histroy_item_height">40dp</dimen>
-</resources>
