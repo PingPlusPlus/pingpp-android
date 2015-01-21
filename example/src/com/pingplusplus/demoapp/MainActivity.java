@@ -30,7 +30,7 @@ import com.squareup.okhttp.Response;
 
 public class MainActivity extends Activity implements View.OnClickListener{
 
-    private static final String URL = "http://114.215.237.77:8080/tests/pay.php";
+    private static final String URL = "YOUR-URL";
     private static final int REQUEST_CODE_PAYMENT = 1;
     private static final String CHANNEL_UPMP = "upmp";
     private static final String CHANNEL_WECHAT = "wx";
