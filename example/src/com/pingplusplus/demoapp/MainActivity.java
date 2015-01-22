@@ -90,6 +90,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 }
             }
         });
+        
+        Log.d("PingppSdkVersion", PaymentActivity.getVersion());
     }
 
     public void onClick(View view) {
