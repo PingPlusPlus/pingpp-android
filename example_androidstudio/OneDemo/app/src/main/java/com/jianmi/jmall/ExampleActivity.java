@@ -1,11 +1,13 @@
 package com.jianmi.jmall;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.pingplusplus.libone.PayActivity;
 
@@ -94,7 +96,18 @@ public class ExampleActivity extends Activity implements View.OnClickListener {
             e.printStackTrace();
         }
         //发起支付
-        PayActivity.CallPayActivity(this,bill.toString(),MainActivity.URL);
+        PayActivity.CallPayActivity(this, bill.toString(), MainActivity.URL);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == PayActivity.PAYACTIVITY_REQUEST_CODE) {
+            if (resultCode == PayActivity.PAYACTIVITY_RESULT_CODE) {
+                Toast.makeText(this, data.getExtras().getString("result"), Toast.LENGTH_LONG).show();
+            } else if (resultCode == Activity.RESULT_CANCELED) {
+                //pressed back
+                Toast.makeText(this, data.getExtras().getString("result"), Toast.LENGTH_LONG).show();
+            }
+        }
+    }
 }

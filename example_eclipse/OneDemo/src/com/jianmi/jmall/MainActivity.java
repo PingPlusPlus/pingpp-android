@@ -12,7 +12,7 @@ import com.pingplusplus.libone.PayActivity;
  * Created by sunkai on 15/3/17.
  */
 public class MainActivity extends Activity implements View.OnClickListener {
-    public static final String URL = "YOUR_URL";
+     public static final String URL = "YOUR_URL";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +44,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == PayActivity.PAYACTIVITY_REQUEST_CODE && resultCode == PayActivity.PAYACTIVITY_RESULT_CODE) {
-            Toast.makeText(this,data.getExtras().getString("result"),Toast.LENGTH_LONG).show();
+        if (requestCode == PayActivity.PAYACTIVITY_REQUEST_CODE) {
+            if (resultCode == PayActivity.PAYACTIVITY_RESULT_CODE) {
+                Toast.makeText(this, data.getExtras().getString("result"), Toast.LENGTH_LONG).show();
+            }else if(resultCode == Activity.RESULT_CANCELED){
+                //pressed back
+                Toast.makeText(this, data.getExtras().getString("result"), Toast.LENGTH_LONG).show();
+            }
         }
     }
+
 }
