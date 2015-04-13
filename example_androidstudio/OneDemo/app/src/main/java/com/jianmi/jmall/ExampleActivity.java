@@ -36,7 +36,7 @@ public class ExampleActivity extends Activity implements View.OnClickListener {
 
         mListView = (ListView) findViewById(R.id.listView);
         amountView = (TextView) findViewById(R.id.textview_amount);
-        mList = new ArrayList<>();
+        mList = new ArrayList<Good>();
 
         mList.add(new Good("橡胶花盆", R.drawable.icon, 1, 12.00f));
         mList.add(new Good("搪瓷水壶", R.drawable.icon2, 1, 13.00f));
