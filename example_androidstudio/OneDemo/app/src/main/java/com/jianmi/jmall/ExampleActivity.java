@@ -9,6 +9,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.pingplusplus.android.PingppLog;
 import com.pingplusplus.libone.PayActivity;
 
 import org.json.JSONArray;
@@ -24,6 +25,7 @@ import java.util.List;
  * Created by sunkai on 15/3/17.
  */
 public class ExampleActivity extends Activity implements View.OnClickListener {
+    public static final String URL = "YOUR_URL";
     private ListView mListView;
     private GoodsAdapter myAdapter;
     private List<Good> mList;
@@ -59,6 +61,8 @@ public class ExampleActivity extends Activity implements View.OnClickListener {
         PayActivity.SHOW_CHANNEL_UPMP = true;
         PayActivity.SHOW_CHANNEL_BFB = true;
         PayActivity.SHOW_CHANNEL_ALIPAY = true;
+        //PingPP日志开关
+        PingppLog.DEBUG = true;
     }
 
     private void calculate() {
@@ -81,6 +85,16 @@ public class ExampleActivity extends Activity implements View.OnClickListener {
             amount += good.getPrice() * good.getCount() * 100;
             billList.put(good.getName() + " x " + good.getCount());
         }
+
+        //自定义的额外信息 选填
+        JSONObject extras = new JSONObject();
+        try {
+            extras.put("extra1", "extra1");
+            extras.put("extra2", "extra2");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
         //构建账单json对象
         JSONObject bill = new JSONObject();
         JSONObject displayItem = new JSONObject();
@@ -92,21 +106,23 @@ public class ExampleActivity extends Activity implements View.OnClickListener {
             bill.put("order_no", orderNo);
             bill.put("amount", amount);
             bill.put("display", display);
+            bill.put("extras", extras);//该字段选填
         } catch (JSONException e) {
             e.printStackTrace();
         }
         //发起支付
-        PayActivity.CallPayActivity(this, bill.toString(), MainActivity.URL);
+        PayActivity.CallPayActivity(this, bill.toString(), URL);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == PayActivity.PAYACTIVITY_REQUEST_CODE) {
             if (resultCode == PayActivity.PAYACTIVITY_RESULT_CODE) {
-                Toast.makeText(this, data.getExtras().getString("result"), Toast.LENGTH_LONG).show();
-            } else if (resultCode == Activity.RESULT_CANCELED) {
-                //pressed back
-                Toast.makeText(this, data.getExtras().getString("result"), Toast.LENGTH_LONG).show();
+                Toast.makeText(
+                        this,
+                        data.getExtras().getString("result") + "  "
+                                + data.getExtras().getInt("code"),
+                        Toast.LENGTH_LONG).show();
             }
         }
     }
