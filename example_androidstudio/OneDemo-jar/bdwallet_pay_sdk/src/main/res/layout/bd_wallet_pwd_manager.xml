@@ -1,0 +1,125 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/wallet_base_window_bg"
+    android:layout_height="match_parent" >
+
+    <com.baidu.wallet.base.widget.BdActionBar
+        android:id="@+id/bdactionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+    <LinearLayout 
+        android:id="@+id/modify_forget_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/bdactionbar"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical"
+        android:background="@drawable/bd_wallet_single_item_bg"
+        >
+   <RelativeLayout 
+       android:id="@+id/bd_wallet_modify_pwd"
+       android:layout_width="fill_parent"
+       android:layout_height="@dimen/bd_wallet_transfer_item_height"
+       android:paddingLeft="19dp"
+       android:paddingRight="19dp"
+       android:background="@drawable/bd_wallet_pwd_item_selector"
+       >
+       <TextView 
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_centerVertical="true"
+           android:textSize="15sp"
+           android:text="@string/bd_wallet_modify_phone_pwd"/>
+       <ImageView 
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentRight="true"
+           android:layout_centerVertical="true"
+           android:src="@drawable/wallet_base_indicator_arrow"
+           android:contentDescription="@null"/>
+   </RelativeLayout>
+   
+   <View
+       android:layout_width="fill_parent"
+       android:layout_height="1dp"
+       android:background="@color/bd_wallet_gray" />
+
+   <RelativeLayout 
+       android:id="@+id/bd_wallet_forget_pwd"
+       android:layout_width="fill_parent"
+       android:layout_height="@dimen/bd_wallet_transfer_item_height"
+       android:paddingLeft="19dp"
+       android:paddingRight="19dp"
+       android:background="@drawable/bd_wallet_pwd_item_selector"
+       >
+       <TextView 
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_centerVertical="true"
+           android:textSize="15sp"
+           android:text="@string/bd_wallet_forget_phone_pwd"/>
+       <ImageView 
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentRight="true"
+           android:layout_centerVertical="true"
+           android:src="@drawable/wallet_base_indicator_arrow"
+           android:contentDescription="@null"/>
+   </RelativeLayout>
+   
+   </LinearLayout>
+    
+    <!-- 设置手机支付密码 -->
+   <RelativeLayout 
+       android:id="@+id/bd_wallet_set_pwd"
+       android:layout_width="fill_parent"
+       android:layout_height="50dp"
+       android:layout_below="@id/bdactionbar"
+       android:layout_marginTop="10dp"
+       android:layout_marginLeft="10dp"
+       android:layout_marginRight="10dp"       
+       android:paddingLeft="19dp"
+       android:paddingRight="19dp"
+       android:background="@drawable/bd_wallet_single_item_selector"
+       android:visibility="gone"
+       >
+       <TextView 
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_centerVertical="true"
+           android:textSize="15sp"
+           android:text="@string/bd_wallet_set_phone_pwd"/>
+       <ImageView 
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentRight="true"
+           android:layout_centerVertical="true"
+           android:src="@drawable/wallet_base_indicator_arrow"
+           android:contentDescription="@null"/>
+   </RelativeLayout>   
+   
+    <TextView
+        android:id="@+id/bd_wallet_my_bank_network_not_avail"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/bdactionbar"
+        android:text="@string/ebpay_no_network"
+        android:gravity="center"
+        android:visibility="gone" />
+    
+   <TextView
+        android:id="@+id/bd_wallet_get_info_error"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/bdactionbar"
+        android:text="@string/bd_wallet_get_pwd_info_error"
+        android:gravity="center"
+        android:visibility="gone" />
+
+</RelativeLayout>

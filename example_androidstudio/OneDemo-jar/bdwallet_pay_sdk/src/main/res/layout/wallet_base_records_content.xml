@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".core.plugins.pluginproxy.BaseWalletProxyActivity" >
+
+    <com.baidu.wallet.base.widget.PullToRefreshListView
+        android:id="@+id/bd_wallet_pull_up_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+    <LinearLayout
+        android:id="@+id/bd_wallet_empty_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bd_wallet_white"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/bd_wallet_empty_img"
+            android:layout_width="@dimen/bd_wallet_empty_view_logo_width"
+            android:layout_height="@dimen/bd_wallet_empty_view_logo_height"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="37dp"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/wallet_base_trans_tip" />
+
+        <TextView
+            android:id="@+id/bd_wallet_error_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:lineSpacingExtra="5dp"
+            android:text="@string/bd_wallet_load_error"
+            android:textColor="@color/bd_wallet_text_gray"
+            android:textSize="@dimen/bd_wallet_text_size_normal" />
+
+        <Button
+            android:id="@+id/bd_wallet_do"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="45dp"
+            android:background="@drawable/wallet_base_btn"
+            android:text="@string/bd_wallet_login_now"
+            android:textColor="@color/bd_wallet_white"
+            android:textSize="@dimen/bd_wallet_text_size_large" />
+    </LinearLayout>
+
+</RelativeLayout>

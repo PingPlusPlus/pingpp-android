@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <Button
+        android:id="@+id/card_detection_back"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginLeft="17dp"
+        android:background="@drawable/wallet_bankdetection_actionbar_back_normal"/>
+    
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"  
+        android:layout_centerVertical="true">
+            
+        <TextView
+        android:id="@+id/card_detection_confrim_text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/card_detection_compare_text1"
+        android:textColor="#ffffff"
+        android:textSize="18dp" />
+    
+         <TextView
+         android:id="@+id/card_detection_confrim_text2"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_centerHorizontal="true"
+         android:layout_below="@+id/card_detection_confrim_text1"
+         android:layout_marginTop="15dp"
+         android:gravity="center"
+         android:text="@string/card_detection_compare_text2"
+         android:textColor="#ffffff"
+         android:textSize="18dp" />
+      
+        <RelativeLayout
+            android:layout_width="330dp"
+            android:layout_height="215dp"
+            android:layout_marginLeft="17dp"
+            android:layout_marginRight="17dp"
+            android:layout_below="@+id/card_detection_confrim_text2"
+            android:layout_marginTop="25dp"
+            android:paddingLeft="3.5dp"
+            android:paddingRight="3.5dp"
+            android:paddingTop="3.5dp"
+            android:paddingBottom="3.5dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/wallet_bankdetection_confirm_frame" >
+        
+            <ImageView
+                android:id="@+id/card_detection_confrim_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop" >
+            </ImageView>
+         
+            <TextView
+                android:id="@+id/card_detection_compare_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="60dp"
+                android:textColor="#ffffff"
+                android:textSize="22dp" 
+                android:text="12345678901234567890123"/>
+        </RelativeLayout>
+    </RelativeLayout>
+    
+    <Button
+        android:id="@+id/card_detection_compare_confrim_button"
+        android:layout_width="330dp"
+        android:layout_height="59dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginRight="17dp"
+        android:textColor="#ffffff"
+        android:text="@string/card_detection_compare_confirm"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="17dp"
+        android:background="@drawable/wallet_bankdetection_confirm" 
+        android:clickable="true"
+        android:focusableInTouchMode="true"
+        android:focusable="true"/>              
+
+</RelativeLayout>

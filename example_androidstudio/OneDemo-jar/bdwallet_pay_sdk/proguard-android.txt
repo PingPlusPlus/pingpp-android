@@ -1,0 +1,267 @@
+# To enable ProGuard in your project, edit project.properties
+# to define the proguard.config property as described in that file.
+#
+# Add project specific ProGuard rules here.
+# By default, the flags in this file are appended to flags specified
+# in ${sdk.dir}/tools/proguard/proguard-android.txt
+# You can edit the include path and order by changing the ProGuard
+# include property in project.properties.
+#
+# For more details, see
+#   http://developer.android.com/guide/developing/tools/proguard.html
+
+# Add any project specific keep options here:
+
+# If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+#}
+
+-optimizationpasses 5
+-dontusemixedcaseclassnames
+#-dontskipnonpubliclibraryclasses
+#-dontskipnonpubliclibraryclassmembers
+-dontpreverify
+-verbose
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+-dontoptimize
+-allowaccessmodification
+-keepattributes Exceptions,InnerClasses,SourceFile,LineNumberTable
+
+-dontwarn android.support.**
+-dontwarn **CompatHoneycomb
+-dontwarn **CompatHoneycombMR2
+-dontwarn **CompatCreatorHoneycombMR2
+
+# 保持@JavascriptInterface annotations 不被混淆掉
+-keepattributes *Annotation*
+
+# 引入libs下的所有jar包，与android build.xml保持一致
+-libraryjars libs(*.jar;)
+-keep class com.baidu.paysdk.ui.**{*;}
+-keep class com.baidu.paysdk.login.**{*;}
+-keep public class com.baidu.wallet.core.eventbus.** {
+	public protected *;
+}
+
+-keep public class com.baidu.wallet.core.beans.BeanManager {
+	public protected *;
+}
+
+-keep public class com.baidu.paysdk.PayUtils {
+	public protected *;
+}
+
+-keep public class com.baidu.paysdk.PrivacyProtectionCheck {
+	public protected *;
+}
+
+-keep public class * extends com.baidu.wallet.core.plugins.pluginfake.PluginFakeActivity {
+	public protected *;
+}
+
+-keep public class com.baidu.wallet.core.beans.BeanConstants {
+	public protected *;
+}
+
+-keep public class com.baidu.wallet.base.controllers.PayController {
+	public protected *;
+}
+
+-keep interface com.baidu.wallet.core.NoProguard
+-keep public class * implements com.baidu.wallet.core.NoProguard {
+	public *;
+}
+-keep class com.baidu.wallet.core.plugins.Plugin {*;}
+-keep public class * extends com.baidu.wallet.core.plugins.Plugin {
+	public *;
+}
+-keep public class com.baidu.wallet.core.DebugConfig {
+	public *;
+}
+-keep public interface com.baidu.wallet.core.beans.IBeanFactory
+-keep public class * implements com.baidu.wallet.core.beans.IBeanFactory {
+	public *;
+}
+-keep public interface com.baidu.wallet.core.beans.IBeanResponseCallback {
+	public *;
+}
+-keep public class com.baidu.wallet.core.beans.BaseBean {
+	public protected *;
+}
+-keep public class com.baidu.wallet.core.beans.BeanRequestBase {
+	public *;
+}
+-keep public class com.baidu.paysdk.storage.PayDataCache {
+	public *;
+}
+-keep public class com.baidu.wallet.base.widget.** {
+	public protected *;
+}
+-keep public class com.baidu.wallet.base.controllers.PasswordController {
+	public protected *;
+}
+-keep public class com.baidu.wallet.base.controllers.PasswordController$* {
+	public protected *;
+}
+-keep public class com.baidu.wallet.base.stastics.** {
+	public protected *;
+}
+-keep public class com.baidu.android.pay.SafePay {
+	public protected *;
+}
+
+##### Start of 对外接口
+-keep public class com.baidu.wallet.api.** {
+	public *;
+}
+-keep public class com.baidu.wallet.api.**$* {
+	public *;
+}
+#-keep public class com.baidu.wallet.api.BaiduWallet$* {
+#	public *;
+#}
+-keep public class com.baidu.paysdk.api.BaiduPay {
+	public *;
+}
+-keep public class com.baidu.paysdk.api.BaiduPay$* {
+	public *;
+}
+-keep public class com.baidu.android.pay.PayCallBack {
+	public *;
+}
+-keep public class com.baidu.android.pay.InitCallBack {
+	public *;
+}
+
+-keep public class com.baidu.android.pay.UserInfoQueryListener {
+	public *;
+}
+##### End of 对外接口
+##### Start of Utils
+-keep public class com.baidu.wallet.core.utils.** {
+	public *;
+}
+-keep class com.baidu.wallet.core.utils.JsonUtils$* {
+	*;
+}
+##### End of Utils
+##### Start of 系统组件/接口的子类
+-keep public class * extends android.app.Application {
+    public protected *;
+}
+-keep public class * extends android.app.Activity
+-keepclassmembers class * extends android.app.Activity {
+   public protected *;
+}
+-keep public class * extends android.app.Service
+-keepclassmembers class * extends android.app.Service {
+   public protected *;
+}
+#-keep public class * extends android.support.v4.app.Fragment
+#-keepclassmembers class * extends android.support.v4.app.Fragment {
+#   public protected *;
+#}
+#-keep public class * extends android.support.v4.app.FragmentActivity
+#-keepclassmembers class * extends android.support.v4.app.FragmentActivity {
+#   public protected *;
+#} 
+-keep class android.support.v4.** { *; }
+-keep public class * extends android.support.v4.** {
+   public protected *;
+} 
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.preference.Preference
+-keep public class com.android.vending.licensing.ILicensingService
+-dontnote com.android.vending.licensing.ILicensingService
+-keep public class * extends android.view.View {
+    public protected *;
+}
+-keep public class * extends android.app.Dialog {
+    public protected *;
+}
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet);
+}
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+-keep class * implements android.os.IInterface {
+	*;
+}
+##### End of 系统组件/接口的子类
+
+# Preserve all native method names and the names of their classes.
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+# 枚举
+-keep enum *{
+	*;
+}
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+# 序列化
+-keep class * implements android.os.Parcelable {
+  public static final android.os.Parcelable$Creator *;
+}
+# Explicitly preserve all serialization members. The Serializable interface
+# is only a marker interface, so it wouldn't save them.
+-keep  class *  implements java.io.Serializable {*;}
+-keepclassmembers class * implements java.io.Serializable {
+    static final long serialVersionUID;
+    private static final java.io.ObjectStreamField[] serialPersistentFields;
+    private void writeObject(java.io.ObjectOutputStream);
+    private void readObject(java.io.ObjectInputStream);
+    java.lang.Object writeReplace();
+    java.lang.Object readResolve();
+}
+
+##########
+# for mobstat 
+##########
+-dontwarn com.baidu.mobstat.**
+#-keep class com.baidu.mobstat.** { *;}
+-keep class com.baidu.mtjstatsdk.** { *;}
+-keep class com.baidu.android.bba.common.** { *;}
+-keep class * extends com.baidu.mobstat.**  
+-keep class com.baidu.kirin.** {*; }
+#-keep class com.baidu.a.** { *;}
+-keepclassmembers enum * {
+	public static **[] values();
+	public static ** valueOf(java.lang.String);
+}
+##########
+# end mobstat 
+##########
+
+# remove logs
+#-assumenosideeffects class om.baidu.android.pay.util.LogUtil {
+#    public static *** d(...);
+#    public static *** v(...);
+#    public static *** i(...);
+#    public static *** w(...);
+#    public static *** e(...);
+#    public static *** log(...);
+#    public static *** logd(...);
+#    public static *** errord(...);
+#    public static *** mark(...);
+#    public static *** traces(...);
+#    public static *** saveLog(...);
+#}
+#-assumenosideeffects class android.util.Log {
+#    public static *** d(...);
+#    public static *** v(...);
+#    public static *** i(...);
+#    public static *** w(...);
+#    public static *** e(...);
+#}
+
+-keep public class com.baidu.paysdk.ui.PassNormalizeActivity$*{*;}
+
+
