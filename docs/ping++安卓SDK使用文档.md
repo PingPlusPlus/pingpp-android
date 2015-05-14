@@ -23,7 +23,8 @@
      
  #####备注
  
-     银联支付需要安装
+     银联支付需要安装银联手机支付控件（UPPayPluginEx.apk），开发者可以引导用户自行下载安装。
+     开发者也可以把UPPayPluginEx.apk文件放到 assets 文件夹下面。ping++ SDK会检测用户是否安装银联手机支付控件，如果没有安装会启动安装该插件。
 #####权限声明
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
