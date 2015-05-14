@@ -22,4 +22,4 @@ Android SDK 要求 Android 2.3 及以上版本
 
 ##版本1.0.1
 1、申请Charge的时候，增加一个扩展字段extras。extras的各位为一个json对象，接收参数的方式由用户自行解析。<br>
-2、增加一个日志类PingppLog，用户刻意通过 PingppLog.DEBUG 打开日志开关，方便调试。
+2、增加一个日志类PingppLog，用户可以通过 PingppLog.DEBUG 打开日志开关，方便调试。
