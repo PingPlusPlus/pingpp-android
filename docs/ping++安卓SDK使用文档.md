@@ -487,6 +487,23 @@
     android:theme="@style/EbpayThemeActivit"
     android:screenOrientation="portrait"
     android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+    
+####混淆设置
+
+用户进行apk混淆打包的时候，为了不影响pingpp sdk 以及渠道sdk的使用，请在proguard-rules中添加一下混淆规则。
+
+    -keep class com.alipay.** {*;}
+
+    -keep class com.ta.utdid2.** {*;}
+ 
+    -keep class com.ut.device.** {*;}
+
+    -keep class com.tencent.** {*;}
+
+    -keep class com.unionpay.** {*;}
+    
+    -keep class com.pingplusplus.** {*;}
+
  
             
 
