@@ -18,3 +18,23 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+-keepattributes InnerClasses
+
+-keep class **.R
+
+-keep class **.R$* {
+    <fields>;
+}
+
+-keep class com.alipay.** {*;}
+
+-keep class com.ta.utdid2.** {*;}
+
+-keep class com.ut.device.** {*;}
+
+-keep class com.tencent.** {*;}
+
+-keep class com.unionpay.** {*;}
+
+-keep class com.pingplusplus.** {*;}
