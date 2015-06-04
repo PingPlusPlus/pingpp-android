@@ -36,12 +36,14 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private static final String CHANNEL_WECHAT = "wx";
     private static final String CHANNEL_ALIPAY = "alipay";
     private static final String CHANNEL_BFB = "bfb";
+    private static final String CHANNEL_JDPAY_WAP = "jdpay_wap";
 
     private EditText amountEditText;
     private Button wechatButton;
     private Button alipayButton;
     private Button upmpButton;
     private Button bfbButton;
+    private Button jdpayButton;
     
     private String currentAmount = "";
 
@@ -56,10 +58,13 @@ public class MainActivity extends Activity implements View.OnClickListener{
         alipayButton = (Button) findViewById(R.id.alipayButton);
         upmpButton = (Button) findViewById(R.id.upmpButton);
         bfbButton = (Button) findViewById(R.id.bfbButton);
+        jdpayButton =(Button) findViewById(R.id.jdpayButton);
+        
         wechatButton.setOnClickListener(MainActivity.this);
         alipayButton.setOnClickListener(MainActivity.this);
         upmpButton.setOnClickListener(MainActivity.this);
         bfbButton.setOnClickListener(MainActivity.this);
+        jdpayButton.setOnClickListener(MainActivity.this);
     
         amountEditText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -109,6 +114,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
             new PaymentTask().execute(new PaymentRequest(CHANNEL_WECHAT, amount));
         } else if (view.getId() == R.id.bfbButton) {
         	new PaymentTask().execute(new PaymentRequest(CHANNEL_BFB, amount));
+        } else if(view.getId() == R.id.jdpayButton){
+        	new PaymentTask().execute(new PaymentRequest(CHANNEL_JDPAY_WAP, amount));
         }
     }
 

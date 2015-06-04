@@ -1,104 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/scrollView1"
+    android:id="@+id/scrollView1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_alignParentTop="true"
     android:layout_centerHorizontal="true" >
-	<RelativeLayout 
-    	android:orientation="vertical"
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        
-	    <ImageView
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/imageView"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/home"
             android:layout_marginTop="50dp"
-            android:contentDescription="@string/missingImage"/>
+            android:contentDescription="@string/missingImage"
+            android:src="@drawable/home" />
 
-    	<EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
+        <EditText
             android:id="@+id/amountEditText"
+            style="@style/TextField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
             android:layout_below="@+id/imageView"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
             android:hint="@string/amount"
-            android:layout_marginTop="20dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            style="@style/TextField"/>
+            android:inputType="number" />
 
-    	<Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/alipay"
+        <Button
             android:id="@+id/alipayButton"
+            style="@style/GrayBoaderButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
             android:layout_below="@+id/amountEditText"
-            android:layout_marginTop="20dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            style="@style/GrayBoaderButton"/>
+            android:layout_marginTop="20dp"
+            android:text="@string/alipay" />
 
-    	<Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/wechat"
+        <Button
             android:id="@+id/wechatButton"
+            style="@style/GrayBoaderButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
             android:layout_below="@+id/alipayButton"
-            android:layout_marginTop="20dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            style="@style/GrayBoaderButton"/>
+            android:layout_marginTop="20dp"
+            android:text="@string/wechat" />
 
-    	<Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/upmp"
+        <Button
             android:id="@+id/upmpButton"
-            android:layout_below="@+id/wechatButton"
-            android:layout_marginTop="20dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            style="@style/GrayBoaderButton"/>
-    	
-    	<Button
+            style="@style/GrayBoaderButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/bfb"
-            android:id="@+id/bfbButton"
-            android:layout_below="@+id/upmpButton"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/wechatButton"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            style="@style/GrayBoaderButton"/>
+            android:layout_marginTop="20dp"
+            android:text="@string/upmp" />
 
-    	
+        <Button
+            android:id="@+id/bfbButton"
+            style="@style/GrayBoaderButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/upmpButton"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/bfb" />
 
-	</RelativeLayout>
+        <Button
+            android:id="@+id/jdpayButton"
+            style="@style/GrayBoaderButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/bfbButton"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/jdpay" />
+    </RelativeLayout>
+
 </ScrollView>

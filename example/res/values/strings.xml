@@ -7,6 +7,7 @@
     <string name="alipay">支付宝</string>
     <string name="upmp">银联</string>
     <string name="bfb">百度钱包</string>
+    <string name="jdpay">京东支付</string>
     <string name="confirm">确认</string>
     <string name="yuan">元</string>
     <string name="donateFailMessage">\u3000\u3000感谢你的爱心，\n但是系统出现了一些错误</string>
