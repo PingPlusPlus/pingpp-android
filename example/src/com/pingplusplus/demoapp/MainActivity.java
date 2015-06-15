@@ -148,7 +148,11 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
         @Override
         protected void onPostExecute(String data) {
-        	Log.d("charge", data);
+        	if(null==data){
+        		showMsg("请求出错", "请检查URL", "URL无法获取charge");
+        		return;
+        	}
+        	Log.d("charge", null);
             Intent intent = new Intent();
             String packageName = getPackageName();
             ComponentName componentName = new ComponentName(packageName, packageName + ".wxapi.WXPayEntryActivity");
