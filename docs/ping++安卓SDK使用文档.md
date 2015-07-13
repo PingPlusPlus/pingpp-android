@@ -235,27 +235,22 @@
 重载onActivityResult 方法可以获得支付结果
     
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-    //支付页面返回处理
-    if (requestCode == REQUEST_CODE_PAYMENT) {
-        if (resultCode == Activity.RESULT_OK) {
-            String result = data.getExtras().getString("pay_result");
-            /* 处理返回值
-             * "success" - payment succeed
-             * "fail"    - payment failed
-             * "cancel"  - user canceld
-             * "invalid" - payment plugin not installed
-             *
-             * 如果是银联渠道返回 invalid，调用 UPPayAssistEx.installUPPayPlugin(this); 安装银联安全支付控件。
-             */
-            String errorMsg = data.getExtras().getString("error_msg"); // 错误信息
-            Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
-        } else if (resultCode == Activity.RESULT_CANCELED) {
-            Toast.makeText(this, "User canceled", Toast.LENGTH_SHORT).show();
-        } else if (resultCode == PaymentActivity.RESULT_EXTRAS_INVALID) {
-            Toast.makeText(this, "An invalid Credential was submitted.", Toast.LENGTH_SHORT).show();
+     //支付页面返回处理
+        if (requestCode == REQUEST_CODE_PAYMENT) {
+            if (resultCode == Activity.RESULT_OK) {
+                String result = data.getExtras().getString("pay_result");
+                /* 处理返回值
+                 * "success" - payment succeed
+                 * "fail"    - payment failed
+                 * "cancel"  - user canceld
+                 * "invalid" - payment plugin not installed
+                 */
+                String errorMsg = data.getExtras().getString("error_msg"); // 错误信息
+                String extraMsg = data.getExtras().getString("extra_msg"); // 错误信息
+                showMsg(result, errorMsg, extraMsg);
+            }
         }
     }
-}
 
 #####注意事项
     

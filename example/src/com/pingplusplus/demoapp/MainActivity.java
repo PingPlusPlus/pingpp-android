@@ -49,7 +49,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
 	 *服务端生成charge 的方式可以参考ping++官方文档，地址 https://pingxx.com/guidance/server/import 
 	 *
 	 */
-    private static final String URL = "YOUR-URL";
+    //private static final String URL = "YOUR-URL";
+    public static final String URL = "http://114.215.237.77/tests/pay_test.php";
     private static final int REQUEST_CODE_PAYMENT = 1;
     
     /**
@@ -225,18 +226,16 @@ public class MainActivity extends Activity implements View.OnClickListener{
                 String errorMsg = data.getExtras().getString("error_msg"); // 错误信息
                 String extraMsg = data.getExtras().getString("extra_msg"); // 错误信息
                 showMsg(result, errorMsg, extraMsg);
-            } else if (resultCode == Activity.RESULT_CANCELED) {
-                showMsg("User canceled", "", "");
             }
         }
     }
     
     public void showMsg(String title, String msg1, String msg2) {
     	String str = title;
-    	if (msg1.length() != 0) {
+    	if (null !=msg1 && msg1.length() != 0) {
     		str += "\n" + msg1;
     	}
-    	if (msg2.length() != 0) {
+    	if (null !=msg2 && msg2.length() != 0) {
     		str += "\n" + msg2;
     	}
     	AlertDialog.Builder builder = new Builder(MainActivity.this);
