@@ -69,9 +69,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         if (requestCode == PayActivity.PAYACTIVITY_REQUEST_CODE) {
             if (resultCode == PayActivity.PAYACTIVITY_RESULT_CODE) {
                 Toast.makeText(this, data.getExtras().getString("result"), Toast.LENGTH_LONG).show();
-            }else if(resultCode == Activity.RESULT_CANCELED){
-                //pressed back
-                Toast.makeText(this, data.getExtras().getString("result"), Toast.LENGTH_LONG).show();
             }
         }
     }
