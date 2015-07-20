@@ -487,18 +487,33 @@
 
 用户进行apk混淆打包的时候，为了不影响pingpp sdk 以及渠道sdk的使用，请在proguard-rules中添加一下混淆规则。
 
+    -dontwarn com.alipay.**
     -keep class com.alipay.** {*;}
 
+    -dontwarn  com.ta.utdid2.**
     -keep class com.ta.utdid2.** {*;}
- 
+
+    -dontwarn  com.ut.device.**
     -keep class com.ut.device.** {*;}
 
+    -dontwarn  com.tencent.**
     -keep class com.tencent.** {*;}
 
+    -dontwarn  com.unionpay.**
     -keep class com.unionpay.** {*;}
-    
+
+    -dontwarn com.pingplusplus.**
     -keep class com.pingplusplus.** {*;}
 
+    -dontwarn com.baidu.**
+    -keep class com.baidu.**{*;}
+        
+### 日志开关
+
+    壹收款sdk提供了日志功能，默认日志为关闭状态。
+    开发者可以通过下面设置打开日志开关。通过“PING++“来对日志进行筛选。
+    
+    PingppLog.DEBUG =true;
  
             
 

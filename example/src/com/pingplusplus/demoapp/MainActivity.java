@@ -21,6 +21,7 @@ import android.widget.EditText;
 
 import com.google.gson.Gson;
 import com.pingplusplus.android.PaymentActivity;
+import com.pingplusplus.android.PingppLog;
 import com.pingplusplus.demoapp.R;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
@@ -49,7 +50,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
 	 *服务端生成charge 的方式可以参考ping++官方文档，地址 https://pingxx.com/guidance/server/import 
 	 *
 	 */
-    private static final String URL = "YOUR-URL";
+   // private static final String URL = "YOUR-URL";
+    public static final String URL = "http://114.215.237.77/tests/pay.php";
     
     private static final int REQUEST_CODE_PAYMENT = 1;
     
@@ -101,6 +103,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         upmpButton.setOnClickListener(MainActivity.this);
         bfbButton.setOnClickListener(MainActivity.this);
         jdpayButton.setOnClickListener(MainActivity.this);
+        PingppLog.DEBUG = true;
     
         amountEditText.addTextChangedListener(new TextWatcher() {
             @Override
