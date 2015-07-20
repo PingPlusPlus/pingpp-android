@@ -21,19 +21,20 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:gravity="center">
+
             <ImageView
                 android:layout_width="25dp"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
-                android:layout_marginRight="5dp"
-                android:src="@drawable/shopping" />
+                android:src="@drawable/pingpp_shopping" />
 
             <TextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/create_bill"
+                android:text="@string/pingpp_create_bill"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -52,7 +53,7 @@
                 android:layout_below="@+id/title"
                 android:layout_marginLeft="20dp"
 
-                android:text="@string/label_bill_name"
+                android:text="@string/pingpp_label_bill_name"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:typeface="normal" />
@@ -79,7 +80,7 @@
                 android:layout_width="75dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:text="@string/label_amount"
+                android:text="@string/pingpp_label_amount"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:typeface="normal" />
@@ -116,7 +117,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/common_pay_channel_btton"
+            android:background="@drawable/pingpp_common_pay_channel_btton"
             android:gravity="center">
 
             <ImageView
@@ -124,13 +125,13 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
-                android:src="@drawable/alipay" />
+                android:src="@drawable/pingpp_alipay" />
 
             <TextView
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/alipay" />
+                android:text="@string/pingpp_alipay" />
         </LinearLayout>
 
         <LinearLayout
@@ -138,7 +139,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/common_pay_channel_btton"
+            android:background="@drawable/pingpp_common_pay_channel_btton"
             android:gravity="center">
 
             <ImageView
@@ -146,13 +147,13 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
-                android:src="@drawable/wechat" />
+                android:src="@drawable/pingpp_wechat" />
 
             <TextView
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/wechar" />
+                android:text="@string/pingpp_wechar" />
         </LinearLayout>
 
         <LinearLayout
@@ -160,7 +161,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/common_pay_channel_btton"
+            android:background="@drawable/pingpp_common_pay_channel_btton"
             android:gravity="center">
 
             <ImageView
@@ -168,13 +169,13 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
-                android:src="@drawable/baidu" />
+                android:src="@drawable/pingpp_baidu" />
 
             <TextView
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/bfb" />
+                android:text="@string/pingpp_bfb" />
         </LinearLayout>
 
         <LinearLayout
@@ -182,7 +183,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/common_pay_channel_btton"
+            android:background="@drawable/pingpp_common_pay_channel_btton"
             android:gravity="center">
 
             <ImageView
@@ -190,13 +191,13 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
-                android:src="@drawable/unionpay" />
+                android:src="@drawable/pingpp_unionpay" />
 
             <TextView
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/upmp" />
+                android:text="@string/pingpp_upmp" />
         </LinearLayout>
 
     </LinearLayout>
@@ -207,7 +208,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="10dp"
-        android:text="@string/copyright"
+        android:text="@string/pingpp_copyright"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="#ffc8c8c8" />
 

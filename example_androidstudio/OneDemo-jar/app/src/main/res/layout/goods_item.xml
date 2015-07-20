@@ -20,7 +20,7 @@
         android:layout_weight="1"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="橡胶花瓶"
+        android:text="@string/good_item_name"
         android:textSize="14sp" />
 
     <TextView

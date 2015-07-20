@@ -210,13 +210,16 @@
             android:windowSoftInputMode="adjustUnspecified|stateHidden" />
         <activity
             android:name="com.pingplusplus.libone.PayActivity"
-            android:label="@string/title_activity_pay" />
+            android:label="@string/pingpp_title_activity_pay" >
+        </activity>
         <activity
             android:name="com.pingplusplus.libone.PaySucessedActivity"
-            android:label="@string/title_activity_pay_sucessed" />
+            android:label="@string/pingpp_title_activity_pay_sucessed" >
+        </activity>
         <activity
             android:name="com.pingplusplus.libone.PayFiledActivity"
-            android:label="@string/title_activity_pay_filed" />
+            android:label="@string/pingpp_title_activity_pay_filed" >
+        </activity>
     </application>
 
 </manifest>

@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "21.1.2"
+    compileSdkVersion 19
+    buildToolsVersion '20.0.0'
 
     defaultConfig {
         applicationId "com.jianmi.jmall"
         minSdkVersion 9
-        targetSdkVersion 21
+        targetSdkVersion 19
         versionCode 1
         versionName "1.0"
     }
@@ -21,10 +21,10 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:22.0.0'
-    compile(name:'libone', ext:'aar')
-    compile(name:'libpingpp', ext:'aar')
-    compile(name:'bdwallet_pay_sdk', ext:'aar')
+    compile 'com.android.support:appcompat-v7:19.0.0'
+    compile(name: 'libone', ext: 'aar')
+    compile(name: 'libpingpp', ext: 'aar')
+    compile(name: 'bdwallet_pay_sdk', ext: 'aar')
 }
 
 repositories {

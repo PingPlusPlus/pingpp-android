@@ -50,6 +50,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="40dp"
+        android:divider="#ffc2c2c2"
+        android:dividerHeight="1dp"
         android:layout_marginRight="40dp" />
 
     <Button
@@ -61,7 +63,7 @@
         android:layout_alignRight="@+id/listView"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/common_pay_button_green"
+        android:background="@drawable/pingpp_common_pay_button_green"
         android:text="去结算"
         android:textColor="#ffffffff"
         android:textSize="20sp" />

@@ -13,8 +13,13 @@
 
 安卓端如果应用没有安装银联支付控件：请到 [这里](http://mobile.unionpay.com/getclient?platform=android&type=securepayplugin) 下载。
 
-## 版本要求
-Android SDK 要求 Android 2.3 及以上版本
+## 运行环境
+
+ Android 2.3 及以上版本的 Android 机器上运行。
+
+## 编译环境
+
+Android sdk 4.4 以及以上，jdk1.6 以上。 
 
 ##注意事项
 
