@@ -50,8 +50,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
 	 *服务端生成charge 的方式可以参考ping++官方文档，地址 https://pingxx.com/guidance/server/import 
 	 *
 	 */
-   // private static final String URL = "YOUR-URL";
-    public static final String URL = "http://114.215.237.77/tests/pay.php";
+    private static final String URL = "YOUR-URL";
     
     private static final int REQUEST_CODE_PAYMENT = 1;
     
