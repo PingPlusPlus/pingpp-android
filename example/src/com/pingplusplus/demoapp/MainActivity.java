@@ -21,6 +21,7 @@ import android.widget.EditText;
 
 import com.google.gson.Gson;
 import com.pingplusplus.android.PaymentActivity;
+import com.pingplusplus.android.PingppLog;
 import com.pingplusplus.demoapp.R;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
@@ -101,6 +102,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         upmpButton.setOnClickListener(MainActivity.this);
         bfbButton.setOnClickListener(MainActivity.this);
         jdpayButton.setOnClickListener(MainActivity.this);
+        PingppLog.DEBUG = true;
     
         amountEditText.addTextChangedListener(new TextWatcher() {
             @Override
