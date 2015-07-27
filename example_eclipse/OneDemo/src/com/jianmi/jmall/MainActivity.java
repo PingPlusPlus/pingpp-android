@@ -29,8 +29,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
 	 *开发者需要填一个服务端URL 该URL是用来请求支付需要的charge。务必确保，URL能返回json格式的charge对象。
 	 *服务端生成charge 的方式可以参考ping++官方文档，地址 https://pingxx.com/guidance/server/import 
 	 *
+	 *【 http://218.244.151.190/demo/charge 】是 ping++ 为了方便开发者体验 sdk 而提供的一个临时 url 。
+	 * 改 url 仅能调用【模拟支付控件】，开发者需要改为自己服务端的 url 。 
 	 */
-     public static final String URL = "YOUR_URL";
+	private static String YOUR_URL ="http://218.244.151.190/demo/charge";
+	public static final String URL = YOUR_URL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
