@@ -1,6 +1,6 @@
 # Built application files
 *.apk
-!example_eclipse/OneDemo/assets/UPPayPluginEx.apk
+!**/*/UPPayPluginEx.apk
 *.ap_
 # Files for the Dalvik VM
 *.dex
