@@ -1,4 +1,5 @@
 # Built application files
+!example/assets/UPPayPluginEx.apk
 *.apk
 *.ap_
 # Files for the Dalvik VM
