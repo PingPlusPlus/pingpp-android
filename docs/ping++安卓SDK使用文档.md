@@ -1,12 +1,12 @@
-###SDK
+### SDK
 
-####Android
+#### Android
 
-#####下载
+##### 下载
     地址：XXXXX
-#####配置初始化
+##### 配置初始化
 
-#####依赖包
+##### 依赖包
      1. alipaysdk.jar
      2. alipaysecsdk.jar
      3. alipayutdid.jar
@@ -16,16 +16,16 @@
      
      以上jar包位置在下载目录的lib/libs
      
-#####依赖工程
+##### 依赖工程
      bdwallet_pay_sdk
     
      该工程再下载目录的lib/bdwallet_pay_sdk 
      
- #####备注
+##### 备注
  
      银联支付需要安装银联手机支付控件（UPPayPluginEx.apk），开发者可以引导用户自行下载安装。
      
-#####权限声明
+##### 权限声明
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -37,7 +37,7 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.READ_SMS" />            
     
-#####注册activity
+##### 注册 activity
  
       <!-- ping++SDK 注册 -->
       <activity
@@ -216,12 +216,12 @@
             
 
 
-#####接入准备
+##### 接入准备
 
-#####获得charge对象
-    charge对象是一个包含支付信息的json对象，是ping++ SDK发起支付的必须对象。该对象通过请求用户服务器获得，ping++提供了服务器端如何获取charge对象的SDK，只需要按照服务端的说明文档接入到自己服务器即可。
+##### 获得 charge 对象
+    charge 对象是一个包含支付信息的json对象，是 ping++ SDK 发起支付的必须对象。该对象通过请求用户服务器获得，ping++ 提供了服务器端如何获取 charge 对象的 SDK，只需要按照服务端的说明文档接入到自己服务器即可。
 
-#####发起支付
+##### 发起支付
 
     Intent intent = new Intent();
     String packageName = getPackageName();
@@ -230,9 +230,9 @@
     intent.putExtra(PaymentActivity.EXTRA_CHARGE, charge);
     startActivityForResult(intent, REQUEST_CODE_PAYMENT);
     
-#####获取支付状态
+##### 获取支付状态
 
-重载onActivityResult 方法可以获得支付结果
+重载 onActivityResult 方法可以获得支付结果
     
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
      //支付页面返回处理
@@ -252,18 +252,18 @@
         }
     }
 
-#####注意事项
+##### 注意事项
     
-    Android不允许再UI线程中进行网络请求，所以请求charge对象的时候请使用 thread+handler 或者使用AsyncTask。example里面的示例程序，使用的就是AsyncTask 方式请求charge对象。
+    Android 不允许再 UI 线程中进行网络请求，所以请求 charge 对象的时候请使用 thread+handler 或者使用 AsyncTask 。example 里面的示例程序使用的就是 AsyncTask 方式请求 charge 对象。
     
-####关于定制
-    用户可以根据需求自行定制一个或者多个支付渠道。但是定制sdk的时候需要注意以下几点
+#### 关于定制
+    用户可以根据需求自行定制一个或者多个支付渠道。但是定制 sdk 的时候需要注意以下几点
     
-1、libpingpp.jar 、libammsdk.jar 这两个jar包是必须的。
+1、libpingpp.jar 、libammsdk.jar 这两个 jar 包是必须的。
     
-    其中libpingpp.jar 是ping++ SDK 的核心类。libammsdk.jar 是微信支付的核心类。因为微信支付方式要求比较特殊，所以无法从ping++ SDK 中彻底剔除微信支付所需的libammsdk.jar 
+    其中 libpingpp.jar 是 ping++ SDK 的核心类。libammsdk.jar 是微信支付的核心类。因为微信支付方式要求比较特殊，所以无法从 ping++ SDK 中彻底剔除微信支付所需的 libammsdk.jar 
     
-2、PaymentActivity 和 .wxapi.WXPayEntryActivity 必须在AndroidManifest.xml 文件里面声明。
+2、PaymentActivity 和 .wxapi.WXPayEntryActivity 必须在 AndroidManifest.xml 文件里面声明。
 
      <!-- ping++SDK 注册 -->
       <activity
@@ -279,7 +279,7 @@
 3、权限
 
     1、微信支付渠道是通过向“微信“客户端发起请求进行支付的，要求手机必须安装微信。如果没有安装微信，ping++ sdk 会在支付结果中给予通知。不需要额外权限。
-    2、银联支付渠道是通过“银联手机支付服务“进行支付的，要求手机必须安装“银联手机支付服务”。如果没有安装，ping++ sdk会在支付结果中给予提示。不需求额外权限。
+    2、银联支付渠道是通过“银联手机支付服务“进行支付的，要求手机必须安装“银联手机支付服务”。如果没有安装，ping++ sdk 会在支付结果中给予提示。不需求额外权限。
     3、支付宝支付渠道，需要的权限为
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -308,13 +308,13 @@
     
 5、注册activity
 
-    1、微信支付activity注册：
+    1、微信支付 activity 注册：
      <activity-alias
     android:name=".wxapi.WXPayEntryActivity"
     android:targetActivity="com.pingplusplus.android.PaymentActivity"
     android:exported="true"/>
     
-    2、支付宝activity注册：
+    2、支付宝 activity 注册：
     <activity
     android:name="com.alipay.sdk.app.H5PayActivity"
     android:configChanges="orientation|keyboardHidden|navigation"
@@ -328,9 +328,9 @@
     android:screenOrientation="behind" >
     </activity>
     
-    3、银联支付，不需要注册额外的activity
+    3、银联支付，不需要注册额外的 activity
     
-    4、百度支付activity注册：
+    4、百度支付 activity 注册：
     <activity
     android:name="com.baidu.paysdk.login.LoginActivity"
     android:configChanges="keyboardHidden|navigation|orientation|screenSize"
@@ -483,9 +483,9 @@
     android:screenOrientation="portrait"
     android:windowSoftInputMode="adjustUnspecified|stateHidden" />
     
-####混淆设置
+#### 混淆设置
 
-用户进行apk混淆打包的时候，为了不影响pingpp sdk 以及渠道sdk的使用，请在proguard-rules中添加一下混淆规则。
+用户进行 apk 混淆打包的时候，为了不影响 pingpp sdk 以及渠道 sdk 的使用，请在 proguard-rules中添加一下混淆规则。
 
     -dontwarn com.alipay.**
     -keep class com.alipay.** {*;}
@@ -511,7 +511,7 @@
 ### 日志开关
 
     sdk 提供了日志功能，默认日志为关闭状态。
-    开发者可以通过下面设置打开日志开关。通过“PING++“来对日志进行筛选。
+    开发者可以通过下面设置打开日志开关。通过 “PING++“ 来对日志进行筛选。
     
     PingppLog.DEBUG =true;
  
