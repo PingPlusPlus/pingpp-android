@@ -43,6 +43,7 @@
       <activity
             android:name="com.pingplusplus.android.PaymentActivity"
             android:launchMode="singleTop"
+            android:configChanges="orientation|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
       <!-- 微信支付注册-->
       <activity-alias

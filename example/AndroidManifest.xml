@@ -35,6 +35,7 @@
         <activity
             android:name="com.pingplusplus.android.PaymentActivity"
             android:launchMode="singleTop"
+            android:configChanges="orientation|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name="com.alipay.sdk.app.H5PayActivity"
