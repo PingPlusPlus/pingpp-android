@@ -211,7 +211,6 @@
 
         <activity
             android:name="com.pingplusplus.libone.PayActivity"
-            android:screenOrientation="landscape"
             android:label="@string/pingpp_title_activity_pay"></activity>
         <activity
             android:name="com.pingplusplus.libone.PaySucessedActivity"
