@@ -20,6 +20,7 @@
      8. armeabi-v7a
      9. mips
     10. x86
+    11. android-support-v4.jar
     
      以上所有文件位置在下载目录的 lib/libs ，请把上面所有文件添加到 Android 工程的 libs目录下面。
      将 lib/libs 目录下面的 data.bin 添加到 Android 工程的 assets 目录下面。
@@ -300,7 +301,7 @@
    
     1、微信支付依赖包： libammsdk.jar
     2、百度支付依赖包： bdwallet_pay_sdk 工程
-    3、银联支付依赖包： UPPayAssisEx.jar 、 UPPayPluginExStd.jar
+    3、银联支付依赖包： UPPayAssisEx.jar 、 UPPayPluginExStd.jar、android-support-v4.jar
     4、支付宝支付依赖包： alipaySDK-xxxxxxxx.jar
     
 5、注册activity
