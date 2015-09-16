@@ -26,7 +26,6 @@
 	    android:layout_width="54dp"
 	    android:layout_height="54dp"
 	    android:layout_margin="13.3dp"
-	    android:src="@drawable/wallet_base_icon_more"
 	    android:scaleType="fitXY" />
 
         <TextView

@@ -39,7 +39,7 @@
             android:textSize="12sp" />
     </LinearLayout>
 
-        <LinearLayout
+    <LinearLayout
         android:id="@+id/user_area"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -84,9 +84,9 @@
                 android:id="@+id/name_clear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
                 android:contentDescription="@string/ebpay_img"
                 android:scaleType="fitXY"
-                android:layout_marginRight="5dp"
                 android:src="@drawable/wallet_base_delete" />
         </LinearLayout>
 
@@ -131,13 +131,13 @@
                 android:id="@+id/id_card_clear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
                 android:contentDescription="@string/ebpay_img"
                 android:scaleType="fitXY"
-                android:layout_marginRight="5dp"
                 android:src="@drawable/wallet_base_delete" />
         </LinearLayout>
     </LinearLayout>
-    
+
     <LinearLayout
         android:id="@+id/cards_area"
         android:layout_width="fill_parent"
@@ -223,7 +223,7 @@
                 android:layout_marginRight="5dp"
                 android:contentDescription="@string/ebpay_img"
                 android:scaleType="fitXY"
-                android:src="@drawable/bd_wallet_fp_delete" />
+                android:src="@drawable/bd_wallet_fp_delete" />
             -->
 
             <ImageView
@@ -280,7 +280,7 @@
                 android:layout_marginRight="5dp"
                 android:contentDescription="@string/ebpay_img"
                 android:scaleType="fitXY"
-                android:src="@drawable/bd_wallet_fp_delete" />
+                android:src="@drawable/bd_wallet_fp_delete" />
             -->
 
             <ImageView
@@ -293,30 +293,31 @@
                 android:src="@drawable/wallet_base_info_btn_selector" />
         </LinearLayout>
     </LinearLayout>
-    
-     <LinearLayout 
+
+    <LinearLayout
         android:id="@+id/credit_channel_coupon_layout"
-        android:layout_height="wrap_content"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingLeft="@dimen/ebpay_line_margin_10"
-        android:visibility="gone"
-        >
-        <TextView 
+        android:visibility="gone" >
+
+        <TextView
             android:id="@+id/credit_channel_coupon_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/ebpay_red"
-            android:textSize="@dimen/ebpay_text_size_12"
-            />
-        <!-- <TextView 
+            android:textSize="@dimen/ebpay_text_size_12" />
+        <!--
+             <TextView 
             android:id="@+id/credit_channel_coupon_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:textColor="@color/ebpay_red"
             android:textSize="@dimen/ebpay_text_size_12"
-            /> -->
+            />
+        -->
     </LinearLayout>
 
     <LinearLayout
@@ -368,7 +369,7 @@
                 android:layout_marginRight="5dp"
                 android:contentDescription="@string/ebpay_img"
                 android:scaleType="fitXY"
-                android:src="@drawable/bd_wallet_fp_delete" />
+                android:src="@drawable/bd_wallet_fp_delete" />
             -->
 
             <ImageView
@@ -396,7 +397,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/ebpay_line_margin_10"
-        android:gravity="center_vertical"
         android:orientation="horizontal" >
 
         <CheckBox
@@ -420,11 +420,11 @@
             android:id="@+id/ebpay_protocol_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_marginLeft="5dip"
-            android:text="@string/ebpay_protocol"
             android:textSize="@dimen/ebpay_text_size_15" />
     </LinearLayout>
-    
+
     <Button
         android:id="@+id/next_btn"
         android:layout_width="fill_parent"
@@ -435,5 +435,7 @@
         android:text="@string/ebpay_pay_next"
         android:textColor="@color/ebpay_white"
         android:textSize="@dimen/ebpay_text_size_18" />
+
+    <include layout="@layout/ebpay_layout_sectips" />
 
 </LinearLayout>

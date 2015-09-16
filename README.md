@@ -2,9 +2,10 @@ pingpp Android SDK
 ============
 
 ## 简介
-lib 目录下是 Android SDK 文件，libs 目录下的 jar 文件放入项目的 libs 目录，bdwallet_pay_sdk 作为 Library Project 导入到项目。<br>
+lib 目录下是 Android SDK 文件，libs 目录下的 jar 和 so 文件放入项目的 libs 目录，bdwallet_pay_sdk 作为 Library Project 导入到项目。<br>
 example 文件夹里面是一个简单的接入示例，该示例仅供参考。<br>
-安卓端如果应用没有安装银联支付控件：请到 http://mobile.unionpay.com/getclient?platform=android&type=securepayplugin 下载。
+docs 目录里面是 Android SDK 的接入指南。
+
 
 ## 版本要求
 Android SDK 要求 Android 2.3 及以上版本
@@ -14,12 +15,14 @@ Android SDK 要求 Android 2.3 及以上版本
 pingpp Android SDK可能会与友盟、百度地图等其他第三方jar包冲突，当同时使用这些jar包的时候用户需要根据情况判断保留哪一方的jar包。
 
 ## 接入方法
-关于如何使用 SDK 请参考 [技术文档](https://pingxx.com/document) 或者参考 [example](https://github.com/PingPlusPlus/pingpp-android/tree/master/example) 文件夹里的示例。
+关于如何使用 SDK 请参考 docs 目录下面的接入文档或者参考提供的 demo 工程。
 
 ## 更新日志
 
 ### 2.0.5
-更新银联支付到3.1.0
+更新银联支付到3.1.0，接入方式改为 jar 方式接入。
+更新支付宝到 alipaySDK-20150818.jar
+
 ### 2.0.4
 增加京东支付（jdpay_wap）
 ### 2.0.3

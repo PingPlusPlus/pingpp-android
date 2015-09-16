@@ -53,7 +53,8 @@ public class MainActivity extends Activity implements View.OnClickListener{
 	 * 改 url 仅能调用【模拟支付控件】，开发者需要改为自己服务端的 url 。 
 	 */
 	private static String YOUR_URL ="http://218.244.151.190/demo/charge";
-	public static final String URL = YOUR_URL;
+//	public static final String URL = YOUR_URL;
+	public static final String URL = "http://115.29.205.93/tests/pay.php";
     
     private static final int REQUEST_CODE_PAYMENT = 1;
     

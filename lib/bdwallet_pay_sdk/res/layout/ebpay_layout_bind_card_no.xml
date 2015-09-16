@@ -129,6 +129,35 @@
         android:textColor="@color/ebpay_white"
         android:textSize="@dimen/ebpay_text_size_18" />
 
+    <LinearLayout
+        android:id="@+id/nologin_area"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center_horizontal"
+            android:text="@string/ebpay_account_login_tips"
+            android:textColor="@color/bd_wallet_login_light_gray"
+            android:textSize="@dimen/ebpay_text_size_15" />
+
+        <Button
+            android:id="@+id/login_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/ebpay_bt_height"
+            android:layout_marginBottom="@dimen/ebpay_line_margin_10"
+            android:layout_marginTop="@dimen/ebpay_line_margin_15"
+            android:background="#787878"
+            android:text="@string/ebpay_account_login"
+            android:textColor="@color/ebpay_white"
+            android:textSize="@dimen/ebpay_text_size_18" />
+    </LinearLayout>
+
     <TextView
         android:id="@+id/ebpay_score_tip"
         android:layout_width="match_parent"
@@ -139,5 +168,7 @@
         android:layout_marginTop="14dp"
         android:textColor="@color/bd_wallet_text_gray"
         android:textSize="@dimen/ebpay_text_size_15" />
+
+    <include layout="@layout/ebpay_layout_sectips" />
 
 </LinearLayout>

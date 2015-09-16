@@ -8,6 +8,7 @@
     <dimen name="ebpay_title_heigth">46dp</dimen>
     <dimen name="ebpay_dimen_20dp">20dp</dimen>
     <dimen name="ebpay_dimen_30dp">30dp</dimen>
+    <dimen name="ebpay_dimen_50dp">50dp</dimen>
     <dimen name="ebpay_bt_height">45dip</dimen>
     <dimen name="ebpay_white_line_height">46dip</dimen>
     <dimen name="ebpay_dialog_width">300dip</dimen>
@@ -16,8 +17,12 @@
     <dimen name="ebpay_text_size_25">25sp</dimen>
     <dimen name="ebpay_text_size_20">20sp</dimen>
     <dimen name="ebpay_text_size_18">18sp</dimen>
+    <dimen name="ebpay_text_size_16">16sp</dimen>
     <dimen name="ebpay_text_size_15">15sp</dimen>
     <dimen name="ebpay_text_size_12">12sp</dimen>
+    <dimen name="ebpay_text_spacing_7sp">7sp</dimen>
+    <dimen name="ebpay_result_success_benefit_width">312dp</dimen>
+    <dimen name="ebpay_result_success_benefit_height">156dp</dimen>
     <dimen name="ebpay_fast_max_width">68dp</dimen>
     <dimen name="bd_wallet_text_size_largest">48sp</dimen>
     <dimen name="bd_wallet_text_size_xxxlarge">36sp</dimen>

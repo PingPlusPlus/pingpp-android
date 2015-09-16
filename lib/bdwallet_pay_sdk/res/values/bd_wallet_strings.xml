@@ -29,7 +29,12 @@
     <string name="bd_wallet_pay_security_set_fail">设置失败</string>
     <string name="bd_wallet_pay_security_set_pay_pwd_tip">您尚未设置手机支付密码，请设置后开启隐私安全保护</string>
     <string name="bd_wallet_pay_security_prompt_set">立即设置</string>
+    <string name="bd_wallet_modify_card_no">修改卡号</string>
+    <string name="bd_wallet_pay_by_order_price">原价支付</string>
 
     <string name="bd_wallet_set_phone_pwd">设置手机支付密码</string>
+    <string name="bd_wallet_credit">信用卡</string>
+    <string name="bd_wallet_debit">储蓄卡</string>
+    <string name="bd_wallet_own_parent_banks">所属银行</string>
 
 </resources>

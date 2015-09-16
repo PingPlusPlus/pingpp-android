@@ -3,6 +3,7 @@
     
     <color name="bd_wallet_white">#fff</color>
     <color name="bd_wallet_text_gray">#aaa</color>
+    <color name="bd_wallet_blue_sectips">#3da1fb</color>
     <color name="bd_wallet_text_gray2">#aaaaaa</color>
     <color name="bd_wallet_black">#000</color>
     <color name="bd_wallet_black3">#222222</color>
@@ -72,6 +73,7 @@
     
     <!-- For PwdPayDialog -->
     <color name="bd_wallet_pwdpay_light_gray">#cccccc</color>
+    <color name="bd_wallet_login_light_gray">#666666</color>
     <color name="bd_wallet_pwdpay_title_bg">#fafafa</color>
     <color name="bd_wallet_pwdpay_text_blue">#37a6fb</color>
     <color name="bd_wallet_pwdpay_text_before_channel">#999999</color>

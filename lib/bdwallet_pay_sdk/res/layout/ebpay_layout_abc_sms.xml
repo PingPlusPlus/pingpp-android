@@ -6,6 +6,7 @@
     android:gravity="center" >
 
     <LinearLayout
+        android:id="@+id/ebpay_paysms_layout"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="@drawable/wallet_base_dialog_bg"
@@ -42,10 +43,8 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
-            android:text="@string/ebpay_valid_code_sent"
             android:textColor="@color/ebpay_text_normal"
-            android:textSize="12sp"
-            android:visibility="gone" />
+            android:textSize="12sp" />
         <!-- </LinearLayout> -->
 
         <ScrollView

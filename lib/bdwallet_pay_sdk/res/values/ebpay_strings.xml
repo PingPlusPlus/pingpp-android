@@ -34,7 +34,6 @@
     <string name="ebpay_id_cardholder_id_cardnum">持卡人身份证</string>
     <string name="ebpay_bank_bind_phone">手机号</string>
     <string name="ebpay_bank_cvv2">安全码</string>
-    <string name="ebpay_protocol">我已阅读并同意《用户服务协议》</string>
     <string name="ebpay_select_other">选择其他银行卡支付</string>
     <string name="ebpay_safe_encrypt">所有信息均经过高强度加密处理，仅用于银行验证</string>
     <string name="ebpay_check_phone">验证手机号</string>
@@ -54,7 +53,10 @@
     <string name="ebpay_pwd_confim_tip">请确认手机支付密码</string>
     <string name="ebpay_pwd_changed">密码不一致请重新输入</string>
     <string name="ebpay_pwd_forget_success">密码找回成功</string>
-    <string name="ebpay_valid_code_sent">为了保障您的用卡安全，绑定银行卡需要验证手机，验证码已发送至手机 %1$s</string>
+    <string name="ebpay_valid_code_sent">为了保障您的用卡安全，百度钱包需要验证您的手机号，验证码已发送至手机 %1$s</string>
+    <string name="ebpay_pay_by_sms_code_tip">密码输入错误，您可以通过发送到%1$s的短信验证码进行支付</string>
+    <string name="ebpay_valid_code_sent_tips">验证码已发送至手机 %1$s，请注意查收</string>
+    <string name="ebpay_valid_code_sent_tips1">验证码已发送，请注意查收</string>
     <string name="ebpay_only_complete_top_left_tip">请绑定本人银行卡，百度钱包保障您的用卡安全，请放心填写</string>
 
     <!-- 钱包新添加的字符串资源 -->
@@ -69,6 +71,8 @@
     <string name="ebpay_cancel_fill_info">暂不完善，返回</string>
     <string name="ebpay_modify_success">修改成功</string>
     <string name="ebpay_pay_success">付款成功！</string>
+    <string name="ebpay_pay_success_benefit_title">恭喜您获得10元红包!</string>
+    <string name="ebpay_pay_success_benefit_content">手机百度>我的钱包>我的优惠卷,登录百度账号138****1234即可查看</string>
     <string name="ebpay_pay_fail">付款失败！</string>
     <string name="ebpay_pay_error_huafei">充值失败！</string>
     <string name="ebpay_pay_error_zhuanzhuang">转账失败！</string>
@@ -141,11 +145,18 @@
     <string name="ebpay_musteasypay_activity">优惠券需和银行卡搭配支付，请先绑定一张银行卡</string>
     <string name="ebpay_musteasypay_score">百赚分需和银行卡搭配支付，请先绑定一张银行卡</string>
     <string name="ebpay_musteasypay_other">尚未绑卡，请先绑定一张银行卡</string>
-    
+    <string name="ebpay_choose_modify_card">修改卡号</string>
+    <string name="ebpay_choose_confirm">确认无误</string>
     <string name="ebpay_noactivity_balance">余额充值不支持使用满减和优惠券</string>
     <string name="ebpay_noactivity_zhuanzhang">转账不支持使用满减和优惠券</string>
     <string name="ebpay_noactivity_self">你没有可用的满减和优惠券</string>
-    <string name="ebpay_account_login">登录百度帐号</string>
+    <string name="ebpay_account_login">去登录</string>
+    <string name="ebpay_account_login_tips">我有百度帐号，登录后享受更多优惠信息</string>
+    <string name="ebpay_send_sms_tips">支付成功后会将该手机号为您创建一个百度帐号，使用百度帐号登录支付享受更多优惠，详细情况请查看短信通知。</string>
+    <string name="ebpay_account_sec_tips">百度钱包，权威评测，安全保障</string>
     <string name="ebpay_account_reg">注册百度帐号</string>
     <string name="ebpay_account_forget">找回密码</string>
+    <string name="ebpay_select_bankcard">选择付款银行卡</string>
+    <string name="ebpay_select_bondcard">您之前已使用过百度钱包支付，请直接选择银行卡支付</string>
+    <string name="ebpay_bdwallet_lable">百度钱包</string>
 </resources>

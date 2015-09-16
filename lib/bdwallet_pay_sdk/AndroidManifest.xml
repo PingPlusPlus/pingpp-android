@@ -1,11 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.baidu.wallet"
+    package="com.baidu.paysdk.lib"
     android:versionCode="1"
-    android:versionName="3.4" >
+    android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="7"
-        android:targetSdkVersion="17" />
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+
+    <application
+        android:allowBackup="true" >
+    </application>
 
 </manifest>

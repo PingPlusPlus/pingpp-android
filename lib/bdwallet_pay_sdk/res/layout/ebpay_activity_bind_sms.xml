@@ -114,5 +114,5 @@
         android:text="@string/ebpay_get_sms_error"
         android:textColor="@color/wallet_base_click_text_color"
         android:textSize="12sp" />
-
+    <include layout="@layout/ebpay_layout_sectips" />
 </LinearLayout>
