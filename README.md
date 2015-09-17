@@ -2,16 +2,9 @@
 ============
 
 ## 简介
-
-[lib_androidstudio](/lib_androidstudio) 目录是 AndroidStudio 开发环境需要的 aar 文件。<br>
-[example_androidstudio](/example_androidstudio) 目录是两个AndroidStudio开发环境的接入示例。分别是使用aar、jar方式，示例仅供参考。<br>
-
-[lib_eclipse](/lib_eclipse) 目录下是 Eclipse 开发环境需要的第三方库。<br>
-[libs](/lib_eclipse/libs) 目录下的是 jar 文件。<br>
-[bdwallet\_pay\_sdk](/lib_eclipse/bdwallet_pay_sdk) 是 Library Project。<br>
-[example_eclipse](/example_eclipse) 文件夹里面是一个Eclipse开发环境的接入示例，该示例仅供参考。<br>
-
-安卓端如果应用没有安装银联支付控件：请到 [这里](http://mobile.unionpay.com/getclient?platform=android&type=securepayplugin) 下载。
+lib 目录下是「壹收款」sdk 工程，libPingppOne 为「壹收款」library 工程 ，bdwallet_pay_sdk 为百度支付的 library 工程。libPingppOne 需要依赖 bdwallet_pay_sdk 工程<br>
+example 文件夹里面是一个简单的接入示例，该示例仅供参考。<br>
+docs 目录里面是「壹收款」sdk 的接入指南。
 
 ## 运行环境
 
@@ -19,7 +12,7 @@
 
 ## 编译环境
 
-Android sdk 4.4 以及以上，jdk1.6 以上。 
+Android sdk 4.4 以上，jdk1.6 以上。 （尽量升级到最新的 Android sdk 和 jdk）
 
 ##注意事项
 
