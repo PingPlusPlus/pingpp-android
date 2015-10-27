@@ -60,7 +60,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
     /**
      * 银联支付渠道
      */
-    private static final String CHANNEL_UPMP = "upmp";
+    private static final String CHANNEL_UPACP = "upacp";
     /**
      * 微信支付渠道
      */
@@ -123,7 +123,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
                     String replaceable = String.format("[%s, \\s.]", NumberFormat.getCurrencyInstance(Locale.CHINA).getCurrency().getSymbol(Locale.CHINA));
                     String cleanString = s.toString().replaceAll(replaceable, "");
 
-                    if (cleanString == "" || new BigDecimal(cleanString).toString().equals("0")) {
+                    if (cleanString.equals("") || new BigDecimal(cleanString).toString().equals("0")) {
                         amountEditText.setText(null);
                     } else {
                         double parsed = Double.parseDouble(cleanString);
@@ -148,7 +148,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
         // 支付宝，微信支付，银联，百度钱包 按键的点击响应处理
         if (view.getId() == R.id.upmpButton) {
-            new PaymentTask().execute(new PaymentRequest(CHANNEL_UPMP, amount));
+            new PaymentTask().execute(new PaymentRequest(CHANNEL_UPACP, amount));
         } else if (view.getId() == R.id.alipayButton) {
             new PaymentTask().execute(new PaymentRequest(CHANNEL_ALIPAY, amount));
         } else if (view.getId() == R.id.wechatButton) {
