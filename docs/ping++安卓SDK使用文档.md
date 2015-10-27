@@ -23,7 +23,7 @@
     11. android-support-v4.jar
     
      以上所有文件位置在下载目录的 lib/libs ，请把上面所有文件添加到 Android 工程的 libs目录下面。（如果是 AndroidStudio IDE ，so 文件请添加到 jniLibs 目录之中）。
-     将 lib/libs 目录下面的 data.bin 添加到 Android 工程的 assets 目录下面。
+     将 lib/assets 目录下面的 data.bin 添加到 Android 工程的 assets 目录下面。
      
  
  eclipse IDE    
