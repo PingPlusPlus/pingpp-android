@@ -363,7 +363,7 @@
     
     log 的截图如下：
     
-    <img src="image/log.png" width = 400px/>
+<img src="image/log.png" width = 400px/>
     
  
             
