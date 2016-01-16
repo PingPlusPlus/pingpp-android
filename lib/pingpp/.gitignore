@@ -32,17 +32,3 @@ proguard/
 captures/
 
 .settings/
-
-*.iml
-
-# Output
-lib/pingpp/target
-lib/pingpp/gen
-lib/pingpp/bin
-lib/bdwallet_pay_sdk/target
-lib/bdwallet_pay_sdk/gen
-lib/bdwallet_pay_sdk/bin
-example/bin
-example/target
-example/gen
-.idea

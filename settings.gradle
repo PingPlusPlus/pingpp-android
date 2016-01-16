@@ -1,0 +1,3 @@
+include ':lib:pingpp'
+include ':lib:bdwallet_pay_sdk'
+include ':example'

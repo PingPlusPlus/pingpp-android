@@ -4,7 +4,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="9"
         android:targetSdkVersion="23" />
 
     <!-- 通用权限 -->
@@ -62,8 +62,7 @@
         </activity>
 
         <!-- 银联支付 sdk -->
-        <activity android:name="com.unionpay.uppay.PayActivity" >
-        </activity>
+        <activity android:name="com.unionpay.uppay.PayActivity" />
 
         <!-- 百付宝 sdk -->
         <activity
@@ -204,8 +203,7 @@
             android:exported="@bool/bd_wallet_switch_global_debug"
             android:hardwareAccelerated="false"
             android:theme="@style/EbpayThemeActivit"
-            android:windowSoftInputMode="stateHidden" >
-        </activity>
+            android:windowSoftInputMode="stateHidden" />
     </application>
 
 </manifest>
