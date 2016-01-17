@@ -5,23 +5,28 @@
 Ping++ SDK 为开发者提供了 demo 程序，可以快速体验 Client-SDK 接入流程。下载 Client-SDK 之后将整个目录导入到您的 Android Studio（建议） 或者 Eclipse 之中。
 
 使用 Android Studio 时，请选择 `Import project (Eclipse ADT, Gradle, etc.)` → `Import project from external model` → `Gradle`  
+
 <img src="image/import-01.png" width="400" >
-<img src="image/import-02.png" width="400" >
+<img src="image/import-02.png" width="350" >
 
 ### 二、快速集成
 
 #### 导入 Ping++ SDK
 
 ##### Android Studio
-在你的项目里选择 `Import Module...`，Source directory 定位到 `pingpp-android` 目录，也就是 SDK 的根目录。  
-取消勾选 `:example`，将 `:lib:pingpp` 和 `:lib:bdwallet_pay_sdk` 导入。  
-将 `:lib:pingpp` 添加到你的项目的 Dependencies。或者直接在 build.gradle 的 dependencies 区块添加 `compile project(':lib:pingpp')`  
-<img src="image/import-03.png" width="500" >
+1. 在你的项目里选择 `Import Module...`，Source directory 定位到 `pingpp-android` 目录，也就是 SDK 的根目录。
+2. 取消勾选 `:example`，将 `:lib:pingpp` 和 `:lib:bdwallet_pay_sdk` 导入。
+3. 将 `:lib:pingpp` 添加到你的项目的 Dependencies。或者直接在 build.gradle 的 dependencies 区块添加如下代码。
+
+        compile project(':lib:pingpp')
+
+    <img src="image/import-03.png" width="500" >
 
 ##### Eclipse ADT
-将 `lib` 目录作为 Library Porject 导入。  
-导入后，把 pingpp 项目作为你的项目的依赖库。  
-<img src="image/import-05.png" width="500" >
+1. 将 `lib` 目录作为 Library Porject 导入。
+2. 导入后，把 pingpp 项目作为你的项目的依赖库。
+
+    <img src="image/import-05.png" width="500" >
 
 ##### 权限声明
 ``` xml
@@ -260,8 +265,8 @@ Android 不允许再 UI 线程中进行网络请求，所以请求 charge 对象
             android:launchMode="singleTop"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 - 权限
-    1. 微信支付渠道是通过向“微信”客户端发起请求进行支付的，要求手机必须安装微信。如果没有安装微信，Ping++ SDK 会在支付结果中给予通知。不需要额外权限。
-    2. 支付宝、微信、银联等渠道，需要的权限为
+    1. 微信支付渠道是通过向“微信”客户端发起请求进行支付的，要求手机必须安装微信。如果没有安装微信，Ping++ SDK 会在支付结果中给予通知。
+    2. 支付宝、银联等渠道，需要的权限为
 
             <uses-permission android:name="android.permission.INTERNET" />
             <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
