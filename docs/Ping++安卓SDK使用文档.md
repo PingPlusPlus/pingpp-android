@@ -256,7 +256,7 @@ Android 不允许再 UI 线程中进行网络请求，所以请求 charge 对象
     
 ### 关于定制
 用户可以根据需求自行定制一个或者多个支付渠道。但是定制 SDK 的时候需要注意以下几点
-- libpingpp.jar 这个 jar 包是必须的。
+- libpingpp-xxxx.jar 这个 jar 包是必须的。
 - PaymentActivity 必须在 AndroidManifest.xml 文件里面声明。
 
         <!-- Ping++ SDK 注册 -->
