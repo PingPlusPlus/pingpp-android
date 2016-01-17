@@ -18,22 +18,8 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
--keepclassmembers class com.pingplusplus.android.PaymentActivity {
-    public java.lang.String EXTRA_CHARGE;
-}
-
--keepattributes Exceptions
--keep public class com.pingplusplus.android.PaymentActivity {
-    public java.lang.String getVersion();
-}
-
--keep class com.pingplusplus.android.PingppLog {
-    public static void d(java.lang.String);
-}
-
--keepclassmembers class com.pingplusplus.android.PingppLog {
-    public boolean DEBUG;
-}
+-dontwarn com.pingplusplus.**
+-keep class com.pingplusplus.** {*;}
 
 -dontwarn  com.alipay.**
 -keep class com.alipay.** {*;}
