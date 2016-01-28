@@ -1,0 +1,24 @@
+<resources>
+    <string name="pingpp_title_activity_pay">支付</string>
+    <string name="pingpp_title_activity_pay_sucessed">支付成功</string>
+    <string name="pingpp_title_activity_pay_filed">支付失败</string>
+    <string name="pingpp_title_activity_success">支付成功</string>
+    <string name="pingpp_create_bill">成功下单</string>
+    <string name="pingpp_label_bill_name">订单号</string>
+    <string name="pingpp_label_amount">总金额</string>
+    <string name="pingpp_title_activity_pay_failed">支付失败</string>
+    <string name="pingpp_pay_failed">支付失败</string>
+    <string name="pingpp_back_activity_pay">再试一次</string>
+    <string name="pingpp_copyright">支付接入由 Ping++ 提供</string>
+    <string name="pingpp_alipay">支付宝</string>
+    <string name="pingpp_wechat">微信支付</string>
+    <string name="pingpp_bfb">百度钱包</string>
+    <string name="pingpp_upacp">银联支付</string>
+    <string name="pingpp_yeepay_wap">易宝支付</string>
+    <string name="pingpp_jdpay_wap">京东支付</string>
+    <string name="pingpp_prompt_pay_falied">可能因为网络过于繁忙</string>
+    <string name="pingpp_continue_buy">继续购物</string>
+    <string name="pingpp_pay_complete">完成</string>
+    <string name="pingpp_add_new_card">添加新银行卡支付</string>
+
+</resources>

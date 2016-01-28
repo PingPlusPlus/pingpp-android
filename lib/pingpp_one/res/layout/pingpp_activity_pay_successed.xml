@@ -1,0 +1,71 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffffff"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+
+    <ImageView
+        android:id="@+id/pingpp_pay_success_icon"
+        android:layout_marginTop="@dimen/y130"
+        android:layout_width="@dimen/x64"
+        android:layout_height="@dimen/y64"
+        android:src="@drawable/pingpp_success"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/pingpp_pay_success_text1"
+        android:layout_below="@id/pingpp_pay_success_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/y25"
+        android:layout_marginTop="@dimen/y10"
+        android:text="@string/pingpp_title_activity_pay_sucessed"
+        android:textSize="@dimen/y18"
+        android:textColor="#ff6bd4aa"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/textview_total_money"
+        android:layout_below="@id/pingpp_pay_success_text1"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/y42"
+        android:layout_marginTop="@dimen/y24"
+        android:text="￥3.02"
+        android:textSize="@dimen/y30"
+        android:textColor="#ff000000"
+        android:layout_gravity="center"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y48"
+        android:layout_marginRight="@dimen/x30"
+        android:layout_marginLeft="@dimen/x30"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/y62"
+        android:background="@drawable/pingpp_common_pay_button_green"
+        android:text="@string/pingpp_pay_complete"
+        android:textColor="#ffffffff"
+        android:textSize="@dimen/y16"
+        android:layout_gravity="bottom"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/y27"
+        android:text="@string/pingpp_copyright"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#ffc8c8c8"
+        android:layout_gravity="center_horizontal|bottom"/>
+
+</LinearLayout>

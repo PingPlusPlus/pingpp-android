@@ -1,12 +1,12 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 23
+    compileSdkVersion 19
     buildToolsVersion "23.0.2"
 
     defaultConfig {
         minSdkVersion 9
-        targetSdkVersion 23
+        targetSdkVersion 19
     }
 
     buildTypes {
@@ -27,6 +27,5 @@ android {
 }
 
 dependencies {
-    compile project(':lib:bdwallet_pay_sdk')
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }

@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
+    compileSdkVersion 19
     buildToolsVersion "23.0.2"
 
     defaultConfig {
         applicationId "com.pingplusplus.demoapp"
         minSdkVersion 9
-        targetSdkVersion 23
+        targetSdkVersion 19
     }
 
     buildTypes {
@@ -30,4 +30,6 @@ android {
 dependencies {
     compile project(':lib:pingpp')
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile project(':lib:pingpp_one')
+    compile project(':lib:bdwallet_pay_sdk')
 }

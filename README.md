@@ -10,8 +10,10 @@ docs 目录里面是 Android SDK 的接入指南。
 ## 版本要求
 Android SDK 要求 Android 2.3 及以上版本
 
-## 注意事项
-Pingpp Android SDK 可能会与友盟、百度地图等其他第三方 jar 包冲突，当同时使用这些 jar 包的时候用户需要根据情况判断保留哪一方的 jar 包。
-
 ## 接入方法
 关于如何使用 SDK 请参考 docs 目录下面的接入文档或者参考提供的 example 工程。
+
+## 注意事项
+* Pingpp Android SDK 可能会与友盟、百度地图等其他第三方 jar 包冲突，当同时使用这些 jar 包的时候用户需要根据情况判断保留哪一方的 jar 包。
+* 目前暂时只有 [2.0.7](https://github.com/PingPlusPlus/pingpp-android/tree/2.0.7) 版本的接入文档，新版本的文档正在更新中。
+* 新版建议使用 Android Studio

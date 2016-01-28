@@ -4,7 +4,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="9"
+        android:minSdkVersion="11"
         android:targetSdkVersion="23" />
 
     <!-- 通用权限 -->
@@ -13,6 +13,10 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission-sdk-23 android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission-sdk-23 android:name="android.permission.NFC" />
+
 
     <!-- 百度支付需要的权限 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -28,8 +32,7 @@
         <!-- 示例 Activity 供用户参考 -->
         <activity
             android:name="com.pingplusplus.demoapp.MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -64,6 +67,17 @@
         <!-- 银联支付 sdk -->
         <activity android:name="com.unionpay.uppay.PayActivity" />
 
+        <!-- 壹收款 -->
+        <activity
+            android:name="com.pingplusplus.libone.PayActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent"
+            android:label="@string/pingpp_title_activity_pay"/>
+        <activity
+            android:name="com.pingplusplus.libone.PaySucessedActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/pingpp_title_activity_pay_sucessed"/>
+        
         <!-- 百付宝 sdk -->
         <activity
             android:name="com.baidu.paysdk.login.LoginActivity"

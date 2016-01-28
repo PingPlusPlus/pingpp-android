@@ -3,6 +3,8 @@ package com.pingplusplus.demoapp;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 import android.app.Activity;
@@ -11,22 +13,30 @@ import android.app.AlertDialog.Builder;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.pingplusplus.android.PaymentActivity;
 import com.pingplusplus.android.PingppLog;
 import com.pingplusplus.demoapp.R;
+import com.pingplusplus.libone.PayResultCallBack;
+import com.pingplusplus.libone.PingppOnePayment;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * @author sunkai
@@ -43,7 +53,7 @@ import com.squareup.okhttp.Response;
  * 4）onActivityResult 中获得支付结构。
  * 5）如果支付成功。服务端会收到ping++ 异步通知，支付成功依据服务端异步通知为准。
  */
-public class MainActivity extends Activity implements View.OnClickListener{
+public class MainActivity extends FragmentActivity implements View.OnClickListener, PayResultCallBack {
 
 	/**
 	 *开发者需要填一个服务端URL 该URL是用来请求支付需要的charge。务必确保，URL能返回json格式的charge对象。
@@ -106,6 +116,22 @@ public class MainActivity extends Activity implements View.OnClickListener{
         bfbButton.setOnClickListener(MainActivity.this);
         jdpayButton.setOnClickListener(MainActivity.this);
 
+        //设置需要使用的支付方式,true:显示该支付通道，默认为false
+        PingppOnePayment.SHOW_CHANNEL_WECHAT = true;
+        PingppOnePayment.SHOW_CHANNEL_UPACP = true;
+        PingppOnePayment.SHOW_CHANNEL_BFB = true;
+        PingppOnePayment.SHOW_CHANNEL_ALIPAY = true;
+
+        //设置支付通道的排序,最小的排在最前
+        PingppOnePayment.CHANNEL_UPACP_INDEX = 1;
+        PingppOnePayment.CHANNEL_ALIPAY_INDEX = 2;
+        PingppOnePayment.CHANNEL_WECHAT_INDEX = 3;
+        PingppOnePayment.CHANNEL_BFB_INDEX = 4;
+
+        //提交数据的格式，默认格式为json
+//        PingppOnePayment.CONTENT_TYPE = "application/x-www-form-urlencoded";
+        PingppOnePayment.CONTENT_TYPE = "application/json";
+
         PingppLog.DEBUG = true;
         
         amountEditText.addTextChangedListener(new TextWatcher() {
@@ -158,6 +184,40 @@ public class MainActivity extends Activity implements View.OnClickListener{
         	new PaymentTask().execute(new PaymentRequest(CHANNEL_BFB, amount));
         } else if(view.getId() == R.id.jdpayButton){
         	new PaymentTask().execute(new PaymentRequest(CHANNEL_JDPAY_WAP, amount));
+        } else {
+            // 壹收款调用示例如下
+            String orderNo = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+
+            //计算总金额（以分为单位）
+            JSONArray billList = new JSONArray();
+
+            //构建账单json对象
+            JSONObject bill = new JSONObject();
+            JSONObject displayItem = new JSONObject();
+
+            //自定义的额外信息 选填
+            JSONObject extras = new JSONObject();
+            try {
+                extras.put("extra1", "extra1");
+                extras.put("extra2", "extra2");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                displayItem.put("name", "商品");
+                displayItem.put("contents", billList);
+                JSONArray display = new JSONArray();
+                display.put(displayItem);
+                bill.put("order_no", orderNo);
+                bill.put("amount", amount);
+                bill.put("display", display);
+                bill.put("extras", extras);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            //壹收款: 创建支付通道的对话框
+            PingppOnePayment.createPayChannel(getSupportFragmentManager(), bill.toString(),URL);
         }
     }
 
@@ -266,6 +326,17 @@ public class MainActivity extends Activity implements View.OnClickListener{
         public PaymentRequest(String channel, int amount) {
             this.channel = channel;
             this.amount = amount;
+        }
+    }
+
+    @Override
+    public void getPayResult(Intent data) {
+        if(data != null){
+            /**
+             * result：支付结果信息
+             * code：支付结果码  -2:用户自定义错误、 -1：失败、 0：取消、1：成功
+             */
+            Toast.makeText(this, data.getExtras().getString("result") + "  " + data.getExtras().getInt("code"), Toast.LENGTH_LONG).show();
         }
     }
 
