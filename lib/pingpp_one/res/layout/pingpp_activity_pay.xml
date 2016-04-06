@@ -6,19 +6,10 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <!--<ProgressBar
-        android:id="@+id/pingpp_pay_progress"
-        android:layout_width="@dimen/x50"
-        android:layout_height="@dimen/y50"
-        android:indeterminate="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        android:indeterminateDrawable="@drawable/pingpp_progressbar"
-        />-->
-
     <com.pingplusplus.libone.ProgressWheel
         android:id="@+id/pingpp_pay_progress"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="@dimen/x80"
+        android:layout_height="@dimen/y80"
+        android:background="@drawable/tips_bg"
         android:layout_centerHorizontal="true"/>
 </LinearLayout>

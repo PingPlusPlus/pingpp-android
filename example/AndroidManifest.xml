@@ -39,6 +39,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.pingplusplus.demoapp.ClientSDKActivity" >
+        </activity>
         <!-- Ping++ sdk -->
         <activity
             android:name="com.pingplusplus.android.PaymentActivity"
@@ -67,17 +69,6 @@
         <!-- 银联支付 sdk -->
         <activity android:name="com.unionpay.uppay.PayActivity" />
 
-        <!-- 壹收款 -->
-        <activity
-            android:name="com.pingplusplus.libone.PayActivity"
-            android:configChanges="orientation|screenSize"
-            android:theme="@android:style/Theme.Translucent"
-            android:label="@string/pingpp_title_activity_pay"/>
-        <activity
-            android:name="com.pingplusplus.libone.PaySucessedActivity"
-            android:configChanges="orientation|screenSize"
-            android:label="@string/pingpp_title_activity_pay_sucessed"/>
-        
         <!-- 百付宝 sdk -->
         <activity
             android:name="com.baidu.paysdk.login.LoginActivity"
@@ -218,6 +209,22 @@
             android:hardwareAccelerated="false"
             android:theme="@style/EbpayThemeActivit"
             android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".OneSDKActivity">
+        </activity>
+        
+        
+        <!-- 壹收款 -->
+        <activity
+            android:name="com.pingplusplus.libone.PayActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent"
+            android:label="@string/pingpp_title_activity_pay"/>
+        <activity
+            android:name="com.pingplusplus.libone.PaySuccessActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/pingpp_title_activity_pay_sucessed"/>
+
     </application>
 
 </manifest>

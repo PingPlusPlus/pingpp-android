@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <Button 
+        android:id="@+id/client_sdk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="client_sdk"
+        android:onClick="btnClick"/>
+
+    <Button
+        android:id="@+id/one_sdk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="壹收款"
+        android:onClick="btnClick"/>
+
+</LinearLayout>

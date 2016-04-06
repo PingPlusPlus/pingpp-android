@@ -15,4 +15,9 @@
     <string name="notInstalled">未安装支付软件</string>
     <string name="amount">支付金额</string>
     <string name="missingImage">图片加载失败</string>
+    <string name="title_activity_yi_shou_kuan">壹收款</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_test_activity">壹收款</string>
+    <string name="good_item_name">橡胶花瓶</string>
+
 </resources>

@@ -37,10 +37,12 @@ Ping++ SDK 为开发者提供了 demo 程序，可以快速体验 Client-SDK 接
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+<!-- 银联需要的权限 -->
+<uses-permission android:name="android.permission.NFC" />
+
 <!-- 百度支付需要的权限 -->
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.READ_SMS" />
 ```
 
@@ -223,9 +225,7 @@ Charge 对象是一个包含支付信息的 JSON 对象，是 Ping++ SDK 发起�
 
 ### 四、发起支付
 ``` java
-Intent intent = new Intent(MyActivity.this, PaymentActivity.class);
-intent.putExtra(PaymentActivity.EXTRA_CHARGE, charge);
-startActivityForResult(intent, REQUEST_CODE_PAYMENT);
+Pingpp.createPayment(YourActivity.this, data);
 ```
     
 #### 五、获取支付状态
@@ -234,7 +234,7 @@ startActivityForResult(intent, REQUEST_CODE_PAYMENT);
 ``` java
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     //支付页面返回处理
-    if (requestCode == REQUEST_CODE_PAYMENT) {
+    if (requestCode == Pingpp.REQUEST_CODE_PAYMENT) {
         if (resultCode == Activity.RESULT_OK) {
             String result = data.getExtras().getString("pay_result");
             /* 处理返回值
@@ -277,7 +277,6 @@ Android 不允许再 UI 线程中进行网络请求，所以请求 charge 对象
 
             <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
             <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
             <uses-permission android:name="android.permission.READ_SMS" />
 - 依赖
     1. 微信支付依赖包：`libammsdk.jar`
