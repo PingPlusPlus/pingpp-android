@@ -46,7 +46,7 @@ PingppOne.showPaymentChannels(getSupportFragmentManager(), bill.toString(), null
              * code：支付结果码  -2:服务端错误、 -1：失败、 0：取消、1：成功
              * error_msg：支付结果信息
              */
-            data.getExtras().getInt("code");
+            int code = data.getExtras().getInt("code");
             String errorMsg = data.getExtras().getString("error_msg");
 
         }
