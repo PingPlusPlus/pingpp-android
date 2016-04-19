@@ -67,7 +67,9 @@
         </activity>
 
         <!-- 银联支付 sdk -->
-        <activity android:name="com.unionpay.uppay.PayActivity" />
+        <activity
+            android:name="com.unionpay.uppay.PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize" />
 
         <!-- 百付宝 sdk -->
         <activity
