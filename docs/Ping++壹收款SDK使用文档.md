@@ -53,14 +53,14 @@ Ping++ SDK 为开发者提供了 demo 程序，可以快速体验`壹收款`接�
     android:configChanges="orientation|screenSize"
     android:launchMode="singleTop"
     android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-    <!-- 无卡支付 -->
+    <!-- 应用内快捷支付 -->
 <activity
     android:name="com.pingplusplus.nocard.activity.AddCardActivity"
     android:windowSoftInputMode="stateHidden|adjustPan">
 </activity>
 <activity
     android:name="com.pingplusplus.nocard.activity.ManagerCardActivity" />
-            
+
 <activity
     android:name="com.pingplusplus.libone.PayActivity"
     android:configChanges="keyboardHidden|navigation|orientation|screenSize"
@@ -246,7 +246,7 @@ PingppOne.SUPPORT_FOREIGN_CARD = true;
 // 提交数据的格式，默认格式为 json
 // PingppOne.CONTENT_TYPE = "application/x-www-form-urlencoded";
 PingppOne.CONTENT_TYPE = "application/json";
-// 设置APP_ID和PUBLISHABLE_KEY(无卡支付需要)
+// 设置APP_ID和PUBLISHABLE_KEY(应用内快捷支付需要)
 PingppOne.APP_ID = "YOUR_APP_ID";
 PingppOne.PUBLISHABLE_KEY = "YOUR_PUBLISHABLE_KEY";
 // 是否开启日志
@@ -275,7 +275,7 @@ PingppOne.showPaymentChannels(getSupportFragmentManager(), bill.toString(), null
 ```
 
 ### 五、管理卡片
-``` java 
+``` java
 /**
  * 跳转卡片管理页面
  */
@@ -294,7 +294,7 @@ new PaymentHandler() {
         if (data != null) {
             /**
              * result：支付结果信息
-             * code：支付结果码  -2:用户自定义错误、 -1：失败、 0：取消、1：成功  2:无卡支付结果
+             * code：支付结果码  -2:用户自定义错误、 -1：失败、 0：取消、1：成功  2:应用内快捷支付结果
              */
             if (data.getExtras().getInt("code") != 2) {
                 PingppLog.d(data.getExtras().getString("result") + "  " + data.getExtras().getInt("code"));
@@ -338,9 +338,9 @@ new PaymentHandler() {
             e.printStackTrace();
         }
     }
-} 
+}
 ```
-    
+
 ### 关于定制
 用户可以根据需求自行定制一个或者多个支付渠道。但是定制 SDK 的时候需要注意以下几点
 - libpingpp-xxxx.jar 这个 jar 包是必须的。
