@@ -1,0 +1,50 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffffff">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y1"
+        android:layout_marginLeft="@dimen/x14"
+        android:layout_marginRight="@dimen/x14"
+        android:background="#ffedf0f2" />
+
+    <LinearLayout
+        android:id="@+id/card_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y60"
+        android:layout_marginTop="@dimen/y2"
+        android:background="#FFFFFFFF"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/bank_icon"
+            style="@style/pingpp_npc_icon" />
+
+        <TextView
+            android:id="@+id/bank_name"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y30"
+            android:layout_weight="1"
+            android:background="#ffffffff"
+            android:gravity="center_vertical"
+            android:textColor="#FF1f1d19"
+            android:textSize="@dimen/y16" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y30"
+            android:layout_weight="1"
+            android:background="#ffffffff"
+            android:gravity="center_vertical"
+            android:text="信用卡"
+            android:textColor="#FF76858C"
+            android:textSize="@dimen/y16"
+            android:visibility="gone" />
+
+        <ImageView
+            style="@style/pingpp_npc_icon"
+            android:src="@drawable/right_arrow" />
+    </LinearLayout>
+</RelativeLayout>

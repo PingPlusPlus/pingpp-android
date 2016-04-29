@@ -1,0 +1,339 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:id="@+id/scrollview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/y64"
+                    android:layout_marginLeft="@dimen/x15"
+                    android:gravity="center"
+                    android:text="请绑定****6578同一持卡人的卡"
+                    android:textColor="#FF1f1d19"
+                    android:textSize="@dimen/y16"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y64"
+                    android:background="#FFFFFFFF"
+                    android:gravity="center">
+
+                    <ImageView
+                        style="@style/pingpp_npc_icon"
+                        android:src="@drawable/card" />
+
+                    <cn.passguard.PassGuardEdit
+                        android:id="@+id/card_number"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/y24"
+                        android:layout_weight="1"
+                        android:background="#ffffffff"
+                        android:gravity="center_vertical"
+                        android:hint="输入本人的银行卡号"
+                        android:textColor="#FF0e2026"
+                        android:textSize="@dimen/y16" />
+
+                    <ImageView
+                        android:id="@+id/card_camera"
+                        style="@style/pingpp_npc_icon"
+                        android:src="@drawable/camera" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y2"
+                    android:layout_marginLeft="@dimen/x45"
+                    android:background="#ffedf0f2" />
+
+                <LinearLayout
+                    android:id="@+id/layout_card_bank"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/y64"
+                        android:background="#FFFFFFFF"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/bank_icon"
+                            style="@style/pingpp_npc_icon" />
+
+                        <TextView
+                            android:id="@+id/bank_name"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/y24"
+                            android:layout_weight="1"
+                            android:background="#ffffffff"
+                            android:gravity="center_vertical"
+                            android:hint="选择银行卡类型"
+                            android:textColor="#FF0e2026"
+                            android:textSize="@dimen/y16" />
+
+                        <ImageView
+                            style="@style/pingpp_npc_icon"
+                            android:src="@drawable/right_arrow" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/y2"
+                        android:layout_marginLeft="@dimen/x45"
+                        android:background="#ffedf0f2" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_card_infos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/id_card_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/y64"
+                            android:background="#FFFFFFFF"
+                            android:gravity="center">
+
+                            <ImageView
+                                style="@style/pingpp_npc_icon"
+                                android:src="@drawable/id" />
+
+                            <EditText
+                                android:id="@+id/card_user_name"
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/y24"
+                                android:layout_weight="1"
+                                android:background="#ffffffff"
+                                android:gravity="center_vertical"
+                                android:hint="你的真实姓名"
+                                android:textColor="#FF0e2026"
+                                android:textSize="@dimen/y16" />
+
+                            <ImageView
+                                android:id="@+id/user_camera"
+                                style="@style/pingpp_npc_icon"
+                                android:src="@drawable/camera" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/y2"
+                            android:layout_marginLeft="@dimen/x45"
+                            android:background="#ffedf0f2" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/y64"
+                            android:background="#FFFFFFFF"
+                            android:gravity="center">
+
+                            <ImageView style="@style/pingpp_npc_icon" />
+
+                            <cn.passguard.PassGuardEdit
+                                android:id="@+id/card_user_id_card"
+                                android:layout_width="0dp"
+                                android:layout_height="@dimen/y24"
+                                android:layout_weight="1"
+                                android:background="#ffffffff"
+                                android:gravity="center_vertical"
+                                android:hint="您的身份证号"
+                                android:textColor="#FF0e2026"
+                                android:textSize="@dimen/y16" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/y2"
+                            android:layout_marginLeft="@dimen/x45"
+                            android:background="#ffedf0f2" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layout_card_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/y64"
+                        android:background="#FFFFFFFF"
+                        android:gravity="center">
+
+                        <ImageView
+                            style="@style/pingpp_npc_icon"
+                            android:src="@drawable/smartphone" />
+
+                        <cn.passguard.PassGuardEdit
+                            android:id="@+id/card_user_phone"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/y24"
+                            android:layout_weight="1"
+                            android:background="#ffffffff"
+                            android:gravity="center_vertical"
+                            android:hint="银行预留手机号"
+                            android:inputType="phone"
+                            android:textColor="#FF0e2026"
+                            android:textSize="@dimen/y16" />
+
+                        <ImageView
+                            style="@style/pingpp_npc_icon"
+                            android:src="@drawable/remind" />
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/layout_card_infos_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/y2"
+                        android:layout_marginLeft="@dimen/x45"
+                        android:background="#ffedf0f2" />
+
+                    <LinearLayout
+                        android:id="@+id/pingpp_add_credit"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/y64"
+                        android:background="#FFFFFFFF"
+                        android:gravity="center">
+
+                        <ImageView
+                            style="@style/pingpp_npc_icon"
+                            android:src="@drawable/date" />
+
+                        <cn.passguard.PassGuardEdit
+                            android:id="@+id/add_credit_date"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/y24"
+                            android:layout_weight="1"
+                            android:background="#ffffffff"
+                            android:gravity="center_vertical"
+                            android:hint="过期年(如:2016)"
+                            android:textColor="#FF0e2026"
+                            android:textSize="@dimen/y16" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="/"
+                            android:textStyle="bold"
+                            android:textColor="#FF000000"/>
+
+                        <cn.passguard.PassGuardEdit
+                            android:id="@+id/add_credit_date_month"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/y24"
+                            android:layout_weight="1"
+                            android:background="#ffffffff"
+                            android:gravity="center"
+                            android:hint="过期月(如:01)"
+                            android:textColor="#FF0e2026"
+                            android:textSize="@dimen/y16"/>
+
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/pingpp_add_credit_line1"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/y2"
+                        android:layout_marginLeft="@dimen/x45"
+                        android:background="#ffedf0f2" />
+
+                    <LinearLayout
+                        android:id="@+id/pingpp_add_credit_threenum"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/y64"
+                        android:background="#FFFFFFFF"
+                        android:gravity="center">
+
+                        <ImageView
+                            style="@style/pingpp_npc_icon"
+                            android:src="@drawable/password" />
+
+                        <cn.passguard.PassGuardEdit
+                            android:id="@+id/add_credit_threenum"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/y24"
+                            android:layout_weight="1"
+                            android:background="#ffffffff"
+                            android:gravity="center_vertical"
+                            android:hint="卡背面3位数字(如:021)"
+                            android:textColor="#FF0e2026"
+                            android:textSize="@dimen/y16" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/pingpp_add_credit_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/y2"
+                        android:layout_marginLeft="@dimen/x45"
+                        android:background="#ffedf0f2" />
+
+                    <LinearLayout
+                        android:id="@+id/check_box_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/y64"
+                        android:background="#FFFFFFFF"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/check_box"
+                            style="@style/pingpp_npc_icon"
+                            android:src="@drawable/check_box_no_select" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/y21"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:background="#ffffffff"
+                            android:gravity="center_vertical"
+                            android:text="同意《协议》并保留卡信息，支付更便捷"
+                            android:textColor="#FF1f1d19"
+                            android:textSize="@dimen/y14" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <RelativeLayout
+            android:id="@+id/nocard_pay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y64"
+            android:layout_gravity="bottom"
+            android:background="@drawable/pingpp_nocard_btn_pay">
+
+            <TextView
+                android:id="@+id/tv_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="绑 卡"
+                android:textColor="#ffD0D5D9"
+                android:textSize="@dimen/y18" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <include layout="@layout/pingpp_tips_loading" />
+</RelativeLayout>

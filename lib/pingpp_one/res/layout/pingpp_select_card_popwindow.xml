@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/popup_element"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#99000000"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/x28"
+        android:layout_marginRight="@dimen/x28"
+        android:layout_marginTop="@dimen/y100"
+        android:background="@drawable/pingpp_popup_window"
+        android:orientation="vertical">
+
+        <cn.passguard.PassGuardEdit
+            android:id="@+id/passwrod"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_centerVertical="true"
+            android:background="@null" />
+
+        <ImageView
+            android:id="@+id/close"
+            android:layout_width="@dimen/x80"
+            android:layout_height="@dimen/y40"
+            android:scaleType="fitStart"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y24"
+            android:layout_marginTop="@dimen/y30"
+            android:gravity="center"
+            android:text="选择银行卡"
+            android:textColor="#ff999999" />
+
+        <ListView
+            android:id="@+id/card_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/y60"
+            android:divider="@null"></ListView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:layout_below="@+id/card_list"
+            android:layout_marginLeft="@dimen/x14"
+            android:layout_marginRight="@dimen/x14"
+            android:background="#ffedf0f2" />
+
+        <TextView
+            android:id="@+id/add_card"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/y50"
+            android:layout_below="@+id/card_list"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="添加新银行卡支付"
+            android:textColor="#FF0e2026"
+            android:textSize="@dimen/y16" />
+
+    </RelativeLayout>
+</RelativeLayout>

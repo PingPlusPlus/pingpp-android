@@ -1,11 +1,11 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="OneTheme" parent="@android:style/Theme.Light.NoTitleBar">
+    <style name="AppTheme" parent="@android:style/Theme.Black.NoTitleBar">
 
     </style>
 
-    <style name="CustomPayDialog" parent="@style/OneTheme">
+    <style name="CustomPayDialog" parent="@style/AppTheme">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:windowIsFloating">true</item>
@@ -15,5 +15,49 @@
         <item name="@android:windowEnterAnimation">@anim/dialog_enter</item>
         <item name="@android:windowExitAnimation">@anim/dialog_exit</item>
     </style>
+
+    <style name="pingpp_npc_icon">
+        <item name="android:layout_width">@dimen/x20</item>
+        <item name="android:layout_height">@dimen/y20</item>
+        <item name="android:layout_marginLeft">@dimen/x14</item>
+        <item name="android:layout_marginRight">@dimen/x24</item>
+    </style>
+
+    <style name="pingpp_npc_limit">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/y21</item>
+        <item name="android:layout_marginTop">@dimen/y8</item>
+        <item name="android:textSize">@dimen/y14</item>
+        <item name="android:textColor">#484B4D</item>
+    </style>
+
+    <style name="pingpp_npc_verify_code">
+        <item name="android:layout_width">@dimen/x30</item>
+        <item name="android:layout_height">@dimen/y30</item>
+        <item name="android:layout_marginLeft">@dimen/x10</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/y25</item>
+        <item name="android:background">@drawable/pingpp_password_bg</item>
+    </style>
+
+    <style name="pingpp_npc_set_password">
+        <item name="android:layout_width">@dimen/x30</item>
+        <item name="android:layout_height">@dimen/y30</item>
+        <item name="android:layout_marginLeft">@dimen/x10</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/pingpp_password</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="transparentTheme" parent="@android:style/Theme.Black.NoTitleBar">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="popwin_anim_style">
+        <item name="android:windowEnterAnimation">@anim/pingpp_popwindow_anim</item>
+    </style>
+
+    <color name="transparent">#00000000</color>
 
 </resources>

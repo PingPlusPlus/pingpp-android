@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/popup_element"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#99000000"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y200"
+        android:layout_marginLeft="@dimen/y28"
+        android:layout_marginRight="@dimen/y28"
+        android:layout_marginTop="@dimen/y200"
+        android:background="@drawable/pingpp_popup_window"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/pingpp_unbind_request"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/y38"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/y35"
+            android:textStyle="bold"
+            android:textSize="@dimen/y18"
+            android:textColor="#0E2026"
+            android:text="确认解绑****5354 ?" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/y24"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/y85"
+            android:text="解绑后将不能使用此卡进行快捷支付"
+            android:textColor="#ff76858C"
+            android:textSize="@dimen/y16" />
+
+        <LinearLayout
+            android:id="@+id/pingpp_llayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true">
+
+            <TextView
+                android:id="@+id/pingpp_unbind_cancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="取消"
+                android:textSize="@dimen/y18"
+                android:textColor="#1B81FB"
+                android:gravity="center"
+                android:padding="@dimen/y15"/>
+
+            <View
+                android:layout_width="@dimen/x1"
+                android:layout_height="match_parent"
+                android:background="#B0ACAD"
+                ></View>
+
+            <TextView
+                android:id="@+id/pingpp_unbind_confirm"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="@dimen/y18"
+                android:textColor="#1B81FB"
+                android:text="确认"
+                android:padding="@dimen/y15"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
+            android:background="#B0ACAD"
+            android:layout_above="@id/pingpp_llayout"
+            ></View>
+    </RelativeLayout>
+</RelativeLayout>

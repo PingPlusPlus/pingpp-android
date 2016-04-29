@@ -26,9 +26,8 @@
         android:layout_width="wrap_content"
         android:layout_height="@dimen/y25"
         android:layout_marginTop="@dimen/y10"
-        android:text="@string/pingpp_title_activity_pay_sucessed"
+        android:text="@string/pingpp_title_activity_pay_successed"
         android:textSize="@dimen/y18"
-        android:textColor="#ff6bd4aa"
         android:layout_gravity="center"
         />
 
@@ -40,7 +39,6 @@
         android:layout_marginTop="@dimen/y24"
         android:text="￥3.02"
         android:textSize="@dimen/y30"
-        android:textColor="#ff000000"
         android:layout_gravity="center"/>
     </LinearLayout>
 

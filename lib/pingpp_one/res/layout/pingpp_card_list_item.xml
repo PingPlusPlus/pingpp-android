@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff6f8f9">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/pingpp_card_bg">
+
+        <RelativeLayout
+            android:id="@+id/card_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/pingpp_imageView"
+                android:layout_width="@dimen/x24"
+                android:layout_height="@dimen/y24"
+                android:layout_marginLeft="@dimen/x30"
+                android:layout_marginTop="@dimen/y23"
+                android:src="@drawable/zhongguoshangye" />
+
+            <TextView
+                android:id="@+id/pingpp_bankname"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/y21"
+                android:layout_toRightOf="@id/pingpp_imageView"
+                android:text="招商银行|信用卡"
+                android:layout_marginLeft="@dimen/x15"
+                android:layout_marginTop="@dimen/y23"
+                android:textSize="@dimen/y15"
+                android:textColor="#0E2026"
+                />
+
+            <TextView
+                android:id="@+id/pingpp_default_card"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/y21"
+                android:layout_below="@id/pingpp_bankname"
+                android:layout_alignLeft="@id/pingpp_bankname"
+                android:layout_marginTop="@dimen/y5"
+                android:text="默认支付"
+                android:textColor="#A6AEB3"
+                android:textSize="@dimen/y14" />
+
+            <TextView
+                android:id="@+id/item_card_number"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/y24"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="@dimen/y13"
+                android:layout_marginRight="@dimen/x15"
+                android:layout_marginTop="@dimen/y78"
+                android:text="6225 **** **** 5627"
+                android:textColor="#0E2026"
+                android:textSize="@dimen/y17" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

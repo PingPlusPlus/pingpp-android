@@ -1,0 +1,19 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff6f8f9"
+    android:orientation="vertical"
+    tools:context="com.pingplusplus.nocard.activity.ManagerCardActivity">
+
+    <com.pingplusplus.nocard.view.swipelistview.SwipeMenuListView
+        android:id="@+id/card_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@null"
+        android:dividerHeight="@dimen/y10"
+        android:layout_marginTop="@dimen/y10"
+        android:scrollbars="none"></com.pingplusplus.nocard.view.swipelistview.SwipeMenuListView>
+
+</LinearLayout>
