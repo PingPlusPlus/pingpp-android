@@ -221,13 +221,13 @@ Ping++ SDK 为开发者提供了 demo 程序，可以快速体验 Client-SDK 接
 ```
 
 ### 三、获得 Charge
-Charge 对象是一个包含支付信息的 JSON 对象，是 Ping++ SDK 发起支付的必要参数。该参数需要请求用户服务器获得，服务端生成 charge 的方式参考 [Ping++ 官方文档](https://pingxx.com/guidance/server/import)。SDK 中的 demo 里面提供了如何获取 charge 的实例方法，供用户参考。
+Charge 对象是一个包含支付信息的 JSON 对象，是 Ping++ SDK 发起支付的必要参数。该参数需要请求用户服务器获得，服务端生成 charge 的方式参考 [Ping++ 开发指南](https://www.pingxx.com/docs/overview)。SDK 中的 demo 里面提供了如何获取 charge 的实例方法，供用户参考。
 
 ### 四、发起支付
 ``` java
 Pingpp.createPayment(YourActivity.this, data);
 ```
-    
+
 #### 五、获取支付状态
 从 Activity 的 onActivityResult 方法中获得支付结果。支付成功后，用户服务器也会收到ping++ 服务器发送的异步通知。 最终支付成功请根据服务端异步通知为准。
 
@@ -253,7 +253,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 ### 注意事项
 Android 不允许再 UI 线程中进行网络请求，所以请求 charge 对象的时候请使用 thread+handler 或者使用 AsyncTask 。example 里面的示例程序使用的就是 AsyncTask 方式请求 charge 对象。
-    
+
 ### 关于定制
 用户可以根据需求自行定制一个或者多个支付渠道。但是定制 SDK 的时候需要注意以下几点
 - libpingpp-xxxx.jar 这个 jar 包是必须的。
@@ -284,7 +284,7 @@ Android 不允许再 UI 线程中进行网络请求，所以请求 charge 对象
     3. 银联支付依赖：`UPPayAssisEx.jar`、`UPPayPluginExPro.jar`、`android-support-v4.jar`、`pingpp/libs` 目录下的 `.so` 文件和 `pingpp/assets` 目录下的 `data.bin` 文件
     4. 支付宝支付依赖包：`alipayxxxxxxxx.jar`
 - 用户如果选择不使用某种渠道，可以把该渠道相关的 Activity 从 AndroidManifest.xml 删除。
-    
+
 ### 混淆设置
 用户进行 apk 混淆打包的时候，为了不影响 Ping++ SDK 以及渠道 SDK 的使用，请在 proguard-rules 中添加一下混淆规则。
 ```
