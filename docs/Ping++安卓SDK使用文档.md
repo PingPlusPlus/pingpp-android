@@ -13,6 +13,45 @@ Ping++ SDK 为开发者提供了 demo 程序，可以快速体验 Client-SDK 接
 
 #### 导入 Ping++ SDK
 
+#### 在线导入方式
+
+##### Gradle导入方式
+1、在module中的build.gradle中设置
+```
+dependencies {
+	compile 'com.pingxx:pingpp-core:2.1.5' //必须添加
+    compile 'com.pingxx:pingpp-alipay:2.1.5' //使用支付宝时添加
+    compile 'com.pingxx:pingpp-upacp:2.1.5' //使用银联支付时添加
+    compile 'com.pingxx:pingpp-wxpay:2.1.5' //使用微信支付时添加
+    compile 'com.pingxx:pingpp-bfb-sdk:2.1.5' // 使用百付宝时添加
+}
+```
+2、在项目中的build.gradle中添加
+```
+buildscript {
+    repositories {
+        jcenter()
+    }
+}
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+```
+
+##### Maven导入方式
+```
+<dependency>
+  <groupId>com.pingxx</groupId>
+  <artifactId>pingpp-core</artifactId>
+  <version>2.1.5</version>
+  <type>pom</type>
+</dependency>
+```
+
+#### 下载SDK导入方式
+
 ##### Android Studio
 1. 在你的项目里选择 `Import Module...`，Source directory 定位到 `pingpp-android` 目录，也就是 SDK 的根目录。
 2. 取消勾选 `:example`，将 `:lib:pingpp` 和 `:lib:bdwallet_pay_sdk` 导入。

@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        <WebView
+        <com.pingplusplus.android.WebViewEx
             android:id="@+id/pingpp_webView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
