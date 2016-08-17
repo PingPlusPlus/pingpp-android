@@ -35,6 +35,9 @@ captures/
 
 *.iml
 
+.DS_Store
+Thumbs.db
+
 # Output
 lib/pingpp/target
 lib/pingpp/gen
