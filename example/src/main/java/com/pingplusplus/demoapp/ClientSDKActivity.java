@@ -64,6 +64,10 @@ public class ClientSDKActivity extends Activity implements OnClickListener {
      */
     private static final String CHANNEL_WECHAT = "wx";
     /**
+     * 微信支付渠道
+     */
+    private static final String CHANNEL_QPAY = "qpay";
+    /**
      * 支付支付渠道
      */
     private static final String CHANNEL_ALIPAY = "alipay";
@@ -82,7 +86,8 @@ public class ClientSDKActivity extends Activity implements OnClickListener {
     private Button upmpButton;
     private Button bfbButton;
     private Button jdpayButton;
-    
+    private Button qpayButton;
+
     private String currentAmount = "";
 
     @Override
@@ -97,12 +102,14 @@ public class ClientSDKActivity extends Activity implements OnClickListener {
         upmpButton = (Button) findViewById(R.id.upmpButton);
         bfbButton = (Button) findViewById(R.id.bfbButton);
         jdpayButton =(Button) findViewById(R.id.jdpayButton);
-        
+        qpayButton =(Button) findViewById(R.id.qpayButton);
+
         wechatButton.setOnClickListener(ClientSDKActivity.this);
         alipayButton.setOnClickListener(ClientSDKActivity.this);
         upmpButton.setOnClickListener(ClientSDKActivity.this);
         bfbButton.setOnClickListener(ClientSDKActivity.this);
         jdpayButton.setOnClickListener(ClientSDKActivity.this);
+        qpayButton.setOnClickListener(ClientSDKActivity.this);
 
         PingppLog.DEBUG = true;
         
@@ -146,7 +153,7 @@ public class ClientSDKActivity extends Activity implements OnClickListener {
         String cleanString = amountText.toString().replaceAll(replaceable, "");
         int amount = Integer.valueOf(new BigDecimal(cleanString).toString());
 
-        // 支付宝，微信支付，银联，百度钱包 按键的点击响应处理
+        // 支付宝，微信支付，银联，百度钱包，QQ钱包，京东支付 按键的点击响应处理
         if (view.getId() == R.id.upmpButton) {
             new PaymentTask().execute(new PaymentRequest(CHANNEL_UPACP, amount));
         } else if (view.getId() == R.id.alipayButton) {
@@ -157,6 +164,8 @@ public class ClientSDKActivity extends Activity implements OnClickListener {
         	new PaymentTask().execute(new PaymentRequest(CHANNEL_BFB, amount));
         } else if(view.getId() == R.id.jdpayButton){
         	new PaymentTask().execute(new PaymentRequest(CHANNEL_JDPAY_WAP, amount));
+        } else if(view.getId() == R.id.qpayButton){
+            new PaymentTask().execute(new PaymentRequest(CHANNEL_QPAY, amount));
         }
     }
 
@@ -169,6 +178,7 @@ public class ClientSDKActivity extends Activity implements OnClickListener {
             alipayButton.setOnClickListener(null);
             upmpButton.setOnClickListener(null);
             bfbButton.setOnClickListener(null);
+            qpayButton.setOnClickListener(null);
         }
 
         @Override
@@ -196,7 +206,10 @@ public class ClientSDKActivity extends Activity implements OnClickListener {
         		return;
         	}
         	Log.d("charge", data);
-            Pingpp.createPayment(ClientSDKActivity.this, data);
+//            Pingpp.createPayment(ClientSDKActivity.this, data);
+            //QQ钱包调起支付方式  “qwalletXXXXXXX”需与AndroidManifest.xml中的data值一致
+            //建议填写规则:qwallet + APP_ID
+            Pingpp.createPayment(ClientSDKActivity.this, data, "qwalletXXXXXXX");
         }
 
     }
@@ -211,6 +224,7 @@ public class ClientSDKActivity extends Activity implements OnClickListener {
         alipayButton.setOnClickListener(ClientSDKActivity.this);
         upmpButton.setOnClickListener(ClientSDKActivity.this);
         bfbButton.setOnClickListener(ClientSDKActivity.this);
+        qpayButton.setOnClickListener(ClientSDKActivity.this);
 
         //支付页面返回处理
         if (requestCode == Pingpp.REQUEST_CODE_PAYMENT) {

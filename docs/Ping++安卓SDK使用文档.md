@@ -16,7 +16,7 @@ Ping++ SDK 为开发者提供了 demo 程序，可以快速体验 Client-SDK 接
 #### 在线导入方式
 
 ##### Gradle导入方式
-1、在module中的build.gradle中设置
+1、在module中的build.gradle中设置(不包括招行一网通、QQ钱包)
 ```
 dependencies {
 	compile 'com.pingxx:pingpp-core:2.1.5' //必须添加
@@ -116,6 +116,19 @@ allprojects {
 
 <!-- 银联支付 -->
 <activity android:name="com.unionpay.uppay.PayActivity" />
+
+<!-- QPay支付 android:scheme 建议填写规则:qwallet + APP_ID-->
+<activity
+    android:name="com.pingplusplus.android.QPayCallBackActivity"
+    android:exported="true"
+    android:theme="@android:style/Theme.Translucent">
+    <intent-filter>
+        <action android:name="android.intent.action.VIEW"/>
+        <category android:name="android.intent.category.BROWSABLE"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <data android:scheme="qwalletXXXXXXXX"/>
+    </intent-filter>
+</activity>
 
 <!-- 百度钱包 -->
 <activity
@@ -265,6 +278,9 @@ Charge 对象是一个包含支付信息的 JSON 对象，是 Ping++ SDK 发起�
 ### 四、发起支付
 ``` java
 Pingpp.createPayment(YourActivity.this, data);
+//QQ钱包调起支付方式  “qwalletXXXXXXX”需与AndroidManifest.xml中的data值一致
+//建议填写规则:qwallet + APP_ID
+Pingpp.createPayment(YourActivity.this, data, "qwalletXXXXXXX");
 ```
 
 #### 五、获取支付状态
@@ -322,6 +338,7 @@ Android 不允许再 UI 线程中进行网络请求，所以请求 charge 对象
     2. 百度支付依赖：`bdwallet_pay_sdk` 工程
     3. 银联支付依赖：`UPPayAssisEx.jar`、`UPPayPluginExPro.jar`、`android-support-v4.jar`、`pingpp/libs` 目录下的 `.so` 文件和 `pingpp/assets` 目录下的 `data.bin` 文件
     4. 支付宝支付依赖包：`alipayxxxxxxxx.jar`
+    5. QQ钱包依赖包：`mqqopenpay.jar`
 - 用户如果选择不使用某种渠道，可以把该渠道相关的 Activity 从 AndroidManifest.xml 删除。
 
 ### 混淆设置

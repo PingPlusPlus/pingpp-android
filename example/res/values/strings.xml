@@ -5,6 +5,7 @@
     <string name="ok">完成</string>
     <string name="wechat">微信</string>
     <string name="alipay">支付宝</string>
+    <string name="qpay">QQ钱包</string>
     <string name="upmp">银联</string>
     <string name="bfb">百度钱包</string>
     <string name="jdpay">京东支付</string>
