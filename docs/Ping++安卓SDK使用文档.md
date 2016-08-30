@@ -19,11 +19,11 @@ Ping++ SDK 为开发者提供了 demo 程序，可以快速体验 Client-SDK 接
 1、在module中的build.gradle中设置(不包括招行一网通、QQ钱包)
 ```
 dependencies {
-	compile 'com.pingxx:pingpp-core:2.1.5' //必须添加
-    compile 'com.pingxx:pingpp-alipay:2.1.5' //使用支付宝时添加
-    compile 'com.pingxx:pingpp-upacp:2.1.5' //使用银联支付时添加
-    compile 'com.pingxx:pingpp-wxpay:2.1.5' //使用微信支付时添加
-    compile 'com.pingxx:pingpp-bfb-sdk:2.1.5' // 使用百付宝时添加
+	compile 'com.pingxx:pingpp-core:2.1.+' //必须添加
+    compile 'com.pingxx:pingpp-alipay:2.1.+' //使用支付宝时添加
+    compile 'com.pingxx:pingpp-upacp:2.1.+' //使用银联支付时添加
+    compile 'com.pingxx:pingpp-wxpay:2.1.+' //使用微信支付时添加
+    compile 'com.pingxx:pingpp-bfb-sdk:2.1.+' // 使用百付宝时添加
 }
 ```
 2、在项目中的build.gradle中添加
@@ -45,7 +45,7 @@ allprojects {
 <dependency>
   <groupId>com.pingxx</groupId>
   <artifactId>pingpp-core</artifactId>
-  <version>2.1.5</version>
+  <version>2.1.6</version>
   <type>pom</type>
 </dependency>
 ```
@@ -339,6 +339,7 @@ Android 不允许再 UI 线程中进行网络请求，所以请求 charge 对象
     3. 银联支付依赖：`UPPayAssisEx.jar`、`UPPayPluginExPro.jar`、`android-support-v4.jar`、`pingpp/libs` 目录下的 `.so` 文件和 `pingpp/assets` 目录下的 `data.bin` 文件
     4. 支付宝支付依赖包：`alipayxxxxxxxx.jar`
     5. QQ钱包依赖包：`mqqopenpay.jar`
+    6. 招行一网通：`cmbkeyboard.jar`[招行具体配置](招行使用说明.md)
 - 用户如果选择不使用某种渠道，可以把该渠道相关的 Activity 从 AndroidManifest.xml 删除。
 
 ### 混淆设置
