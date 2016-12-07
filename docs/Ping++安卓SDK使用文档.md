@@ -19,12 +19,12 @@ Ping++ SDK 为开发者提供了 demo 程序，可以快速体验 Client-SDK 接
 1、在module中的build.gradle中设置(不包括招行一网通、QQ钱包)
 ```
 dependencies {
-	compile 'com.pingxx:pingpp-core:2.1.+' //必须添加
-    compile 'com.pingxx:pingpp-alipay:2.1.+' //使用支付宝时添加
-    compile 'com.pingxx:pingpp-upacp:2.1.+' //使用银联支付时添加
-    compile 'com.pingxx:pingpp-wxpay:2.1.+' //使用微信支付时添加
-    compile 'com.pingxx:pingpp-bfb-sdk:2.1.+' // 使用百付宝时添加
-    compile 'com.pingxx:pingpp-qpay:2.1.+' //使用QQ钱包时添加
+	compile 'com.pingxx:pingpp-core:2.1.7' //必须添加
+    compile 'com.pingxx:pingpp-alipay:2.1.7' //使用支付宝时添加
+    compile 'com.pingxx:pingpp-upacp:2.1.7' //使用银联支付时添加
+    compile 'com.pingxx:pingpp-wxpay:2.1.7' //使用微信支付时添加
+    compile 'com.pingxx:pingpp-bfb-sdk:2.1.7' // 使用百付宝时添加
+    compile 'com.pingxx:pingpp-qpay:2.1.7' //使用QQ钱包时添加
 }
 ```
 2、在项目中的build.gradle中添加
@@ -46,7 +46,7 @@ allprojects {
 <dependency>
   <groupId>com.pingxx</groupId>
   <artifactId>pingpp-core</artifactId>
-  <version>2.1.6</version>
+  <version>2.1.7</version>
   <type>pom</type>
 </dependency>
 ```
@@ -93,7 +93,18 @@ allprojects {
     android:name="com.pingplusplus.android.PaymentActivity"
     android:configChanges="orientation|screenSize"
     android:launchMode="singleTop"
-    android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+
+    <intent-filter>
+        <action android:name="android.intent.action.VIEW"/>
+
+        <category android:name="android.intent.category.BROWSABLE"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+
+        <data android:scheme="qwalletXXXXXXXX"/>
+    </intent-filter>
+
+</activity>
 
 <!-- 微信支付 -->
 <activity-alias
@@ -118,18 +129,6 @@ allprojects {
 <!-- 银联支付 -->
 <activity android:name="com.unionpay.uppay.PayActivity" />
 
-<!-- QPay支付 android:scheme 建议填写规则:qwallet + APP_ID-->
-<activity
-    android:name="com.pingplusplus.android.QPayCallBackActivity"
-    android:exported="true"
-    android:theme="@android:style/Theme.Translucent">
-    <intent-filter>
-        <action android:name="android.intent.action.VIEW"/>
-        <category android:name="android.intent.category.BROWSABLE"/>
-        <category android:name="android.intent.category.DEFAULT"/>
-        <data android:scheme="qwalletXXXXXXXX"/>
-    </intent-filter>
-</activity>
 
 <!-- 百度钱包 -->
 <activity
