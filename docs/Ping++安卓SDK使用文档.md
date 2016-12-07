@@ -16,7 +16,7 @@ Ping++ SDK 为开发者提供了 demo 程序，可以快速体验 Client-SDK 接
 #### 在线导入方式
 
 ##### Gradle导入方式
-1、在module中的build.gradle中设置(不包括招行一网通、QQ钱包)
+1、在module中的build.gradle中设置
 ```
 dependencies {
 	compile 'com.pingxx:pingpp-core:2.1.7' //必须添加
