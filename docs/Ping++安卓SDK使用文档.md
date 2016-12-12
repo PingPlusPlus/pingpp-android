@@ -272,11 +272,12 @@ allprojects {
     android:windowSoftInputMode="stateHidden" />
 ```
 
-### 三、获得 Charge
-Charge 对象是一个包含支付信息的 JSON 对象，是 Ping++ SDK 发起支付的必要参数。该参数需要请求用户服务器获得，服务端生成 charge 的方式参考 [Ping++ 开发指南](https://www.pingxx.com/docs/overview)。SDK 中的 demo 里面提供了如何获取 charge 的实例方法，供用户参考。
+### 三、获得 Charge/Order
+Charge/Order 对象是一个包含支付信息的 JSON 对象，是 Ping++ SDK 发起支付的必要参数。该参数需要请求用户服务器获得，服务端生成 charge 的方式参考 [Ping++ 开发指南](https://www.pingxx.com/docs/overview)。SDK 中的 demo 里面提供了如何获取 charge 的实例方法，供用户参考。
 
 ### 四、发起支付
 ``` java
+//data:表示charge或者order的字符串
 Pingpp.createPayment(YourActivity.this, data);
 //QQ钱包调起支付方式  “qwalletXXXXXXX”需与AndroidManifest.xml中的data值一致
 //建议填写规则:qwallet + APP_ID
@@ -375,5 +376,5 @@ Android 不允许再 UI 线程中进行网络请求，所以请求 charge 对象
 SDK 提供了日志功能，默认日志为关闭状态。
 开发者可以通过下面设置打开日志开关。通过 `PING++` 来对日志进行筛选。
 ``` java
-PingppLog.DEBUG = true;
+Pingpp.enableDebugLog(true);
 ```

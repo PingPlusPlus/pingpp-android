@@ -111,7 +111,7 @@ public class ClientSDKActivity extends Activity implements OnClickListener {
         jdpayButton.setOnClickListener(ClientSDKActivity.this);
         qpayButton.setOnClickListener(ClientSDKActivity.this);
 
-        PingppLog.DEBUG = true;
+        Pingpp.enableDebugLog(true);
         
         amountEditText.addTextChangedListener(new TextWatcher() {
             @Override
