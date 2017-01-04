@@ -216,12 +216,10 @@
         <activity
             android:name="com.pingplusplus.libone.PayActivity"
             android:configChanges="orientation|screenSize"
-            android:theme="@android:style/Theme.Translucent"
-            android:label="@string/pingpp_title_activity_pay"/>
+            android:theme="@android:style/Theme.Translucent"/>
         <activity
             android:name="com.pingplusplus.libone.PaySuccessActivity"
-            android:configChanges="orientation|screenSize"
-            android:label="@string/pingpp_title_activity_pay_sucessed"/>
+            android:configChanges="orientation|screenSize"/>
 
     </application>
 

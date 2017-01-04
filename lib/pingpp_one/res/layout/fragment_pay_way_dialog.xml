@@ -1,17 +1,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/x360"
-    android:orientation="vertical"
-    tools:context="com.pingpp.onedemo.PayDialogFragment">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <ListView
         android:id="@+id/lv_pay_channel"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/y380"
+        android:layout_height="wrap_content"
         android:divider="#d3d3d3"
         android:dividerHeight="1dp"
         android:scrollbars="none"
-        android:background="#ffffffff"/>
+        android:background="#ffffffff"></ListView>
 
 </LinearLayout>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:wheel="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
@@ -8,8 +7,8 @@
 
     <com.pingplusplus.libone.ProgressWheel
         android:id="@+id/pingpp_pay_progress"
-        android:layout_width="@dimen/x80"
-        android:layout_height="@dimen/y80"
-        android:background="@drawable/tips_bg"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="#55000000"
         android:layout_centerHorizontal="true"/>
 </LinearLayout>
