@@ -298,6 +298,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
              * "fail"    - 支付失败
              * "cancel"  - 取消支付
              * "invalid" - 支付插件未安装（一般是微信客户端未安装的情况）
+             * "unknown" - app进程异常被杀死(一般是低内存状态下,app进程被杀死)
              */
             String errorMsg = data.getExtras().getString("error_msg"); // 错误信息
             String extraMsg = data.getExtras().getString("extra_msg"); // 错误信息
