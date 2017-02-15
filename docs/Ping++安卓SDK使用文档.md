@@ -91,16 +91,15 @@ allprojects {
 <!-- Ping++ SDK -->
 <activity
     android:name="com.pingplusplus.android.PaymentActivity"
-    android:configChanges="orientation|screenSize"
+    android:configChanges="orientation|keyboardHidden|navigation|screenSize"
     android:launchMode="singleTop"
     android:theme="@android:style/Theme.Translucent.NoTitleBar" >
 
+    <!-- 不使用QQ钱包,可删除以下代码 -->
     <intent-filter>
         <action android:name="android.intent.action.VIEW"/>
-
         <category android:name="android.intent.category.BROWSABLE"/>
         <category android:name="android.intent.category.DEFAULT"/>
-
         <data android:scheme="qwalletXXXXXXXX"/>
     </intent-filter>
 
@@ -115,20 +114,27 @@ allprojects {
 <!-- 支付宝 -->
 <activity
     android:name="com.alipay.sdk.app.H5PayActivity"
-    android:configChanges="orientation|keyboardHidden|navigation"
+    android:configChanges="orientation|keyboardHidden|navigation|screenSize"
     android:exported="false"
     android:screenOrientation="behind" >
 </activity>
 <activity
     android:name="com.alipay.sdk.auth.AuthActivity"
-    android:configChanges="orientation|keyboardHidden|navigation"
+    android:configChanges="orientation|keyboardHidden|navigation|screenSize" 
     android:exported="false"
     android:screenOrientation="behind" >
 </activity>
 
 <!-- 银联支付 -->
-<activity android:name="com.unionpay.uppay.PayActivity" />
-
+<activity 
+    android:name="com.unionpay.uppay.PayActivity" 
+    android:configChanges="orientation|keyboardHidden|navigation|screenSize"/>
+    
+<!-- 招行一网通 -->
+<service android:name="cmb.pb.cmbsafe.CmbService" android:exported="false"/>
+<activity
+         android:name="cmb.pb.ui.PBKeyboardActivity"
+         android:theme="@style/CmbDialogStyleBottom" />
 
 <!-- 百度钱包 -->
 <activity
@@ -277,9 +283,10 @@ Charge/Order 对象是一个包含支付信息的 JSON 对象，是 Ping++ SDK �
 
 ### 四、发起支付
 ``` java
-//data:表示charge或者order的字符串
+//方法一：data:表示charge或者order的字符串
 Pingpp.createPayment(YourActivity.this, data);
-//QQ钱包调起支付方式  “qwalletXXXXXXX”需与AndroidManifest.xml中的data值一致
+//方法二：QQ钱包调起支付的方式
+//“qwalletXXXXXXX”需与AndroidManifest.xml中的data值一致
 //建议填写规则:qwallet + APP_ID
 Pingpp.createPayment(YourActivity.this, data, "qwalletXXXXXXX");
 ```
@@ -309,7 +316,14 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 ```
 
 ### 注意事项
-Android 不允许再 UI 线程中进行网络请求，所以请求 charge 对象的时候请使用 thread+handler 或者使用 AsyncTask 。example 里面的示例程序使用的就是 AsyncTask 方式请求 charge 对象。
+- Android 不允许再 UI 线程中进行网络请求，所以请求 charge 对象的时候请使用 thread+handler 或者使用 AsyncTask 。example 里面的示例程序使用的就是 AsyncTask 方式请求 charge 对象。
+- 使用招行一网通需配置cmbkb_publickey字段(配置方法如下)
+    - 方法一: 在自己项目中res/values/string.xml下配置该字段
+    - 方法二: 在pingpp/res/values/cmbkb_strings.xml下替换该字段
+    
+    ```xml
+    <string name="cmbkb_publickey">填写自己的publickey</string>
+    ```
 
 ### 关于定制
 用户可以根据需求自行定制一个或者多个支付渠道。但是定制 SDK 的时候需要注意以下几点
@@ -346,7 +360,8 @@ Android 不允许再 UI 线程中进行网络请求，所以请求 charge 对象
 
 ### 混淆设置
 用户进行 apk 混淆打包的时候，为了不影响 Ping++ SDK 以及渠道 SDK 的使用，请在 proguard-rules 中添加一下混淆规则。
-```
+
+```java
 -dontwarn com.alipay.**
 -keep class com.alipay.** {*;}
 
@@ -376,6 +391,9 @@ Android 不允许再 UI 线程中进行网络请求，所以请求 charge 对象
 ### 日志开关
 SDK 提供了日志功能，默认日志为关闭状态。
 开发者可以通过下面设置打开日志开关。通过 `PING++` 来对日志进行筛选。
+
 ``` java
 Pingpp.enableDebugLog(true);
 ```
+
+

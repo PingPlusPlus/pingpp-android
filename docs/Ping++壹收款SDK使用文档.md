@@ -11,11 +11,11 @@ __这里仅指出与标准 SDK 不同的地方__
 <!-- 壹收款 -->
 <activity
     android:name="com.pingplusplus.libone.PayActivity"
-    android:configChanges="orientation|screenSize"
+    android:configChanges="orientation|keyboardHidden|navigation|screenSize"
     android:theme="@android:style/Theme.Translucent"/>
 <activity
     android:name="com.pingplusplus.libone.PaySuccessActivity"
-    android:configChanges="orientation|screenSize"/>
+    android:configChanges="orientation|keyboardHidden|navigation|screenSize"/>
 ```
 
 ### 设置支付渠道及参数
@@ -32,7 +32,7 @@ PingppOne.CONTENT_TYPE = "application/json"; // JSON 格式
 
 ### 调用支付接口
 ``` java
-PingppOne.showPaymentChannels(activity, bill.toString(), null, SERVER_CHARGE_URL, new PaymentHandler() {
+PingppOne.showPaymentChannels(activity, bill.toString(), SERVER_CHARGE_URL, new PaymentHandler() {
     /**
      * 返回支付结果
      * @param data
@@ -51,3 +51,4 @@ PingppOne.showPaymentChannels(activity, bill.toString(), null, SERVER_CHARGE_URL
     }
 });
 ```
+
