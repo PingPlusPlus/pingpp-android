@@ -19,12 +19,12 @@ Ping++ SDK 为开发者提供了 demo 程序，可以快速体验 Client-SDK 接
 1、在module中的build.gradle中设置
 ```
 dependencies {
-	compile 'com.pingxx:pingpp-core:2.1.8' //必须添加
-    compile 'com.pingxx:pingpp-alipay:2.1.8' //使用支付宝时添加
-    compile 'com.pingxx:pingpp-upacp:2.1.8' //使用银联支付时添加
-    compile 'com.pingxx:pingpp-wxpay:2.1.8' //使用微信支付时添加
-    compile 'com.pingxx:pingpp-bfb-sdk:2.1.8' // 使用百付宝时添加
-    compile 'com.pingxx:pingpp-qpay:2.1.8' //使用QQ钱包时添加
+	compile 'com.pingxx:pingpp-core:2.1.9' //必须添加
+    compile 'com.pingxx:pingpp-alipay:2.1.9' //使用支付宝时添加
+    compile 'com.pingxx:pingpp-upacp:2.1.9' //使用银联支付时添加
+    compile 'com.pingxx:pingpp-wxpay:2.1.9' //使用微信支付时添加
+    compile 'com.pingxx:pingpp-bfb-sdk:2.1.9' // 使用百付宝时添加
+    compile 'com.pingxx:pingpp-qpay:2.1.9' //使用QQ钱包时添加
 }
 ```
 2、在项目中的build.gradle中添加
@@ -46,7 +46,7 @@ allprojects {
 <dependency>
   <groupId>com.pingxx</groupId>
   <artifactId>pingpp-core</artifactId>
-  <version>2.1.8</version>
+  <version>2.1.9</version>
   <type>pom</type>
 </dependency>
 ```
