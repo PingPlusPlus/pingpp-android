@@ -32,23 +32,29 @@ PingppOne.CONTENT_TYPE = "application/json"; // JSON 格式
 
 ### 调用支付接口
 ``` java
-PingppOne.showPaymentChannels(activity, bill.toString(), SERVER_CHARGE_URL, new PaymentHandler() {
-    /**
-     * 返回支付结果
-     * @param data
-     */
-    @Override
-    public void handlePaymentResult(Intent data) {
-        if (data != null) {
+PingppOne.showPaymentChannels(
+            activity,  // 当前页面
+            // 获取charge参数字符串
+            //{"order_no":"123456789", "amount":10, "custom_params":{"extra1":"extra1"}}
+            bill.toString(), 
+            SERVER_CHARGE_URL, // 获取charge的URL
+            new PaymentHandler() { // 结果回调接口
             /**
-             * code：支付结果码  -2:服务端错误、 -1：失败、 0：取消、1：成功
-             * result：支付结果信息
+             * 返回支付结果
+             * @param data
              */
-            int code = data.getExtras().getInt("code");
-            String result = data.getExtras().getString("result");
-
-        }
-    }
+            @Override
+            public void handlePaymentResult(Intent data) {
+                if (data != null) {
+                    /**
+                     * code：支付结果码  -2:服务端错误、 -1：失败、 0：取消、1：成功
+                     * result：支付结果信息
+                     */
+                    int code = data.getExtras().getInt("code");
+                    String result = data.getExtras().getString("result");
+        
+                }
+            }
 });
 ```
 

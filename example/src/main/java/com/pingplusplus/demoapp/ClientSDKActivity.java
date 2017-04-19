@@ -1,8 +1,12 @@
 package com.pingplusplus.demoapp;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 
+import java.io.InputStreamReader;
 import java.math.BigDecimal;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -20,14 +24,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.google.gson.Gson;
 import com.pingplusplus.android.Pingpp;
-import com.pingplusplus.android.PingppLog;
-import com.squareup.okhttp.MediaType;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.RequestBody;
-import com.squareup.okhttp.Response;
+import org.json.JSONObject;
 
 /**
  * 
@@ -53,7 +51,7 @@ public class ClientSDKActivity extends Activity implements OnClickListener {
 	 * 该 url 仅能调用【模拟支付控件】，开发者需要改为自己服务端的 url 。
 	 */
     private static String YOUR_URL ="http://218.244.151.190/demo/charge";
-    public static final String URL = YOUR_URL;
+    public static final String CHARGE_URL = YOUR_URL;
     
     /**
      * 银联支付渠道
@@ -111,7 +109,7 @@ public class ClientSDKActivity extends Activity implements OnClickListener {
         jdpayButton.setOnClickListener(ClientSDKActivity.this);
         qpayButton.setOnClickListener(ClientSDKActivity.this);
 
-        Pingpp.enableDebugLog(true);
+        Pingpp.DEBUG = true;
         
         amountEditText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -186,10 +184,13 @@ public class ClientSDKActivity extends Activity implements OnClickListener {
 
             PaymentRequest paymentRequest = pr[0];
             String data = null;
-            String json = new Gson().toJson(paymentRequest);
             try {
+                JSONObject object = new JSONObject();
+                object.put("channel", paymentRequest.channel);
+                object.put("amount", paymentRequest.amount);
+                String json = object.toString();
                 //向Your Ping++ Server SDK请求数据
-                data = postJson(URL, json);
+                data = postJson(CHARGE_URL, json);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -206,10 +207,17 @@ public class ClientSDKActivity extends Activity implements OnClickListener {
         		return;
         	}
         	Log.d("charge", data);
-//            Pingpp.createPayment(ClientSDKActivity.this, data);
-            //QQ钱包调起支付方式  “qwalletXXXXXXX”需与AndroidManifest.xml中的data值一致
-            //建议填写规则:qwallet + APP_ID
-            Pingpp.createPayment(ClientSDKActivity.this, data, "qwalletXXXXXXX");
+
+            //除QQ钱包外，其他渠道调起支付方式：
+            //参数一：Activity  当前调起支付的Activity
+            //参数二：data  获取到的charge或order的JSON字符串
+            Pingpp.createPayment(ClientSDKActivity.this, data);
+
+            //QQ钱包调用方式
+            //参数一：Activity  当前调起支付的Activity
+            //参数二：data  获取到的charge或order的JSON字符串
+            //参数三：“qwalletXXXXXXX”需与AndroidManifest.xml中的scheme值一致
+            //Pingpp.createPayment(ClientSDKActivity.this, data, "qwalletXXXXXXX");
         }
 
     }
@@ -258,15 +266,35 @@ public class ClientSDKActivity extends Activity implements OnClickListener {
     	builder.create().show();
     }
 
-    private static String postJson(String url, String json) throws IOException {
-        MediaType type = MediaType.parse("application/json; charset=utf-8");
-        RequestBody body = RequestBody.create(type, json);
-        Request request = new Request.Builder().url(url).post(body).build();
+    /**
+     * 获取charge
+     * @param urlStr charge_url
+     * @param json 获取charge的传参
+     * @return charge
+     * @throws IOException
+     */
+    private static String postJson(String urlStr, String json) throws IOException {
+        URL url = new URL(urlStr);
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        conn.setConnectTimeout(8000);
+        conn.setReadTimeout(8000);
+        conn.setRequestMethod("POST");
+        conn.setRequestProperty("Content-Type","application/json");
+        conn.setDoOutput(true);
+        conn.setDoInput(true);
+        conn.getOutputStream().write(json.getBytes());
 
-        OkHttpClient client = new OkHttpClient();
-        Response response = client.newCall(request).execute();
-
-        return response.body().string();
+        if(conn.getResponseCode() == 200) {
+            BufferedReader
+                reader = new BufferedReader(new InputStreamReader(conn.getInputStream(), "utf-8"));
+            StringBuilder response = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                response.append(line);
+            }
+            return response.toString();
+        }
+        return null;
     }
 
     class PaymentRequest {
