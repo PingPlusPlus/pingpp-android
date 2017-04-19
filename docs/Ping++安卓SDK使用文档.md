@@ -79,8 +79,7 @@ dependencies {
 
 - 微信支付需要注册
     <font color='red'> 注：
-    1. 需要将以下"替换成自己APK的包名"换成在微信平台上注册填写的包名 </font>
-    <font color='red'> 
+    1. 需要将以下"替换成自己APK的包名"换成在微信平台上注册填写的包名
     2. WxPayEntryActivity这个类在SDK内部实现，开发者不需要额外实现该类
     </font>
 
