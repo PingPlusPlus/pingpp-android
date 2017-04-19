@@ -2,8 +2,8 @@ Pingpp Android SDK
 ============
 
 ## 简介
-lib 目录包含两个 Library Project：`pingpp` 和 `bdwallet_pay_sdk`。  
-可以直接将两个 Library Project 作为依赖库，导入到你的项目。支持 Android Studio（建议）和 Eclipse。  
+lib 目录包含三个 Library Project：`pingpp`、`pingpp_one` 和 `bdwallet_pay_sdk`。  
+可以直接将三个 Library Project 作为依赖库，导入到你的项目。支持 Android Studio（建议）和 Eclipse。  
 example 文件夹里面是一个简单的接入示例，该示例仅供参考。想使用该示例，请直接将本仓库导入。  
 docs 目录里面是 Android SDK 的接入指南。
 
