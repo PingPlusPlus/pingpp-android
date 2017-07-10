@@ -52,6 +52,7 @@ public class ClientSDKActivity extends Activity implements OnClickListener {
 	 */
     private static String YOUR_URL ="http://218.244.151.190/demo/charge";
     public static final String CHARGE_URL = YOUR_URL;
+    public static final boolean LIVEMODE = false;
     
     /**
      * 银联支付渠道
@@ -62,17 +63,17 @@ public class ClientSDKActivity extends Activity implements OnClickListener {
      */
     private static final String CHANNEL_WECHAT = "wx";
     /**
-     * 微信支付渠道
+     * QQ钱包支付渠道
      */
     private static final String CHANNEL_QPAY = "qpay";
     /**
-     * 支付支付渠道
+     * 支付宝支付渠道
      */
     private static final String CHANNEL_ALIPAY = "alipay";
     /**
      * 百度支付渠道
      */
-    private static final String CHANNEL_BFB = "bfb";
+    private static final String CHANNEL_BFB = "bfb_wap";
     /**
      * 京东支付渠道
      */
@@ -159,9 +160,9 @@ public class ClientSDKActivity extends Activity implements OnClickListener {
         } else if (view.getId() == R.id.wechatButton) {
             new PaymentTask().execute(new PaymentRequest(CHANNEL_WECHAT, amount));
         } else if (view.getId() == R.id.bfbButton) {
-        	new PaymentTask().execute(new PaymentRequest(CHANNEL_BFB, amount));
+        	  new PaymentTask().execute(new PaymentRequest(CHANNEL_BFB, amount));
         } else if(view.getId() == R.id.jdpayButton){
-        	new PaymentTask().execute(new PaymentRequest(CHANNEL_JDPAY_WAP, amount));
+        	  new PaymentTask().execute(new PaymentRequest(CHANNEL_JDPAY_WAP, amount));
         } else if(view.getId() == R.id.qpayButton){
             new PaymentTask().execute(new PaymentRequest(CHANNEL_QPAY, amount));
         }
@@ -188,6 +189,7 @@ public class ClientSDKActivity extends Activity implements OnClickListener {
                 JSONObject object = new JSONObject();
                 object.put("channel", paymentRequest.channel);
                 object.put("amount", paymentRequest.amount);
+                object.put("livemode", paymentRequest.livemode);
                 String json = object.toString();
                 //向Your Ping++ Server SDK请求数据
                 data = postJson(CHARGE_URL, json);
@@ -300,10 +302,12 @@ public class ClientSDKActivity extends Activity implements OnClickListener {
     class PaymentRequest {
         String channel;
         int amount;
+        boolean livemode;
 
         public PaymentRequest(String channel, int amount) {
             this.channel = channel;
             this.amount = amount;
+            this.livemode = LIVEMODE;
         }
     }
 }

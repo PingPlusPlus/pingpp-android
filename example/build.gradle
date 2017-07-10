@@ -36,6 +36,5 @@ dependencies {
     compile project(':lib:pingpp')
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':lib:pingpp_one')
-    compile project(':lib:bdwallet_pay_sdk')
     provided files('libs/org.simalliance.openmobileapi.jar')
 }

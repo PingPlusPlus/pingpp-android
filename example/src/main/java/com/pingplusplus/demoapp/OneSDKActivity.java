@@ -56,7 +56,7 @@ public class OneSDKActivity extends FragmentActivity
     });
 
     //设置需要使用的支付方式
-    PingppOne.enableChannels(new String[] { "wx", "alipay", "upacp", "bfb", "jdpay_wap" });
+    PingppOne.enableChannels(new String[] { "wx", "alipay", "upacp", "bfb_wap", "jdpay_wap" });
 
     // 提交数据的格式，默认格式为json
     // PingppOne.CONTENT_TYPE = "application/x-www-form-urlencoded";
@@ -99,7 +99,7 @@ public class OneSDKActivity extends FragmentActivity
     try {
       bill.put("order_no", orderNo);
       bill.put("amount", amount);
-      bill.put("extras", extras);
+      bill.put("custom_params", extras);
     } catch (JSONException e) {
       e.printStackTrace();
     }
