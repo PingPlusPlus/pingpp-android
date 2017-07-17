@@ -41,7 +41,7 @@ dependencies {
 * 支付宝依赖包：alipayxxxxxxxx.jar
 * 银联支付依赖包：UPPayAssisEx.jar、UPPayPluginExPro.jar、assets下data.bin文件和libentryexpro.so、libuptsmaddon.so文件
 * QQ钱包依赖包：mqqopenpay.jar
-* 招行一网通：cmbkeyboard.jar和res下cmb开头的资源文件
+* 招行一网通(混淆加密方式可不配置相关的参数,非混淆加密方式需配置)：cmbkeyboard.jar和res下cmb开头的资源文件
 
 将需要集成的渠道拷贝相应的文件到项目中
 
@@ -138,7 +138,7 @@ dependencies {
 </activity>
 ```
 
-- 招行一网通需注册
+- 招行一网通(非混淆加密方式)需注册
 
 ```xml
 <service android:name="cmb.pb.cmbsafe.CmbService" android:exported="false"/>
@@ -147,7 +147,7 @@ dependencies {
          android:theme="@style/CmbDialogStyleBottom" />
 ```
 
-(<font color='red'>招行一网通：需在string.xml中配置cmbkb_publickey字段，如：</font>)
+(<font color='red'>招行一网通在非混淆加密方式下：需在string.xml中配置cmbkb_publickey字段，如：</font>)
 
 ```xml
 <string name="cmbkb_publickey">填写自己的publickey</string>
