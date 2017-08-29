@@ -20,14 +20,23 @@ __这里仅指出与标准 SDK 不同的地方__
 
 ### 设置支付渠道及参数
 设置要使用的支付方式
+
 ``` java
 PingppOne.enableChannels(new String[]{"wx", "alipay", "upacp"});
 ```
 
 提交数据的格式，默认格式为json
+
 ``` java
 // PingppOne.CONTENT_TYPE = "application/x-www-form-urlencoded"; // form 表单格式
 PingppOne.CONTENT_TYPE = "application/json"; // JSON 格式
+```
+
+### 使用花呗分期入口
+
+``` java
+// 是否显示花呗：参数一：true：显示  false：不显示  参数二：渠道位置
+PingppOne.enableHuaBei(true, 2);
 ```
 
 ### 调用支付接口
