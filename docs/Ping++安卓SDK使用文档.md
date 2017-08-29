@@ -24,12 +24,12 @@ Android 中集成 Ping++ SDK
 
 ```java
 dependencies {
-   compile 'com.pingxx:pingpp-core:2.1.11' // 必须添加
+   compile 'com.pingxx:pingpp-core:2.1.12' // 必须添加
    compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+' // 使用微信支付时添加,具体版本参考微信官方文档
-   compile 'com.pingxx:pingpp-alipay:2.1.11' // 使用支付宝时添加
-   compile 'com.pingxx:pingpp-upacp:2.1.11' // 使用银联支付时添加
-   compile 'com.pingxx:pingpp-qpay:2.1.11' // 使用QQ钱包时添加
-   compile 'com.pingxx:pingpp-cmbwallet:2.1.11' // 使用招行一网通时添加
+   compile 'com.pingxx:pingpp-alipay:2.1.12' // 使用支付宝时添加
+   compile 'com.pingxx:pingpp-upacp:2.1.12' // 使用银联支付时添加
+   compile 'com.pingxx:pingpp-qpay:2.1.12' // 使用QQ钱包时添加
+   compile 'com.pingxx:pingpp-cmbwallet:2.1.12' // 使用招行一网通时添加
 }
 ```
 
