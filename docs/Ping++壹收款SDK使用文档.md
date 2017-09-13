@@ -32,11 +32,12 @@ PingppOne.enableChannels(new String[]{"wx", "alipay", "upacp"});
 PingppOne.CONTENT_TYPE = "application/json"; // JSON 格式
 ```
 
-### 使用花呗分期入口
+### 增加扩展渠道入口（如：花呗分期）
 
 ``` java
-// 是否显示花呗：参数一：true：显示  false：不显示  参数二：渠道位置
-PingppOne.enableHuaBei(true, 2);
+// 增加额外渠道：参数一：渠道  参数二：渠道位置
+PingppOne.enableExtraChannel(ExtraChannel.HUABEI, 2);
+// 使用扩展渠道, 在 custom_params 参数中增加字段, 以便服务端判断. 如花呗分期会增加 installment: true 的字段
 ```
 
 ### 调用支付接口
