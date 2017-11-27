@@ -24,12 +24,12 @@ Android 中集成 Ping++ SDK
 
 ```java
 dependencies {
-   compile 'com.pingxx:pingpp-core:2.1.14' // 必须添加
+   compile 'com.pingxx:pingpp-core:2.1.15' // 必须添加
    compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+' // 使用微信支付时添加,具体版本参考微信官方文档
-   compile 'com.pingxx:pingpp-alipay:2.1.14' // 使用支付宝时添加
-   compile 'com.pingxx:pingpp-upacp:2.1.14' // 使用银联支付时添加
-   compile 'com.pingxx:pingpp-qpay:2.1.14' // 使用QQ钱包时添加
-   compile 'com.pingxx:pingpp-cmbwallet:2.1.14' // 使用招行一网通时添加
+   compile 'com.pingxx:pingpp-alipay:2.1.15' // 使用支付宝时添加
+   compile 'com.pingxx:pingpp-upacp:2.1.15' // 使用银联支付时添加
+   compile 'com.pingxx:pingpp-qpay:2.1.15' // 使用QQ钱包时添加
+   compile 'com.pingxx:pingpp-cmbwallet:2.1.15' // 使用招行一网通时添加
 }
 ```
 
@@ -107,6 +107,11 @@ dependencies {
 <activity 
     android:name="com.unionpay.uppay.PayActivity" 
     android:configChanges="orientation|keyboardHidden|navigation|screenSize"/>
+<activity
+    android:name="com.unionpay.UPPayWapActivity"
+    android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+    android:screenOrientation="portrait"
+    android:windowSoftInputMode="adjustResize"/>
 ```
 
 - QQ钱包需注册(scheme填写规则建议：qwallet + QQ钱包中的app_id)
