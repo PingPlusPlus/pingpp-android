@@ -1,10 +1,8 @@
 ## Ping++ Android 壹收款 SDK 相关文档
 
-__这里仅指出与标准 SDK 不同的地方__
+__使用壹收款之前，需要先接入配置[标准 SDK](https://github.com/PingPlusPlus/pingpp-android/blob/master/docs/Ping%2B%2B%E5%AE%89%E5%8D%93SDK%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3.md)__
 
-### 项目配置
-##### 权限声明
-与标准 SDK 相同
+### 壹收款配置
 
 ##### 注册 activity
 ``` xml

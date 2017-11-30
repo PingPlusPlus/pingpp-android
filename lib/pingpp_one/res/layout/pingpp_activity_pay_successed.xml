@@ -1,9 +1,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pingpp_linear_success"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffffff"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="42dp"
         android:layout_marginTop="24dp"
-        android:text="￥3.02"
+        android:text="￥0.00"
         android:textSize="30sp"
         android:layout_gravity="center"/>
     </LinearLayout>
@@ -49,21 +49,11 @@
         android:layout_marginRight="30dp"
         android:layout_marginLeft="30dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="62dp"
+        android:layout_marginBottom="130dp"
         android:background="@drawable/pingpp_common_pay_button_green"
         android:text="@string/pingpp_pay_complete"
         android:textColor="#ffffffff"
         android:textSize="15sp"
         android:layout_gravity="bottom"/>
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="27dp"
-        android:text="@string/pingpp_copyright"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#ffc8c8c8"
-        android:layout_gravity="center_horizontal|bottom"/>
 
 </LinearLayout>
