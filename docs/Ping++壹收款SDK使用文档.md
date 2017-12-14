@@ -4,6 +4,9 @@ __使用壹收款之前，需要先接入配置[标准 SDK](https://github.com/P
 
 ### 壹收款配置
 
+##### 导入依赖包
+导入 libs 文件夹下的 pingpp_one 库, 作为 Library Module 依赖到项目中
+
 ##### 注册 activity
 ``` xml
 <!-- 壹收款 -->
