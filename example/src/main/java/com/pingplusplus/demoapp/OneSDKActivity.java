@@ -1,5 +1,8 @@
 package com.pingplusplus.demoapp;
 
+import com.pingplusplus.android.Pingpp;
+import com.pingplusplus.ui.PaymentHandler;
+import com.pingplusplus.ui.PingppUI;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,10 +20,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import com.pingplusplus.android.PingppLog;
-import com.pingplusplus.libone.PaymentHandler;
-import com.pingplusplus.libone.PingppOne;
 
 public class OneSDKActivity extends FragmentActivity
     implements OnClickListener {
@@ -56,13 +55,9 @@ public class OneSDKActivity extends FragmentActivity
     });
 
     //设置需要使用的支付方式
-    PingppOne.enableChannels(new String[] { "wx", "alipay", "upacp", "bfb_wap", "jdpay_wap" });
+    PingppUI.enableChannels(new String[] { "wx", "alipay", "upacp", "bfb_wap", "jdpay_wap" });
 
-    // 提交数据的格式，默认格式为json
-    // PingppOne.CONTENT_TYPE = "application/x-www-form-urlencoded";
-    PingppOne.CONTENT_TYPE = "application/json";
-
-    PingppLog.DEBUG = true;
+    Pingpp.DEBUG = true;
   }
 
   private void calculate() {
@@ -104,8 +99,8 @@ public class OneSDKActivity extends FragmentActivity
       e.printStackTrace();
     }
 
-    //壹收款: 创建支付通道的对话框
-    PingppOne.showPaymentChannels(this, bill.toString(), URL, new PaymentHandler() {
+    // 创建支付选择渠道的面板
+    PingppUI.showPaymentChannels(this, bill.toString(), URL, new PaymentHandler() {
       @Override public void handlePaymentResult(Intent data) {
         if (data != null) {
           /**

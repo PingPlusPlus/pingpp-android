@@ -5,7 +5,7 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <com.pingplusplus.libone.ProgressWheel
+    <com.pingplusplus.ui.ProgressWheel
         android:id="@+id/pingpp_pay_progress"
         android:layout_width="60dp"
         android:layout_height="60dp"

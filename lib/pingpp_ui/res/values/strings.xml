@@ -11,13 +11,14 @@
     <string name="pingpp_back_activity_pay">再试一次</string>
     <string name="pingpp_copyright">支付接入由 Ping++ 提供</string>
     <string name="pingpp_alipay">支付宝</string>
-    <string name="pingpp_huabei">花呗分期</string>
     <string name="pingpp_wechat">微信支付</string>
     <string name="pingpp_bfb">百度钱包</string>
+    <string name="pingpp_huabei">花呗分期</string>
     <string name="pingpp_bfb_wap">百度钱包</string>
     <string name="pingpp_upacp">银联支付</string>
     <string name="pingpp_cmbkb">招行一网通</string>
     <string name="pingpp_yeepay_wap">易宝支付</string>
+    <string name="pingpp_qpay">QQ 钱包</string>
     <string name="pingpp_jdpay_wap">京东支付</string>
     <string name="pingpp_prompt_pay_falied">可能因为网络过于繁忙</string>
     <string name="pingpp_continue_buy">继续购物</string>
