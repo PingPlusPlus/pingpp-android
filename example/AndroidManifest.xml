@@ -94,11 +94,11 @@
         
         <!-- 壹收款 -->
         <activity
-            android:name="com.pingplusplus.libone.PayActivity"
+            android:name="com.pingplusplus.ui.PayActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@android:style/Theme.Translucent"/>
         <activity
-            android:name="com.pingplusplus.libone.PaySuccessActivity"
+            android:name="com.pingplusplus.ui.PaySuccessActivity"
             android:configChanges="orientation|screenSize"/>
 
     </application>

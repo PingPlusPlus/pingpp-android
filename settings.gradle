@@ -1,4 +1,4 @@
 include ':lib:pingpp'
 include ':lib:bdwallet_pay_sdk'
-include ':lib:pingpp_one'
+include ':lib:pingpp_ui'
 include ':example'
