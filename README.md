@@ -1,10 +1,10 @@
 Android 中集成 Ping++ SDK
-============
+======================
 ## 目录
-* [1. 简介](#1)  
-* [2. 环境要求](#2)  
-* [3. 快速体验](#3)  
-* [4. 工程配置及使用](#4)  
+* [1. 简介](#1)
+* [2. 环境要求](#2)
+* [3. 快速体验](#3)
+* [4. 工程配置及使用](#4)
 	* [4.1 导入依赖包](#4.1)
 	* [4.2 权限配置](#4.2)
 	* [4.3 使用 Ping++ 标准版 SDK](#4.3)
@@ -20,9 +20,9 @@ example 文件夹里面是一个简单的接入示例，该示例仅供参考。
 docs 目录里面是 Android SDK 的接入指南。
 
 ## <h2 id='2'>版本要求</h2>
-Android SDK 要求 Android 2.3 及以上版本  
+Android SDK 要求 Android 2.3 及以上版本
 请使用 Java 7 或以上版本
- 
+
 ## <h2 id='3'>快速体验</h2>
 ### Android Studio
 导入pingpp-android整个项目，即可运行该demo。
@@ -35,19 +35,48 @@ Android SDK 要求 Android 2.3 及以上版本
 
 <font color='red'>(注：依赖渠道SDK时,可能会和其他第三方SDK有冲突,移除依赖冲突的包就可以.如：[问题二](#issue2)、[问题三](#issue3))</font>
 
-#### (适用AndroidStudio)：使用gradle依赖，即在module的build.gradle中设置：
+#### Gradle 导入方式
 
 ```java
 dependencies {
-   compile 'com.pingxx:pingpp-core:2.1.16' // (Ping++ 标准版 SDK) 必须添加
-   compile 'com.pingxx:pingpp-ui:1.0.2' // (Ping++ UI 控件) 使用 Ping++ UI 时添加
+   compile 'com.pingxx:pingpp-core:2.1.17' // (Ping++ 标准版 SDK) 必须添加
+   compile 'com.pingxx:pingpp-ui:2.1.17' // (Ping++ UI 控件) 使用 Ping++ UI 时添加
    compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+' // 使用微信支付时添加,具体版本参考微信官方文档
-   compile 'com.pingxx:pingpp-alipay:2.1.16' // 使用支付宝时添加
-   compile 'com.pingxx:pingpp-upacp:2.1.16' // 使用银联支付时添加
-   compile 'com.pingxx:pingpp-qpay:2.1.16' // 使用QQ钱包时添加
-   compile 'com.pingxx:pingpp-cmbwallet:2.1.16' // 使用招行一网通时添加
+   compile 'com.pingxx:pingpp-alipay:2.1.17' // 使用支付宝时添加
+   compile 'com.pingxx:pingpp-upacp:2.1.17' // 使用银联支付时添加
+   compile 'com.pingxx:pingpp-qpay:2.1.17' // 使用QQ钱包时添加
+   compile 'com.pingxx:pingpp-cmbwallet:2.1.17' // 使用招行一网通时添加
 }
 ```
+
+#### Maven 导入方式
+
+```xml
+<dependency>
+  <groupId>com.pingxx</groupId>
+  <artifactId>pingpp-core</artifactId>
+  <!--请将 VERSION 换成 SDK 对应的版本号-->
+  <version>VERSION</version>
+  <type>pom</type>
+</dependency>
+```
+
+#### 下载 SDK 导入
+在 lib 目录中包含 pingpp（标准版 SDK）和 pingpp_ui（UI 版 SDK）资源，其中包含支付所需的 jar 包和资源包，请按需拷贝相应的文件到项目中。
+
+##### pingpp
+
+- Ping++ 依赖包：`libpingpp-x.x.x`、`res` 资源文件和 `libpingpp.so` 文件(必须依赖的)
+- 微信依赖包：`wechat-sdk-android-without-mta.jar`
+- 支付宝依赖包：`alipaySdkxxxxxxxx.jar`
+- 银联支付依赖包：`UPPayAssistEx.jar`、`UPPayPluginExPro.jar`、`libentryexpro.so`、`libuptsmaddon.so` 和 `assets` 目录下 `data.bin` 文件
+- QQ钱包依赖包：`mqqopenpay.jar`
+- 招行一网通(混淆加密方式可不配置相关的参数,非混淆加密方式需配置)：`cmbkeyboard.jar` 和 `res` 目录下 `cmb_` 开头的资源文件
+
+##### pingpp_ui
+
+- `libpingppui-xxxx` 及相关 `res` 资源文件
+
 
 ### <h3 id='4.2'>二、清单文件配置所需权限</h3>
 
@@ -63,7 +92,7 @@ dependencies {
 <!-- 银联需要的权限 -->
 <uses-permission android:name="android.permission.NFC"/>
 ```
-    
+
 ### <h3 id='4.3'>三、使用 Ping++ 标准版 SDK</h3>
 #### 1. 清单文件注册相关类
 
@@ -102,7 +131,7 @@ dependencies {
 </activity>
 <activity
     android:name="com.alipay.sdk.auth.AuthActivity"
-    android:configChanges="orientation|keyboardHidden|navigation|screenSize" 
+    android:configChanges="orientation|keyboardHidden|navigation|screenSize"
     android:exported="false"
     android:screenOrientation="behind" >
 </activity>
@@ -111,8 +140,8 @@ dependencies {
 - 银联支付需注册
 
 ``` xml
-<activity 
-    android:name="com.unionpay.uppay.PayActivity" 
+<activity
+    android:name="com.unionpay.uppay.PayActivity"
     android:configChanges="orientation|keyboardHidden|navigation|screenSize"/>
 <activity
     android:name="com.unionpay.UPPayWapActivity"
@@ -139,14 +168,14 @@ dependencies {
     android:configChanges="orientation|keyboardHidden|navigation|screenSize"
     android:launchMode="singleTop"
     android:theme="@android:style/Theme.Translucent.NoTitleBar" >
- 
+
     <intent-filter>
         <action android:name="android.intent.action.VIEW"/>
         <category android:name="android.intent.category.BROWSABLE"/>
         <category android:name="android.intent.category.DEFAULT"/>
         <data android:scheme="qwallet1234567890"/>
     </intent-filter>
- 
+
 </activity>
 ```
 
@@ -255,7 +284,7 @@ android:configChanges="orientation|keyboardHidden|navigation|screenSize"/>
 </activity>
 <activity
     android:name="com.alipay.sdk.auth.AuthActivity"
-    android:configChanges="orientation|keyboardHidden|navigation|screenSize" 
+    android:configChanges="orientation|keyboardHidden|navigation|screenSize"
     android:exported="false"
     android:screenOrientation="behind" >
 </activity>
@@ -264,8 +293,8 @@ android:configChanges="orientation|keyboardHidden|navigation|screenSize"/>
 - 银联支付需注册
 
 ``` xml
-<activity 
-    android:name="com.unionpay.uppay.PayActivity" 
+<activity
+    android:name="com.unionpay.uppay.PayActivity"
     android:configChanges="orientation|keyboardHidden|navigation|screenSize"/>
 <activity
     android:name="com.unionpay.UPPayWapActivity"
@@ -292,14 +321,14 @@ android:configChanges="orientation|keyboardHidden|navigation|screenSize"/>
     android:configChanges="orientation|keyboardHidden|navigation|screenSize"
     android:launchMode="singleTop"
     android:theme="@android:style/Theme.Translucent.NoTitleBar" >
- 
+
     <intent-filter>
         <action android:name="android.intent.action.VIEW"/>
         <category android:name="android.intent.category.BROWSABLE"/>
         <category android:name="android.intent.category.DEFAULT"/>
         <data android:scheme="qwallet1234567890"/>
     </intent-filter>
- 
+
 </activity>
 ```
 
@@ -381,22 +410,22 @@ PingppUI.showPaymentChannels(this, bill, CHARGE_URL, new PaymentHandler() {
 # 支付宝混淆过滤
 -dontwarn com.alipay.**
 -keep class com.alipay.** {*;}
- 
+
 # 微信或QQ钱包混淆过滤
 -dontwarn  com.tencent.**
 -keep class com.tencent.** {*;}
- 
+
 # 银联支付混淆过滤
 -dontwarn  com.unionpay.**
 -keep class com.unionpay.** {*;}
- 
+
 # 招行一网通混淆过滤
 -keepclasseswithmembers class cmb.pb.util.CMBKeyboardFunc {
     public <init>(android.app.Activity);
     public boolean HandleUrlCall(android.webkit.WebView,java.lang.String);
     public void callKeyBoardActivity();
 }
- 
+
 # 内部WebView混淆过滤
 -keepclassmembers class * {
     @android.webkit.JavascriptInterface <methods>;
@@ -422,7 +451,7 @@ Pingpp.DEBUG = true;
 ### 问题一： 微信支付失败，返回wx_err_code:-1
 
 - 报错原因:
-    微信验证 apk 的签名包名失败。 
+    微信验证 apk 的签名包名失败。
 - 解决方案:
     1. 项目的 package 名字、AndroidManifest.xml 里面的包名，必须和微信开放平台注册的一致；
     2. 必须打包成为发布版本的 apk，apk 签名必须和在微信开放平台注册的一致，微信开放平台签名要求: MD5，无冒号；
@@ -435,7 +464,7 @@ Pingpp.DEBUG = true;
 
 ```java
 Error:Execution failed for task ':app:transformClassesWithJarMergingForDebug'.
-com.android.build.api.transform.TransformException: 
+com.android.build.api.transform.TransformException:
 java.util.zip.ZipException: duplicate entry: a/a/a/a.class
 ```
 
@@ -461,7 +490,7 @@ ndk {
     abiFilters 'armeabi', 'x86'
     // 还可以添加 'x86_64', 'mips', 'mips64',, 'armeabi-v7a', 'armeabi-v8a'
 }
-```    
+```
 
 ### 问题四：银联支付报错：
 
@@ -471,23 +500,23 @@ java.lang.ClassNotFoundException: org.simalliance.openmobileapi.SEService
 ```
 
 - 报错原因:
-    缺少org.simalliance.openmobileapi.SEService,编译失败
-    
+    缺少 `org.simalliance.openmobileapi.SEService`, 编译失败
+
 - 解决方案:
-    将example-studio中libs下的org.simalliance.openmobileapi.jar拷到项目中依赖，但不要打包进apk中，有些手机会存在这个jar包
-    
+    将example中libs下的 `org.simalliance.openmobileapi.jar` 拷到项目中依赖，但不要打包进apk中，有些手机会存在这个jar包
+
     ```java
     dependencies {
         provided files('libs/org.simalliance.openmobileapi.jar') //使用provided,不打包进apk
     }
     ```
-    
+
 ### 问题五：招行一网通键盘奔溃或弹不出键盘
 
 - 报错原因:
-    没有在string.xml中配置cmbkb_publickey字段
+    没有在 `string.xml` 中配置 `cmbkb_publickey` 字段
 - 解决方案:
-    在自己项目中res/values/string.xml下配置该字段
+    在自己项目中 `res/values/string.xml` 下配置该字段
     
     ```xml
     <string name="cmbkb_publickey">填写自己的publickey</string>

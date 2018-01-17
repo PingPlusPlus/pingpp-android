@@ -1,5 +1,5 @@
 Android 中集成 Ping++ SDK
-============
+======================
 ## 目录
 * [1. 简介](#1)  
 * [2. 环境要求](#2)  
@@ -35,19 +35,48 @@ Android SDK 要求 Android 2.3 及以上版本
 
 <font color='red'>(注：依赖渠道SDK时,可能会和其他第三方SDK有冲突,移除依赖冲突的包就可以.如：[问题二](#issue2)、[问题三](#issue3))</font>
 
-#### (适用AndroidStudio)：使用gradle依赖，即在module的build.gradle中设置：
+#### Gradle 导入方式
 
 ```java
 dependencies {
-   compile 'com.pingxx:pingpp-core:2.1.16' // (Ping++ 标准版 SDK) 必须添加
-   compile 'com.pingxx:pingpp-ui:1.0.2' // (Ping++ UI 控件) 使用 Ping++ UI 时添加
+   compile 'com.pingxx:pingpp-core:2.1.17' // (Ping++ 标准版 SDK) 必须添加
+   compile 'com.pingxx:pingpp-ui:2.1.17' // (Ping++ UI 控件) 使用 Ping++ UI 时添加
    compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+' // 使用微信支付时添加,具体版本参考微信官方文档
-   compile 'com.pingxx:pingpp-alipay:2.1.16' // 使用支付宝时添加
-   compile 'com.pingxx:pingpp-upacp:2.1.16' // 使用银联支付时添加
-   compile 'com.pingxx:pingpp-qpay:2.1.16' // 使用QQ钱包时添加
-   compile 'com.pingxx:pingpp-cmbwallet:2.1.16' // 使用招行一网通时添加
+   compile 'com.pingxx:pingpp-alipay:2.1.17' // 使用支付宝时添加
+   compile 'com.pingxx:pingpp-upacp:2.1.17' // 使用银联支付时添加
+   compile 'com.pingxx:pingpp-qpay:2.1.17' // 使用QQ钱包时添加
+   compile 'com.pingxx:pingpp-cmbwallet:2.1.17' // 使用招行一网通时添加
 }
 ```
+
+#### Maven 导入方式
+
+```xml
+<dependency>
+  <groupId>com.pingxx</groupId>
+  <artifactId>pingpp-core</artifactId>
+  <!--请将 VERSION 换成 SDK 对应的版本号-->
+  <version>VERSION</version>
+  <type>pom</type>
+</dependency>
+```
+
+#### 下载 SDK 导入
+在 lib 目录中包含 pingpp（标准版 SDK）和 pingpp_ui（UI 版 SDK）资源，其中包含支付所需的 jar 包和资源包，请按需拷贝相应的文件到项目中。
+
+##### pingpp
+
+- Ping++ 依赖包：`libpingpp-x.x.x`、`res` 资源文件和 `libpingpp.so` 文件(必须依赖的)
+- 微信依赖包：`wechat-sdk-android-without-mta.jar`
+- 支付宝依赖包：`alipaySdkxxxxxxxx.jar`
+- 银联支付依赖包：`UPPayAssistEx.jar`、`UPPayPluginExPro.jar`、`libentryexpro.so`、`libuptsmaddon.so` 和 `assets` 目录下 `data.bin` 文件
+- QQ钱包依赖包：`mqqopenpay.jar`
+- 招行一网通(混淆加密方式可不配置相关的参数,非混淆加密方式需配置)：`cmbkeyboard.jar` 和 `res` 目录下 `cmb_` 开头的资源文件
+
+##### pingpp_ui
+
+- `libpingppui-xxxx` 及相关 `res` 资源文件
+	
 
 ### <h3 id='4.2'>二、清单文件配置所需权限</h3>
 
@@ -471,10 +500,10 @@ java.lang.ClassNotFoundException: org.simalliance.openmobileapi.SEService
 ```
 
 - 报错原因:
-    缺少org.simalliance.openmobileapi.SEService,编译失败
+    缺少 `org.simalliance.openmobileapi.SEService`, 编译失败
     
 - 解决方案:
-    将example-studio中libs下的org.simalliance.openmobileapi.jar拷到项目中依赖，但不要打包进apk中，有些手机会存在这个jar包
+    将example中libs下的 `org.simalliance.openmobileapi.jar` 拷到项目中依赖，但不要打包进apk中，有些手机会存在这个jar包
     
     ```java
     dependencies {
@@ -485,9 +514,9 @@ java.lang.ClassNotFoundException: org.simalliance.openmobileapi.SEService
 ### 问题五：招行一网通键盘奔溃或弹不出键盘
 
 - 报错原因:
-    没有在string.xml中配置cmbkb_publickey字段
+    没有在 `string.xml` 中配置 `cmbkb_publickey` 字段
 - 解决方案:
-    在自己项目中res/values/string.xml下配置该字段
+    在自己项目中 `res/values/string.xml` 下配置该字段
     
     ```xml
     <string name="cmbkb_publickey">填写自己的publickey</string>
