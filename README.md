@@ -1,14 +1,14 @@
-Android 中集成 Ping++ SDK
-======================
+# Ping++ Android SDK
+
 ## 目录
 * [1. 简介](#1)
 * [2. 环境要求](#2)
 * [3. 快速体验](#3)
 * [4. 工程配置及使用](#4)
-	* [4.1 导入依赖包](#4.1)
-	* [4.2 权限配置](#4.2)
-	* [4.3 使用 Ping++ 标准版 SDK](#4.3)
-	* [4.4 使用 Ping++ UI SDK](#4.4)
+    * [4.1 导入依赖包](#4.1)
+    * [4.2 权限配置](#4.2)
+    * [4.3 使用 Ping++ 标准版 SDK](#4.3)
+    * [4.4 使用 Ping++ UI SDK](#4.4)
 * [5. 日志开关](#5)
 * [6. 注意事项](#6)
 * [7. 常见问题](#issues)
@@ -25,15 +25,15 @@ Android SDK 要求 Android 2.3 及以上版本
 
 ## <h2 id='3'>快速体验</h2>
 ### Android Studio
-导入pingpp-android整个项目，即可运行该demo。
+导入 pingpp-android 整个项目，即可运行该demo。
 
-<font color="red">需要注意: </font>测试微信支付,需要签名和包名与微信开放平台上的一致，才可支付成功。给出的demo并没给出正确的签名，会返回微信支付失败的结果。
-<font color="red">导入demo中可能会遇到的开发环境版本问题，修改build.gradle中的版本</font>
+<font color="red">需要注意: </font>测试微信支付，需要签名和包名与微信开放平台上的一致，才可支付成功。给出的demo并没给出正确的签名，会返回微信支付失败的结果。
+<font color="red">导入 demo 中可能会遇到的开发环境版本问题，修改 build.gradle 中的版本</font>
 
 ## <h2 id='4'>工程配置及使用</h2>
 ### <h3 id='4.1'>一、导入依赖包</h3>
 
-<font color='red'>(注：依赖渠道SDK时,可能会和其他第三方SDK有冲突,移除依赖冲突的包就可以.如：[问题二](#issue2)、[问题三](#issue3))</font>
+<font color='red'>(注：依赖渠道 SDK 时，可能会和其他第三方SDK有冲突，移除依赖冲突的包就可以。如：[问题二](#issue2)、[问题三](#issue3))</font>
 
 #### Gradle 导入方式
 
@@ -80,7 +80,7 @@ dependencies {
 
 ### <h3 id='4.2'>二、清单文件配置所需权限</h3>
 
-<font color='red'>(注：有些权限是需要动态注册的,如"READ_PHONE_STATE"权限)</font>
+<font color='red'>(注：有些权限是需要动态注册的,如 `READ_PHONE_STATE` 权限)</font>
 
 ``` xml
 <!-- 通用权限 -->
@@ -109,13 +109,13 @@ dependencies {
 
 - 微信支付需要注册
     <font color='red'> 注：
-    1. 需要将以下"替换成自己APK的包名"换成在微信平台上注册填写的包名
-    2. WxPayEntryActivity这个类在SDK内部实现，开发者不需要额外实现该类
+    1. 需要将以下“替换成自己 APK 的包名”换成在微信平台上注册填写的包名
+    2. WxPayEntryActivity 这个类在 SDK 内部实现，开发者不需要额外实现该类
     </font>
 
 ```xml
 <activity-alias
-    android:name="替换成自己APK的包名.wxapi.WXPayEntryActivity"
+    android:name="替换成自己 APK 的包名.wxapi.WXPayEntryActivity"
     android:exported="true"
     android:targetActivity="com.pingplusplus.android.PaymentActivity" />
 ```
@@ -150,7 +150,7 @@ dependencies {
     android:windowSoftInputMode="adjustResize"/>
 ```
 
-- QQ钱包需注册(scheme填写规则：qwallet + QQ钱包中的app_id)
+- QQ 钱包需注册(scheme 填写规则：qwallet + QQ 钱包中的 app_id)
 
 ```xml
 <intent-filter>
@@ -160,7 +160,7 @@ dependencies {
    <data android:scheme="qwalletXXXXXXXX"/>
 </intent-filter>
 ```
-将以上代码添加到Ping++ SDK注册的Activity，如：
+将以上代码添加到 Ping++ SDK 注册的 Activity，如：
 
 ```xml
 <activity
@@ -188,21 +188,21 @@ dependencies {
          android:theme="@style/CmbDialogStyleBottom" />
 ```
 
-(<font color='red'>招行一网通在非混淆加密方式下：需在string.xml中配置cmbkb_publickey字段，如：</font>)
+(<font color='red'>招行一网通在非混淆加密方式下：需在 string.xml 中配置 cmbkb_publickey 字段，如：</font>)
 
 ```xml
-<string name="cmbkb_publickey">填写自己的publickey</string>
+<string name="cmbkb_publickey">填写自己的 publickey</string>
 ```
 
-#### 2. 获取到charge/order后，调起支付
-##### 获取charge/order
+#### 2. 获取到 charge/order 后，调起支付
+##### 获取 charge/order
 
 charge/order 对象是一个包含支付信息的 JSON 对象，是 Ping++ SDK 发起支付的必要参数。该参数需要请求用户服务器获得，服务端生成 charge 或 order 的方式参考 服务端接入简介。SDK 中的 demo 里面提供了如何获取 charge/order 的实例方法，供用户参考。
 
 ##### 调起支付
 
 因为 Ping++ 已经封装好了相应的调用方法，所以只需要调用支付方法即可调起支付控件：
-(<font color='red'>注：该调用方法需要在主线程(UI线程)完成</font>)
+(<font color='red'>注：该调用方法需要在主线程(UI 线程)完成</font>)
 
 ```java
 //参数一：Activity  当前调起支付的Activity
@@ -262,13 +262,13 @@ android:configChanges="orientation|keyboardHidden|navigation|screenSize"/>
 
 - 微信支付需要注册
     <font color='red'> 注：
-    1. 需要将以下"替换成自己APK的包名"换成在微信平台上注册填写的包名
-    2. WxPayEntryActivity这个类在SDK内部实现，开发者不需要额外实现该类
+    1. 需要将以下“替换成自己 APK 的包名”换成在微信平台上注册填写的包名
+    2. WxPayEntryActivity 这个类在 SDK 内部实现，开发者不需要额外实现该类
     </font>
 
 ```xml
 <activity-alias
-    android:name="替换成自己APK的包名.wxapi.WXPayEntryActivity"
+    android:name="替换成自己 APK 的包名.wxapi.WXPayEntryActivity"
     android:exported="true"
     android:targetActivity="com.pingplusplus.android.PaymentActivity" />
 ```
@@ -303,7 +303,7 @@ android:configChanges="orientation|keyboardHidden|navigation|screenSize"/>
     android:windowSoftInputMode="adjustResize"/>
 ```
 
-- QQ钱包需注册(scheme填写规则：qwallet + QQ钱包中的app_id)
+- QQ 钱包需注册(scheme 填写规则：qwallet + QQ 钱包中的 app_id)
 
 ```xml
 <intent-filter>
@@ -313,7 +313,7 @@ android:configChanges="orientation|keyboardHidden|navigation|screenSize"/>
    <data android:scheme="qwalletXXXXXXXX"/>
 </intent-filter>
 ```
-将以上代码添加到Ping++ SDK注册的Activity，如：
+将以上代码添加到 Ping++ SDK 注册的 Activity，如：
 
 ```xml
 <activity
@@ -341,10 +341,10 @@ android:configChanges="orientation|keyboardHidden|navigation|screenSize"/>
          android:theme="@style/CmbDialogStyleBottom" />
 ```
 
-(<font color='red'>招行一网通在非混淆加密方式下：需在string.xml中配置cmbkb_publickey字段，如：</font>)
+(<font color='red'>招行一网通在非混淆加密方式下：需在 string.xml 中配置 cmbkb_publickey 字段，如：</font>)
 
 ```xml
-<string name="cmbkb_publickey">填写自己的publickey</string>
+<string name="cmbkb_publickey">填写自己的 publickey</string>
 ```
 #### 2. 使用方法
 
@@ -400,7 +400,7 @@ PingppUI.showPaymentChannels(this, bill, CHARGE_URL, new PaymentHandler() {
 ```
 
 ## 混淆设置
-<font color='red'>(注：将以下对应渠道的混淆代码加到主module以及该SDK依赖所在的module中，不然会出现jar包重复或者找不到该类的问题，如：[问题二](#issue2))</font>
+<font color='red'>(注：将以下对应渠道的混淆代码加到主 module 以及该 SDK 依赖所在的 module 中，不然会出现 jar 包重复或者找不到该类的问题，如：[问题二](#issue2))</font>
 
 ```
 # Ping++ 混淆过滤
@@ -448,7 +448,7 @@ Pingpp.DEBUG = true;
 - 请勿直接使用客户端支付结果作为最终判定订单状态的依据，由于 Ping++ 没有参与你的客户端和第三方渠道的交互，无法保证客户端支付结果的安全性，建议订单状态的更新对比客户端的渠道同步回调信息和服务端的 Ping++ Webhooks 通知来确定是否修改。
 
 ## <span id = "issues">常见问题</span>
-### 问题一： 微信支付失败，返回wx_err_code:-1
+### 问题一： 微信支付失败，返回 wx_err_code:-1
 
 - 报错原因:
     微信验证 apk 的签名包名失败。
@@ -473,16 +473,16 @@ java.util.zip.ZipException: duplicate entry: a/a/a/a.class
     2. 有重复的jar包存在
 
 - 解决方案:
-    1. 加上混淆过滤的代码(出现a/a/a/a.class的log时)
-    2. 删除重复的jar包(可以是第三方SDK中的,也可以是Ping++SDK中的jar包)
+    1. 加上混淆过滤的代码(出现 a/a/a/a.class 的 log 时)
+    2. 删除重复的 jar 包(可以是第三方SDK中的,也可以是 Ping++ SDK 中的jar包)
 
-### <span id = "issue3">问题三：Ping++和其他第三方SDK(如：高德地图)同时存在，使用gradle导入Ping++, 会导致其他第三方SDK（如：高德地图）找不到so而无法使用</span>
+### <span id = "issue3">问题三：Ping++ 和其他第三方 SDK(如：高德地图)同时存在，使用 gradle 导入Ping++, 会导致其他第三方SDK（如：高德地图）找不到so而无法使用</span>
 
 - 报错原因:
-    Ping++ SDK 提供了armeabi、armeabi-v7a 而其他第三方SDK(如：高德地图)提供了armeabi, 当手机是armeabi-v7a的 会去加载armeabi-v7a包下的so文件 这是会报其他第三方SDK(如：高德地图)的so文件找不到 而你上面的代码在打包的时候就只打包了armeabi 所以只会去armeabi包下找 因此不会出现报错 建议使用各种SDK时保持相同的so文件。
+    Ping++ SDK 提供了 armeabi、armeabi-v7a 而其他第三方 SDK(如：高德地图)提供了 armeabi, 当手机是 armeabi-v7a 的会去加载 armeabi-v7a 包下的 so 文件 这是会报其他第三方 SDK (如：高德地图)的 so 文件找不到，而你上面的代码在打包的时候就只打包了 armeabi，所以只会去 armeabi 包下找，因此不会出现报错 建议使用各种SDK时保持相同的so文件。
 
 - 解决方案:
-在build.gradle中设置ndk
+在 build.gradle 中设置 ndk
 
 ```java
 ndk {
@@ -517,12 +517,9 @@ java.lang.ClassNotFoundException: org.simalliance.openmobileapi.SEService
     没有在 `string.xml` 中配置 `cmbkb_publickey` 字段
 - 解决方案:
     在自己项目中 `res/values/string.xml` 下配置该字段
-    
+
     ```xml
-    <string name="cmbkb_publickey">填写自己的publickey</string>
+    <string name="cmbkb_publickey">填写自己的 publickey </string>
     ```
 
 ### 更多问题请到[帮助中心](https://help.pingxx.com/)搜索
-
-
-
