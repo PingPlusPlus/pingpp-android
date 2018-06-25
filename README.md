@@ -102,7 +102,7 @@ dependencies {
 <activity
   android:name="com.pingplusplus.android.PaymentActivity"
   android:configChanges="orientation|keyboardHidden|navigation|screenSize"
-  android:launchMode="singleTop"
+  android:launchMode="singleTask"
   android:theme="@android:style/Theme.Translucent.NoTitleBar" >
 </activity>
 ```
@@ -166,7 +166,7 @@ dependencies {
 <activity
     android:name="com.pingplusplus.android.PaymentActivity"
     android:configChanges="orientation|keyboardHidden|navigation|screenSize"
-    android:launchMode="singleTop"
+    android:launchMode="singleTask"
     android:theme="@android:style/Theme.Translucent.NoTitleBar" >
 
     <intent-filter>
@@ -192,6 +192,37 @@ dependencies {
 
 ```xml
 <string name="cmbkb_publickey">填写自己的 publickey</string>
+```
+
+- 招行一网通 app 需注册 (格式：`<SCHEME>://pingppcmbwallet`，其中 `<SCHEME>` 是你自定的 `URL Schemes`)
+
+```xml
+<intent-filter>
+   <action android:name="android.intent.action.VIEW"/>
+   <category android:name="android.intent.category.BROWSABLE"/>
+   <category android:name="android.intent.category.DEFAULT"/>
+   <data android:scheme="自定义 URL Scheme"/>
+   <data android:host="pingppcmbwallet"/>
+</intent-filter>
+```
+将以上代码添加到 Ping++ SDK 注册的 Activity，如：
+
+```xml
+<activity
+    android:name="com.pingplusplus.android.PaymentActivity"
+    android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+    android:launchMode="singleTask"
+    android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+
+    <intent-filter>
+        <action android:name="android.intent.action.VIEW"/>
+        <category android:name="android.intent.category.BROWSABLE"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <data android:scheme="自定义 URL Scheme"/>
+        <data android:host="pingppcmbwallet"/>
+    </intent-filter>
+
+</activity>
 ```
 
 #### 2. 获取到 charge/order 后，调起支付
@@ -234,6 +265,14 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 // 注：线下渠道无支付结果返回, 返回 unknown 字段。需要从服务端获取正确的支付结果。
 ```
 
+#### 4. 其他辅助方法及变量
+##### 1. 判断是否安装了招商银行客户端
+```
+// isInstalled   true: 已安装    false: 未安装
+boolean isInstalled = Pingpp.isCmbWalletInstalled(context);
+```
+
+
 ### <h3 id='4.4'>四、使用 Ping++ UI SDK</h3>
 
 使用 UI 版本且不想展示 Ping++ 提供的广告请[联系我们](https://www.pingxx.com/contact)
@@ -246,7 +285,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 <activity
   android:name="com.pingplusplus.android.PaymentActivity"
   android:configChanges="orientation|keyboardHidden|navigation|screenSize"
-  android:launchMode="singleTop"
+  android:launchMode="singleTask"
   android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
 <activity
@@ -319,7 +358,7 @@ android:configChanges="orientation|keyboardHidden|navigation|screenSize"/>
 <activity
     android:name="com.pingplusplus.android.PaymentActivity"
     android:configChanges="orientation|keyboardHidden|navigation|screenSize"
-    android:launchMode="singleTop"
+    android:launchMode="singleTask"
     android:theme="@android:style/Theme.Translucent.NoTitleBar" >
 
     <intent-filter>
