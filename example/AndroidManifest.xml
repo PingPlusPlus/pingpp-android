@@ -44,7 +44,7 @@
         <activity
             android:name="com.pingplusplus.android.PaymentActivity"
             android:configChanges="orientation|screenSize"
-            android:launchMode="singleTop"
+            android:launchMode="singleTask"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" >
 
             <intent-filter>
