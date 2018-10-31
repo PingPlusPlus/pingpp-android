@@ -101,6 +101,24 @@
             android:name="com.pingplusplus.ui.PaySuccessActivity"
             android:configChanges="orientation|screenSize"/>
 
+        <!-- 建行 SDK -->
+        <activity android:name="com.ccb.ccbnetpay.activity.appresult.ResultActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="pingppdemowv"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.ccb.ccbnetpay.activity.CcbUnionPayActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.ccb.ccbnetpay.activity.CcbH5PayActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>

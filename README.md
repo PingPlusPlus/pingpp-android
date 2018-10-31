@@ -39,13 +39,13 @@ Android SDK 要求 Android 2.3 及以上版本
 
 ```java
 dependencies {
-   compile 'com.pingxx:pingpp-core:2.1.18' // (Ping++ 标准版 SDK) 必须添加
-   compile 'com.pingxx:pingpp-ui:2.1.18' // (Ping++ UI 控件) 使用 Ping++ UI 时添加
+   compile 'com.pingxx:pingpp-core:2.1.19' // (Ping++ 标准版 SDK) 必须添加
+   compile 'com.pingxx:pingpp-ui:2.1.19' // (Ping++ UI 控件) 使用 Ping++ UI 时添加
    compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+' // 使用微信支付时添加,具体版本参考微信官方文档
-   compile 'com.pingxx:pingpp-alipay:2.1.18' // 使用支付宝时添加
-   compile 'com.pingxx:pingpp-upacp:2.1.18' // 使用银联支付时添加
-   compile 'com.pingxx:pingpp-qpay:2.1.18' // 使用QQ钱包时添加
-   compile 'com.pingxx:pingpp-cmbwallet:2.1.18' // 使用招行一网通时添加
+   compile 'com.pingxx:pingpp-alipay:2.1.19' // 使用支付宝时添加
+   compile 'com.pingxx:pingpp-upacp:2.1.19' // 使用银联支付时添加
+   compile 'com.pingxx:pingpp-qpay:2.1.19' // 使用QQ钱包时添加
+   compile 'com.pingxx:pingpp-cmbwallet:2.1.19' // 使用招行一网通时添加
 }
 ```
 
@@ -102,7 +102,7 @@ dependencies {
 <activity
   android:name="com.pingplusplus.android.PaymentActivity"
   android:configChanges="orientation|keyboardHidden|navigation|screenSize"
-  android:launchMode="singleTask"
+  android:launchMode="singleTop"
   android:theme="@android:style/Theme.Translucent.NoTitleBar" >
 </activity>
 ```
@@ -166,7 +166,7 @@ dependencies {
 <activity
     android:name="com.pingplusplus.android.PaymentActivity"
     android:configChanges="orientation|keyboardHidden|navigation|screenSize"
-    android:launchMode="singleTask"
+    android:launchMode="singleTop"
     android:theme="@android:style/Theme.Translucent.NoTitleBar" >
 
     <intent-filter>
@@ -211,7 +211,7 @@ dependencies {
 <activity
     android:name="com.pingplusplus.android.PaymentActivity"
     android:configChanges="orientation|keyboardHidden|navigation|screenSize"
-    android:launchMode="singleTask"
+    android:launchMode="singleTop"
     android:theme="@android:style/Theme.Translucent.NoTitleBar" >
 
     <intent-filter>
@@ -223,6 +223,27 @@ dependencies {
     </intent-filter>
 
 </activity>
+```
+
+- 建行支付需注册 (自定义 action-name 保持与服务端的 third_app_info 一致)
+
+``` xml
+<activity android:name="com.ccb.ccbnetpay.activity.appresult.ResultActivity"
+    android:configChanges="orientation|keyboardHidden|screenSize"
+    android:screenOrientation="portrait">
+    <intent-filter>
+        <action android:name="自定义 action-name"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+    </intent-filter>
+</activity>
+
+<activity android:name="com.ccb.ccbnetpay.activity.CcbUnionPayActivity"
+    android:configChanges="orientation|keyboardHidden|screenSize"
+    android:screenOrientation="portrait"/>
+
+<activity android:name="com.ccb.ccbnetpay.activity.CcbH5PayActivity"
+    android:configChanges="orientation|keyboardHidden|screenSize"
+    android:screenOrientation="portrait"/>
 ```
 
 #### 2. 获取到 charge/order 后，调起支付
@@ -272,6 +293,11 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 boolean isInstalled = Pingpp.isCmbWalletInstalled(context);
 ```
 
+##### 2. 是否允许使用手机 Pay
+```
+// true: 允许 (默认)   false: 不允许
+Pingpp.isPermissionSEPay(false);
+```
 
 ### <h3 id='4.4'>四、使用 Ping++ UI SDK</h3>
 
@@ -285,7 +311,7 @@ boolean isInstalled = Pingpp.isCmbWalletInstalled(context);
 <activity
   android:name="com.pingplusplus.android.PaymentActivity"
   android:configChanges="orientation|keyboardHidden|navigation|screenSize"
-  android:launchMode="singleTask"
+  android:launchMode="singleTop"
   android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
 <activity
@@ -358,7 +384,7 @@ android:configChanges="orientation|keyboardHidden|navigation|screenSize"/>
 <activity
     android:name="com.pingplusplus.android.PaymentActivity"
     android:configChanges="orientation|keyboardHidden|navigation|screenSize"
-    android:launchMode="singleTask"
+    android:launchMode="singleTop"
     android:theme="@android:style/Theme.Translucent.NoTitleBar" >
 
     <intent-filter>
