@@ -46,6 +46,7 @@ dependencies {
    compile 'com.pingxx:pingpp-upacp:2.1.19' // 使用银联支付时添加
    compile 'com.pingxx:pingpp-qpay:2.1.19' // 使用QQ钱包时添加
    compile 'com.pingxx:pingpp-cmbwallet:2.1.19' // 使用招行一网通时添加
+   compile 'com.pingxx:pingpp-ccbpay:2.1.19' // 使用建行支付时添加
 }
 ```
 
