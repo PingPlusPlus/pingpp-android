@@ -302,8 +302,6 @@ Pingpp.isPermissionSEPay(false);
 
 ### <h3 id='4.4'>四、使用 Ping++ UI SDK</h3>
 
-使用 UI 版本且不想展示 Ping++ 提供的广告请[联系我们](https://www.pingxx.com/contact)
-
 #### 1. 清单文件注册相关类
 
 - Ping++ SDK所需要注册
