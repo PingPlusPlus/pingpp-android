@@ -1,31 +1,25 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
-
+    compileSdkVersion 28
     defaultConfig {
         applicationId "com.pingplusplus.demoapp"
-        minSdkVersion 9
-        targetSdkVersion 25
+        minSdkVersion 16
+        targetSdkVersion 28
     }
-
     buildTypes {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
         }
     }
-
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
             res.srcDirs = ['res']
             assets.srcDirs = ['assets']
-            jniLibs.srcDirs = ['libs']
         }
     }
-
     lintOptions {
         checkReleaseBuilds false
         abortOnError false
@@ -33,8 +27,18 @@ android {
 }
 
 dependencies {
-    compile project(':lib:pingpp')
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':lib:pingpp_ui')
-    provided files('libs/org.simalliance.openmobileapi.jar')
+    implementation 'com.android.support:support-compat:28.0.0'
+    implementation 'com.android.support:support-fragment:28.0.0'
+    implementation 'com.android.support:support-core-utils:28.0.0'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+
+    implementation 'com.pingxx:pingpp-android:2.2.0'
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:5.1.6'
+    implementation 'com.pingxx:pingpp-alipay:2.1.19' // 使用支付宝时添加
+    implementation 'com.pingxx:pingpp-upacp:2.1.19' // 使用银联支付时添加
+    implementation 'com.pingxx:pingpp-qpay:2.1.19' // 使用QQ钱包时添加
+    implementation 'com.pingxx:pingpp-cmbwallet:2.1.19' // 使用招行一网通时添加
+    implementation 'com.pingxx:pingpp-ccbpay:2.1.19' // 使用建行支付时添加
+    implementation 'com.pingxx:pingpp-ui:2.1.19' // (Ping++ UI 控件) 使用 Ping++ UI 时添加
+    implementation files('libs/org.simalliance.openmobileapi.jar')
 }

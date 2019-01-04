@@ -1,6 +1,7 @@
 # Ping++ Android SDK
 
 ## 目录
+
 * [1. 简介](#1)
 * [2. 环境要求](#2)
 * [3. 快速体验](#3)
@@ -14,32 +15,52 @@
 * [7. 常见问题](#issues)
 
 ## <h2 id='1'>简介</h2>
+
 lib 目录包含两个 Library Project：pingpp 和 pingpp_ui。
 可以直接将两个 Library Project 作为依赖库，导入到你的项目。支持 Android Studio（建议）和 Eclipse。
 example 文件夹里面是一个简单的接入示例，该示例仅供参考。想使用该示例，请直接将本仓库导入。
 docs 目录里面是 Android SDK 的接入指南。
 
 ## <h2 id='2'>版本要求</h2>
-Android SDK 要求 Android 2.3 及以上版本
-请使用 Java 7 或以上版本
+
+Android SDK 要求 `Android 4.1` 及以上版本
+请使用 `Java 8` 或以上版本
 
 ## <h2 id='3'>快速体验</h2>
+
 ### Android Studio
+
 导入 pingpp-android 整个项目，即可运行该demo。
 
 <font color="red">需要注意: </font>测试微信支付，需要签名和包名与微信开放平台上的一致，才可支付成功。给出的demo并没给出正确的签名，会返回微信支付失败的结果。
 <font color="red">导入 demo 中可能会遇到的开发环境版本问题，修改 build.gradle 中的版本</font>
 
 ## <h2 id='4'>工程配置及使用</h2>
+
 ### <h3 id='4.1'>一、导入依赖包</h3>
 
 <font color='red'>(注：依赖渠道 SDK 时，可能会和其他第三方SDK有冲突，移除依赖冲突的包就可以。如：[问题二](#issue2)、[问题三](#issue3))</font>
 
 #### Gradle 导入方式
 
-```java
+修改项目的 `build.gradle` 文件，添加 `bintray` 仓库地址
+
+```groovy
+allprojects {
+    repositories {
+        // ...其他仓库地址...
+
+        // 添加下面的 bintray 仓库地址
+        maven {
+            url  "https://dl.bintray.com/pingxx/maven"
+        }
+    }
+}
+```
+
+```groovy
 dependencies {
-   compile 'com.pingxx:pingpp-core:2.1.19' // (Ping++ 标准版 SDK) 必须添加
+   compile 'com.pingxx:pingpp-android:2.2.0' // (Ping++ 标准版 SDK) 必须添加
    compile 'com.pingxx:pingpp-ui:2.1.19' // (Ping++ UI 控件) 使用 Ping++ UI 时添加
    compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+' // 使用微信支付时添加,具体版本参考微信官方文档
    compile 'com.pingxx:pingpp-alipay:2.1.19' // 使用支付宝时添加
@@ -55,7 +76,7 @@ dependencies {
 ```xml
 <dependency>
   <groupId>com.pingxx</groupId>
-  <artifactId>pingpp-core</artifactId>
+  <artifactId>pingpp-android</artifactId>
   <!--请将 VERSION 换成 SDK 对应的版本号-->
   <version>VERSION</version>
   <type>pom</type>
@@ -68,7 +89,7 @@ dependencies {
 ##### pingpp
 
 - Ping++ 依赖包：`libpingpp-x.x.x`、`res` 资源文件和 `libpingpp.so` 文件(必须依赖的)
-- 微信依赖包：`wechat-sdk-android-without-mta.jar`
+- 微信依赖包：`wechat-sdk-android-without-mta-VERSION.jar`
 - 支付宝依赖包：`alipaySdkxxxxxxxx.jar`
 - 银联支付依赖包：`UPPayAssistEx.jar`、`UPPayPluginExPro.jar`、`libentryexpro.so`、`libuptsmaddon.so` 和 `assets` 目录下 `data.bin` 文件
 - QQ钱包依赖包：`mqqopenpay.jar`
@@ -77,7 +98,6 @@ dependencies {
 ##### pingpp_ui
 
 - `libpingppui-xxxx` 及相关 `res` 资源文件
-
 
 ### <h3 id='4.2'>二、清单文件配置所需权限</h3>
 
@@ -299,6 +319,18 @@ boolean isInstalled = Pingpp.isCmbWalletInstalled(context);
 // true: 允许 (默认)   false: 不允许
 Pingpp.isPermissionSEPay(false);
 ```
+
+#### 5. 调起签约接口
+
+```java
+// 参数一：Activity  当前调起支付的Activity
+// 参数二：data  获取到的 agreement 的 JSON 字符串
+Pingpp.signAgreement(YourActivity.this, data);
+```
+
+##### 获取签约结果
+
+签约结果不会在客户端返回，商户需要自己在前端查询服务端的 `agreement` 对象状态。
 
 ### <h3 id='4.4'>四、使用 Ping++ UI SDK</h3>
 
