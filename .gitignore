@@ -49,3 +49,5 @@ example/bin
 example/target
 example/gen
 .idea
+.classpath
+.project

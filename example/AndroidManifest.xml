@@ -21,7 +21,8 @@
     <application
         android:icon="@drawable/pinus"
         android:label="@string/appName"
-        android:theme="@style/Theme" >
+        android:theme="@style/Theme"
+        android:networkSecurityConfig="@xml/network_security_config" >
 
         <!-- 示例 Activity 供用户参考 -->
         <activity
