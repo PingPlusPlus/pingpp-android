@@ -585,7 +585,7 @@ java.util.zip.ZipException: duplicate entry: a/a/a/a.class
 ndk {
     // 选择要添加的对应 cpu 类型的 .so 库。选择的 so 文件需要各种 SDK 保持一致
     abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
-    // 还可以添加根据实际情况选择所有 SDK 可以支持的类型
+    // 根据实际情况选择所有 SDK 可以支持的类型
 }
 ```
 
