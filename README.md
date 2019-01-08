@@ -49,6 +49,7 @@ Android SDK 要求 `Android 4.1` 及以上版本
 allprojects {
     repositories {
         // ...其他仓库地址...
+        jcenter()
 
         // 添加下面的 bintray 仓库地址
         maven {
@@ -63,7 +64,7 @@ dependencies {
    compile 'com.pingxx:pingpp-android:2.2.0' // (Ping++ 标准版 SDK) 必须添加
    compile 'com.pingxx:pingpp-ui:2.1.19' // (Ping++ UI 控件) 使用 Ping++ UI 时添加
    compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+' // 使用微信支付时添加,具体版本参考微信官方文档
-   compile 'com.pingxx:pingpp-alipay:2.1.19' // 使用支付宝时添加
+   compile 'com.pingxx:pingpp-android-alipay:2.2.0' // 使用支付宝时添加
    compile 'com.pingxx:pingpp-android-upacp:2.2.0' // 使用银联支付时添加
    compile 'com.pingxx:pingpp-qpay:2.1.19' // 使用QQ钱包时添加
    compile 'com.pingxx:pingpp-cmbwallet:2.1.19' // 使用招行一网通时添加
