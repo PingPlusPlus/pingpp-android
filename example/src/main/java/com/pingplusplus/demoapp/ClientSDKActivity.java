@@ -50,7 +50,8 @@ public class ClientSDKActivity extends Activity implements OnClickListener {
 	 *【 http://218.244.151.190/demo/charge 】是 ping++ 为了方便开发者体验 sdk 而提供的一个临时 url 。
 	 * 该 url 仅能调用【模拟支付控件】，开发者需要改为自己服务端的 url 。
 	 */
-    private static String YOUR_URL ="http://218.244.151.190/demo/charge";
+    private static String YOUR_URL = "http://218.244.151.190/demo/charge";
+
     public static final String CHARGE_URL = YOUR_URL;
     public static final boolean LIVEMODE = false;
     

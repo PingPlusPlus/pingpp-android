@@ -13,11 +13,6 @@
     <uses-permission-sdk-23 android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission-sdk-23 android:name="android.permission.NFC" />
 
-
-    <!-- 百度支付需要的权限 -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.READ_SMS" />
-
     <application
         android:icon="@drawable/pinus"
         android:label="@string/appName"
@@ -36,6 +31,7 @@
         </activity>
         <activity android:name="com.pingplusplus.demoapp.ClientSDKActivity" >
         </activity>
+
         <!-- Ping++ sdk -->
         <activity
             android:name="com.pingplusplus.android.PaymentActivity"
@@ -45,13 +41,18 @@
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
-
                 <category android:name="android.intent.category.BROWSABLE"/>
                 <category android:name="android.intent.category.DEFAULT"/>
-
-                <data android:scheme="qwalletXXXXXXXX"/>
+                <data android:scheme="qwallet1234567890"/>
             </intent-filter>
 
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="pingppdemowv"/>
+                <data android:host="pingppcmbwallet"/>
+            </intent-filter>
         </activity>
 
         <!-- 微信支付 sdk ，也是 Ping++ sdk 调用入口 -->
@@ -59,30 +60,6 @@
             android:name=".wxapi.WXPayEntryActivity"
             android:exported="true"
             android:targetActivity="com.pingplusplus.android.PaymentActivity" />
-
-        <!-- 支付宝 sdk -->
-        <activity
-            android:name="com.alipay.sdk.app.H5PayActivity"
-            android:configChanges="orientation|keyboardHidden|navigation"
-            android:exported="false"
-            android:screenOrientation="behind" >
-        </activity>
-        <activity
-            android:name="com.alipay.sdk.auth.AuthActivity"
-            android:configChanges="orientation|keyboardHidden|navigation"
-            android:exported="false"
-            android:screenOrientation="behind" >
-        </activity>
-
-        <!-- 银联支付 sdk -->
-        <activity
-            android:name="com.unionpay.uppay.PayActivity"
-            android:configChanges="orientation|keyboardHidden|navigation|screenSize" />
-        <activity
-            android:name="com.unionpay.UPPayWapActivity"
-            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize"/>
 
         <activity
             android:name=".OneSDKActivity">
