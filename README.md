@@ -30,9 +30,9 @@ Android SDK 要求 `Android 4.1` 及以上版本
 
 ### Android Studio
 
-导入 pingpp-android 整个项目，即可运行该demo。
+导入 pingpp-android 整个项目，即可运行该 demo。
 
-<font color="red">需要注意: </font>测试微信支付，需要签名和包名与微信开放平台上的一致，才可支付成功。给出的demo并没给出正确的签名，会返回微信支付失败的结果。
+<font color="red">需要注意: </font>测试微信支付，需要签名和包名与微信开放平台上的一致，才可支付成功。给出的 demo 并没给出正确的签名，会返回微信支付失败的结果。
 <font color="red">导入 demo 中可能会遇到的开发环境版本问题，修改 build.gradle 中的版本</font>
 
 ## <h2 id='4'>工程配置及使用</h2>
@@ -84,6 +84,7 @@ dependencies {
 ```
 
 #### 下载 SDK 导入
+
 在 lib 目录中包含 pingpp（标准版 SDK）和 pingpp_ui（UI 版 SDK）资源，其中包含支付所需的 jar 包和资源包，请按需拷贝相应的文件到项目中。
 
 ##### pingpp
@@ -117,14 +118,14 @@ dependencies {
 ### <h3 id='4.3'>三、使用 Ping++ 标准版 SDK</h3>
 #### 1. 清单文件注册相关类
 
-- Ping++ SDK所需要注册
+- Ping++ SDK 所需要注册
 
 ```xml
 <activity
-  android:name="com.pingplusplus.android.PaymentActivity"
-  android:configChanges="orientation|keyboardHidden|navigation|screenSize"
-  android:launchMode="singleTop"
-  android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+    android:name="com.pingplusplus.android.PaymentActivity"
+    android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+    android:launchMode="singleTop"
+    android:theme="@android:style/Theme.Translucent.NoTitleBar" >
 </activity>
 ```
 
@@ -168,7 +169,7 @@ dependencies {
     android:name="com.unionpay.UPPayWapActivity"
     android:configChanges="orientation|keyboardHidden|navigation|screenSize"
     android:screenOrientation="portrait"
-    android:windowSoftInputMode="adjustResize"/>
+    android:windowSoftInputMode="adjustResize" />
 ```
 
 - QQ 钱包需注册(scheme 填写规则：qwallet + QQ 钱包中的 app_id)
@@ -181,6 +182,7 @@ dependencies {
    <data android:scheme="qwalletXXXXXXXX"/>
 </intent-filter>
 ```
+
 将以上代码添加到 Ping++ SDK 注册的 Activity，如：
 
 ```xml
@@ -196,7 +198,6 @@ dependencies {
         <category android:name="android.intent.category.DEFAULT"/>
         <data android:scheme="qwallet1234567890"/>
     </intent-filter>
-
 </activity>
 ```
 
@@ -205,8 +206,8 @@ dependencies {
 ```xml
 <service android:name="cmb.pb.cmbsafe.CmbService" android:exported="false"/>
 <activity
-         android:name="cmb.pb.ui.PBKeyboardActivity"
-         android:theme="@style/CmbDialogStyleBottom" />
+    android:name="cmb.pb.ui.PBKeyboardActivity"
+    android:theme="@style/CmbDialogStyleBottom" />
 ```
 
 (<font color='red'>招行一网通在非混淆加密方式下：需在 string.xml 中配置 cmbkb_publickey 字段，如：</font>)
@@ -226,6 +227,7 @@ dependencies {
    <data android:host="pingppcmbwallet"/>
 </intent-filter>
 ```
+
 将以上代码添加到 Ping++ SDK 注册的 Activity，如：
 
 ```xml
@@ -242,7 +244,6 @@ dependencies {
         <data android:scheme="自定义 URL Scheme"/>
         <data android:host="pingppcmbwallet"/>
     </intent-filter>
-
 </activity>
 ```
 
@@ -260,11 +261,11 @@ dependencies {
 
 <activity android:name="com.ccb.ccbnetpay.activity.CcbUnionPayActivity"
     android:configChanges="orientation|keyboardHidden|screenSize"
-    android:screenOrientation="portrait"/>
+    android:screenOrientation="portrait" />
 
 <activity android:name="com.ccb.ccbnetpay.activity.CcbH5PayActivity"
     android:configChanges="orientation|keyboardHidden|screenSize"
-    android:screenOrientation="portrait"/>
+    android:screenOrientation="portrait" />
 ```
 
 #### 2. 获取到 charge/order 后，调起支付
@@ -278,8 +279,8 @@ charge/order 对象是一个包含支付信息的 JSON 对象，是 Ping++ SDK �
 (<font color='red'>注：该调用方法需要在主线程(UI 线程)完成</font>)
 
 ```java
-//参数一：Activity  当前调起支付的Activity
-//参数二：data  获取到的charge或order的JSON字符串
+// 参数一：Activity  当前调起支付的 Activity
+// 参数二：data  获取到的 charge 或 order 的 JSON 字符串
 Pingpp.createPayment(YourActivity.this, data);
 ```
 
@@ -289,7 +290,7 @@ Pingpp.createPayment(YourActivity.this, data);
 
 ```java
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-    //支付页面返回处理
+    // 支付页面返回处理
     if (requestCode == Pingpp.REQUEST_CODE_PAYMENT) {
        String result = data.getExtras().getString("pay_result");
        /* 处理返回值
@@ -340,20 +341,19 @@ Pingpp.signAgreement(YourActivity.this, data);
 
 ```xml
 <activity
-  android:name="com.pingplusplus.android.PaymentActivity"
-  android:configChanges="orientation|keyboardHidden|navigation|screenSize"
-  android:launchMode="singleTop"
-  android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    android:name="com.pingplusplus.android.PaymentActivity"
+    android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+    android:launchMode="singleTop"
+    android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
 <activity
-android:name="com.pingplusplus.ui.PayActivity"
-android:configChanges="orientation|keyboardHidden|navigation|screenSize"
-android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+    android:name="com.pingplusplus.ui.PayActivity"
+    android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+    android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
 <activity
-android:name="com.pingplusplus.ui.PaySuccessActivity"
-android:configChanges="orientation|keyboardHidden|navigation|screenSize"/>
-
+    android:name="com.pingplusplus.ui.PaySuccessActivity"
+    android:configChanges="orientation|keyboardHidden|navigation|screenSize" />
 ```
 
 - 微信支付需要注册
@@ -409,6 +409,7 @@ android:configChanges="orientation|keyboardHidden|navigation|screenSize"/>
    <data android:scheme="qwalletXXXXXXXX"/>
 </intent-filter>
 ```
+
 将以上代码添加到 Ping++ SDK 注册的 Activity，如：
 
 ```xml
@@ -424,7 +425,6 @@ android:configChanges="orientation|keyboardHidden|navigation|screenSize"/>
         <category android:name="android.intent.category.DEFAULT"/>
         <data android:scheme="qwallet1234567890"/>
     </intent-filter>
-
 </activity>
 ```
 
@@ -442,6 +442,7 @@ android:configChanges="orientation|keyboardHidden|navigation|screenSize"/>
 ```xml
 <string name="cmbkb_publickey">填写自己的 publickey</string>
 ```
+
 #### 2. 使用方法
 
 ##### 方法一：使用 Ping++ UI 中的选择渠道面板, 返回选择渠道信息, 自行实现获取 charge/order
@@ -459,7 +460,7 @@ PingppUI.enableChannels(channels);
 // 参数二: ChannelListener 选择渠道回调类
 PingppUI.showPaymentChannels(context, new ChannelListener() {
     @Override public void selectChannel(String channel) {
-    	// channel 为用户选择的支付渠道
+        // channel 为用户选择的支付渠道
     }
 }
 ```
@@ -483,14 +484,14 @@ PingppUI.createPay(context, data, new PaymentHandler() {
 ``` java
 // 参数一: context 上下文对象
 // 参数二: bill 获取charge参数字符串 例: {"order_no":"123456789", "amount":10, "custom_params":{"extra1":"extra1"}}
-// 参数三: CHARGE_URL  获取charge的URL
+// 参数三: CHARGE_URL  获取 charge 的 URL
 // 参数四: PaymentHandler 支付结果回调类
 PingppUI.showPaymentChannels(this, bill, CHARGE_URL, new PaymentHandler() {
     @Override public void handlePaymentResult(Intent data) {
-    	// code：支付结果码  -2:服务端错误、 -1：失败、 0：取消、1：成功
-      int code = data.getExtras().getInt("code");
-      // result：支付结果信息
-      String result = data.getExtras().getString("result");
+        // code：支付结果码  -2:服务端错误、 -1：失败、 0：取消、1：成功
+        int code = data.getExtras().getInt("code");
+        // result：支付结果信息
+        String result = data.getExtras().getString("result");
     }
 });
 ```
@@ -570,21 +571,21 @@ java.util.zip.ZipException: duplicate entry: a/a/a/a.class
 
 - 解决方案:
     1. 加上混淆过滤的代码(出现 a/a/a/a.class 的 log 时)
-    2. 删除重复的 jar 包(可以是第三方SDK中的,也可以是 Ping++ SDK 中的jar包)
+    2. 删除重复的 jar 包(可以是第三方 SDK 中的，也可以是 Ping++ SDK 中的 jar 包)
 
-### <span id = "issue3">问题三：Ping++ 和其他第三方 SDK(如：高德地图)同时存在，使用 gradle 导入Ping++, 会导致其他第三方SDK（如：高德地图）找不到so而无法使用</span>
+### <span id = "issue3">问题三：Ping++ 和其他第三方 SDK(如：高德地图)同时存在，使用 gradle 导入 Ping++, 会导致其他第三方 SDK（如：高德地图）找不到 so 而无法使用</span>
 
 - 报错原因:
-    Ping++ SDK 提供了 armeabi、armeabi-v7a 而其他第三方 SDK(如：高德地图)提供了 armeabi, 当手机是 armeabi-v7a 的会去加载 armeabi-v7a 包下的 so 文件 这是会报其他第三方 SDK (如：高德地图)的 so 文件找不到，而你上面的代码在打包的时候就只打包了 armeabi，所以只会去 armeabi 包下找，因此不会出现报错 建议使用各种SDK时保持相同的so文件。
+    Ping++ SDK 提供了 `armeabi-v7a`、`arm64-v8a`，而其他第三方 SDK(如：高德地图)提供了 `armeabi-v7a`, 当手机是 `arm64-v8a` 的会去加载 `arm64-v8a` 包下的 so 文件，这时会报其他第三方 SDK (如：高德地图)的 so 文件找不到，而你上面的代码在打包的时候就只打包了 `armeabi-v7a`，所以只会去 `armeabi-v7a` 包下找，因此不会出现报错 建议使用各种 SDK 时保持相同的 so 文件。
 
 - 解决方案:
 在 build.gradle 中设置 ndk
 
 ```java
 ndk {
-    //选择要添加的对应cpu类型的.so库。选择的so文件需要各种SDK保持一致
-    abiFilters 'armeabi', 'x86'
-    // 还可以添加 'x86_64', 'mips', 'mips64',, 'armeabi-v7a', 'armeabi-v8a'
+    // 选择要添加的对应 cpu 类型的 .so 库。选择的 so 文件需要各种 SDK 保持一致
+    abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+    // 还可以添加根据实际情况选择所有 SDK 可以支持的类型
 }
 ```
 
@@ -599,11 +600,11 @@ java.lang.ClassNotFoundException: org.simalliance.openmobileapi.SEService
     缺少 `org.simalliance.openmobileapi.SEService`, 编译失败
 
 - 解决方案:
-    将example中libs下的 `org.simalliance.openmobileapi.jar` 拷到项目中依赖，但不要打包进apk中，有些手机会存在这个jar包
+    将 example 中 libs 下的 `org.simalliance.openmobileapi.jar` 拷到项目中依赖，但不要打包进 apk 中，有些手机会存在这个 jar 包
 
     ```java
     dependencies {
-        provided files('libs/org.simalliance.openmobileapi.jar') //使用provided,不打包进apk
+        compileOnly files('libs/org.simalliance.openmobileapi.jar') // 使用 compileOnly, 不打包进 apk
     }
     ```
 
@@ -615,7 +616,7 @@ java.lang.ClassNotFoundException: org.simalliance.openmobileapi.SEService
     在自己项目中 `res/values/string.xml` 下配置该字段
 
     ```xml
-    <string name="cmbkb_publickey">填写自己的 publickey </string>
+    <string name="cmbkb_publickey">填写自己的 publickey</string>
     ```
 
 ### 更多问题请到[帮助中心](https://help.pingxx.com/)搜索
