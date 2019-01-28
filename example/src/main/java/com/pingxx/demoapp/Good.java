@@ -1,4 +1,4 @@
-package com.pingplusplus.demoapp;
+package com.pingxx.demoapp;
 
 /**
  * Created by sunkai on 15/3/18.

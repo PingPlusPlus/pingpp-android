@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.pingplusplus.demoapp"
+    package="com.pingxx.demoapp"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -21,7 +21,7 @@
 
         <!-- 示例 Activity 供用户参考 -->
         <activity
-            android:name="com.pingplusplus.demoapp.MainActivity"
+            android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,7 +29,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.pingplusplus.demoapp.ClientSDKActivity" >
+
+        <activity android:name=".ClientSDKActivity" >
         </activity>
 
         <!-- Ping++ sdk -->

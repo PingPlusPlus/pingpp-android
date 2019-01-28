@@ -1,4 +1,4 @@
-package com.pingplusplus.demoapp;
+package com.pingxx.demoapp;
 
 import android.content.Context;
 import android.view.LayoutInflater;

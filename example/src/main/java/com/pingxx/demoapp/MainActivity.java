@@ -1,4 +1,4 @@
-package com.pingplusplus.demoapp;
+package com.pingxx.demoapp;
 
 import android.app.Activity;
 import android.content.Intent;

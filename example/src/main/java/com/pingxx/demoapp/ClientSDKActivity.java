@@ -1,4 +1,4 @@
-package com.pingplusplus.demoapp;
+package com.pingxx.demoapp;
 
 import java.io.BufferedReader;
 import java.io.IOException;

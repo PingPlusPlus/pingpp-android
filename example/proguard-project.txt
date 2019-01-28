@@ -19,6 +19,10 @@
 #   public *;
 #}
 
+-keep class * extends android.app.Activity {
+   *;
+}
+
 # Ping++ 混淆过滤
 -dontwarn com.pingplusplus.**
 -keep class com.pingplusplus.** {*;}
@@ -50,3 +54,7 @@
 -keepclassmembers class * {
     @android.webkit.JavascriptInterface <methods>;
 }
+
+-keep class org.json.** {*;}
+
+-dontwarn android.test.**

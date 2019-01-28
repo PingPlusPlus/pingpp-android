@@ -61,7 +61,7 @@ allprojects {
 
 ```groovy
 dependencies {
-   compile 'com.pingxx:pingpp-android:2.2.0' // (Ping++ 标准版 SDK) 必须添加
+   compile 'com.pingxx:pingpp-android:2.2.1' // (Ping++ 标准版 SDK) 必须添加
    compile 'com.pingxx:pingpp-ui:2.1.19' // (Ping++ UI 控件) 使用 Ping++ UI 时添加
    compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+' // 使用微信支付时添加,具体版本参考微信官方文档
    compile 'com.pingxx:pingpp-android-alipay:2.2.0' // 使用支付宝时添加

@@ -1,4 +1,4 @@
-package com.pingplusplus.demoapp;
+package com.pingxx.demoapp;
 
 import com.pingplusplus.android.Pingpp;
 import com.pingplusplus.ui.PaymentHandler;
