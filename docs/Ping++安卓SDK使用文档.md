@@ -37,15 +37,16 @@ Android SDK 要求 Android 2.3 及以上版本
 
 #### Gradle 导入方式
 
-```java
+```groovy
 dependencies {
-   compile 'com.pingxx:pingpp-core:2.1.17' // (Ping++ 标准版 SDK) 必须添加
-   compile 'com.pingxx:pingpp-ui:2.1.17' // (Ping++ UI 控件) 使用 Ping++ UI 时添加
-   compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+' // 使用微信支付时添加,具体版本参考微信官方文档
-   compile 'com.pingxx:pingpp-alipay:2.1.17' // 使用支付宝时添加
-   compile 'com.pingxx:pingpp-upacp:2.1.17' // 使用银联支付时添加
-   compile 'com.pingxx:pingpp-qpay:2.1.17' // 使用QQ钱包时添加
-   compile 'com.pingxx:pingpp-cmbwallet:2.1.17' // 使用招行一网通时添加
+   implementation 'com.pingxx:pingpp-android:2.2.1' // (Ping++ 标准版 SDK) 必须添加
+   implementation 'com.pingxx:pingpp-ui:2.1.19' // (Ping++ UI 控件) 使用 Ping++ UI 时添加
+   implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+' // 使用微信支付时添加,具体版本参考微信官方文档
+   implementation 'com.pingxx:pingpp-android-alipay:2.2.0' // 使用支付宝时添加
+   implementation 'com.pingxx:pingpp-android-upacp:2.2.0' // 使用银联支付时添加
+   implementation 'com.pingxx:pingpp-qpay:2.1.19' // 使用QQ钱包时添加
+   implementation 'com.pingxx:pingpp-cmbwallet:2.1.19' // 使用招行一网通时添加
+   implementation 'com.pingxx:pingpp-ccbpay:2.1.19' // 使用建行支付时添加
 }
 ```
 
@@ -54,7 +55,7 @@ dependencies {
 ```xml
 <dependency>
   <groupId>com.pingxx</groupId>
-  <artifactId>pingpp-core</artifactId>
+  <artifactId>pingpp-android</artifactId>
   <!--请将 VERSION 换成 SDK 对应的版本号-->
   <version>VERSION</version>
   <type>pom</type>
@@ -118,36 +119,6 @@ dependencies {
     android:name="替换成自己APK的包名.wxapi.WXPayEntryActivity"
     android:exported="true"
     android:targetActivity="com.pingplusplus.android.PaymentActivity" />
-```
-
-- 支付宝支付需要注册
-
-```xml
-<activity
-    android:name="com.alipay.sdk.app.H5PayActivity"
-    android:configChanges="orientation|keyboardHidden|navigation|screenSize"
-    android:exported="false"
-    android:screenOrientation="behind" >
-</activity>
-<activity
-    android:name="com.alipay.sdk.auth.AuthActivity"
-    android:configChanges="orientation|keyboardHidden|navigation|screenSize" 
-    android:exported="false"
-    android:screenOrientation="behind" >
-</activity>
-```
-
-- 银联支付需注册
-
-``` xml
-<activity 
-    android:name="com.unionpay.uppay.PayActivity" 
-    android:configChanges="orientation|keyboardHidden|navigation|screenSize"/>
-<activity
-    android:name="com.unionpay.UPPayWapActivity"
-    android:configChanges="orientation|keyboardHidden|navigation|screenSize"
-    android:screenOrientation="portrait"
-    android:windowSoftInputMode="adjustResize"/>
 ```
 
 - QQ钱包需注册(scheme填写规则：qwallet + QQ钱包中的app_id)
@@ -269,36 +240,6 @@ android:configChanges="orientation|keyboardHidden|navigation|screenSize"/>
     android:name="替换成自己APK的包名.wxapi.WXPayEntryActivity"
     android:exported="true"
     android:targetActivity="com.pingplusplus.android.PaymentActivity" />
-```
-
-- 支付宝支付需要注册
-
-```xml
-<activity
-    android:name="com.alipay.sdk.app.H5PayActivity"
-    android:configChanges="orientation|keyboardHidden|navigation|screenSize"
-    android:exported="false"
-    android:screenOrientation="behind" >
-</activity>
-<activity
-    android:name="com.alipay.sdk.auth.AuthActivity"
-    android:configChanges="orientation|keyboardHidden|navigation|screenSize" 
-    android:exported="false"
-    android:screenOrientation="behind" >
-</activity>
-```
-
-- 银联支付需注册
-
-``` xml
-<activity 
-    android:name="com.unionpay.uppay.PayActivity" 
-    android:configChanges="orientation|keyboardHidden|navigation|screenSize"/>
-<activity
-    android:name="com.unionpay.UPPayWapActivity"
-    android:configChanges="orientation|keyboardHidden|navigation|screenSize"
-    android:screenOrientation="portrait"
-    android:windowSoftInputMode="adjustResize"/>
 ```
 
 - QQ钱包需注册(scheme填写规则：qwallet + QQ钱包中的app_id)
@@ -521,6 +462,3 @@ java.lang.ClassNotFoundException: org.simalliance.openmobileapi.SEService
     ```
 
 ### 更多问题请到[帮助中心](https://help.pingxx.com/)搜索
-
-
-

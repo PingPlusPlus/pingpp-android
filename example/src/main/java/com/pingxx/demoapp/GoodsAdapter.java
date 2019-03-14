@@ -1,5 +1,6 @@
 package com.pingxx.demoapp;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,9 +38,10 @@ public class GoodsAdapter extends BaseAdapter {
         return position;
     }
 
+    @SuppressLint("InflateParams")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder viewHolder = null;
+        ViewHolder viewHolder;
         if (null == convertView) {
             convertView = LayoutInflater.from(mContext).inflate(R.layout.goods_item,null);
             viewHolder = new ViewHolder();
@@ -54,9 +56,9 @@ public class GoodsAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         final Good good = mList.get(position);
-        viewHolder.count.setText("" + good.getCount());
+        viewHolder.count.setText(String.valueOf(good.getCount()));
         viewHolder.name.setText(good.getName());
-        viewHolder.price.setText("" + good.getPrice());
+        viewHolder.price.setText(String.valueOf(good.getPrice()));
         viewHolder.image.setImageDrawable(mContext.getResources().getDrawable(good.getImgRes()));
         viewHolder.addCount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +73,6 @@ public class GoodsAdapter extends BaseAdapter {
                 if (good.getCount() > 1) {
                     good.setCount(good.getCount() - 1);
                     notifyDataSetChanged();
-                    ;
                 }
             }
         });
