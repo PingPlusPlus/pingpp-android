@@ -19,9 +19,6 @@ public class MainActivity extends Activity {
 		case R.id.client_sdk:
 			clz = ClientSDKActivity.class;
 			break;
-		case R.id.one_sdk:
-			clz = OneSDKActivity.class;
-			break;
 		default:
 			break;
 		}

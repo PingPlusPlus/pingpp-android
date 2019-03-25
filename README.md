@@ -9,14 +9,13 @@
     * [4.1 导入依赖包](#4.1)
     * [4.2 权限配置](#4.2)
     * [4.3 使用 Ping++ 标准版 SDK](#4.3)
-    * [4.4 使用 Ping++ UI SDK](#4.4)
 * [5. 日志开关](#5)
 * [6. 注意事项](#6)
 * [7. 常见问题](#issues)
 
 ## <h2 id='1'>简介</h2>
 
-lib 目录包含两个 Library Project：pingpp 和 pingpp_ui。
+lib 目录包含 Library Project: `pingpp`。
 可以直接将两个 Library Project 作为依赖库，导入到你的项目。支持 Android Studio（建议）和 Eclipse。
 example 文件夹里面是一个简单的接入示例，该示例仅供参考。想使用该示例，请直接将本仓库导入。
 docs 目录里面是 Android SDK 的接入指南。
@@ -62,7 +61,6 @@ allprojects {
 ```groovy
 dependencies {
    implementation 'com.pingxx:pingpp-android:2.2.1' // (Ping++ 标准版 SDK) 必须添加
-   implementation 'com.pingxx:pingpp-ui:2.1.19' // (Ping++ UI 控件) 使用 Ping++ UI 时添加
    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+' // 使用微信支付时添加,具体版本参考微信官方文档
    implementation 'com.pingxx:pingpp-android-alipay:2.2.0' // 使用支付宝时添加
    implementation 'com.pingxx:pingpp-android-upacp:2.2.0' // 使用银联支付时添加
@@ -86,7 +84,7 @@ dependencies {
 
 #### 下载 SDK 导入
 
-在 lib 目录中包含 pingpp（标准版 SDK）和 pingpp_ui（UI 版 SDK）资源，其中包含支付所需的 jar 包和资源包，请按需拷贝相应的文件到项目中。
+在 lib 目录中包含 pingpp（标准版 SDK）资源，其中包含支付所需的 jar 包和资源包，请按需拷贝相应的文件到项目中。
 
 ##### pingpp
 
@@ -96,10 +94,6 @@ dependencies {
 - 银联支付依赖包：`UPPayAssistEx.jar`、`UPPayPluginExPro.jar`、`libentryexpro.so`、`libuptsmaddon.so` 和 `assets` 目录下 `data.bin` 文件
 - QQ钱包依赖包：`mqqopenpay.jar`
 - 招行一网通(混淆加密方式可不配置相关的参数,非混淆加密方式需配置)：`cmbkeyboard.jar` 和 `res` 目录下 `cmb_` 开头的资源文件
-
-##### pingpp_ui
-
-- `libpingppui-xxxx` 及相关 `res` 资源文件
 
 ### <h3 id='4.2'>二、清单文件配置所需权限</h3>
 
@@ -304,140 +298,8 @@ Pingpp.signAgreement(YourActivity.this, data);
 
 签约结果不会在客户端返回，商户需要自己在前端查询服务端的 `agreement` 对象状态。
 
-### <h3 id='4.4'>四、使用 Ping++ UI SDK</h3>
-
-#### 1. 清单文件注册相关类
-
-- Ping++ SDK所需要注册
-
-```xml
-<activity
-    android:name="com.pingplusplus.android.PaymentActivity"
-    android:configChanges="orientation|keyboardHidden|navigation|screenSize"
-    android:launchMode="singleTop"
-    android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
-<activity
-    android:name="com.pingplusplus.ui.PayActivity"
-    android:configChanges="orientation|keyboardHidden|navigation|screenSize"
-    android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
-<activity
-    android:name="com.pingplusplus.ui.PaySuccessActivity"
-    android:configChanges="orientation|keyboardHidden|navigation|screenSize" />
-```
-
-- 微信支付需要注册
-    <font color='red'> 注：
-    1. 需要将以下“替换成自己 APK 的包名”换成在微信平台上注册填写的包名
-    2. WxPayEntryActivity 这个类在 SDK 内部实现，开发者不需要额外实现该类
-    </font>
-
-```xml
-<activity-alias
-    android:name="替换成自己 APK 的包名.wxapi.WXPayEntryActivity"
-    android:exported="true"
-    android:targetActivity="com.pingplusplus.android.PaymentActivity" />
-```
-
-- QQ 钱包需注册(scheme 填写规则：qwallet + QQ 钱包中的 app_id)
-
-```xml
-<intent-filter>
-   <action android:name="android.intent.action.VIEW"/>
-   <category android:name="android.intent.category.BROWSABLE"/>
-   <category android:name="android.intent.category.DEFAULT"/>
-   <data android:scheme="qwalletXXXXXXXX"/>
-</intent-filter>
-```
-
-将以上代码添加到 Ping++ SDK 注册的 Activity，如：
-
-```xml
-<activity
-    android:name="com.pingplusplus.android.PaymentActivity"
-    android:configChanges="orientation|keyboardHidden|navigation|screenSize"
-    android:launchMode="singleTop"
-    android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-
-    <intent-filter>
-        <action android:name="android.intent.action.VIEW"/>
-        <category android:name="android.intent.category.BROWSABLE"/>
-        <category android:name="android.intent.category.DEFAULT"/>
-        <data android:scheme="qwallet1234567890"/>
-    </intent-filter>
-</activity>
-```
-
-- 招行一网通(非混淆加密方式)需注册
-
-```xml
-<service android:name="cmb.pb.cmbsafe.CmbService" android:exported="false"/>
-<activity
-         android:name="cmb.pb.ui.PBKeyboardActivity"
-         android:theme="@style/CmbDialogStyleBottom" />
-```
-
-(<font color='red'>招行一网通在非混淆加密方式下：需在 string.xml 中配置 cmbkb_publickey 字段，如：</font>)
-
-```xml
-<string name="cmbkb_publickey">填写自己的 publickey</string>
-```
-
-#### 2. 使用方法
-
-##### 方法一：使用 Ping++ UI 中的选择渠道面板, 返回选择渠道信息, 自行实现获取 charge/order
-
-**使用选择渠道面板**
-
-``` java
-// 设置选择渠道面板
-CHANNELS[] channels = new CHANNELS[]{CHANNELS.ALIPAY, CHANNELS.WX, CHANNELS.UPACP,
-    CHANNELS.BFB_WAP, CHANNELS.JDPAY_WAP, CHANNELS.QPAY,
-    CHANNELS.CMB_WALLET, CHANNELS.YEEPAY_WAP};
-PingppUI.enableChannels(channels);
-
-// 参数一: context 上下文对象
-// 参数二: ChannelListener 选择渠道回调类
-PingppUI.showPaymentChannels(context, new ChannelListener() {
-    @Override public void selectChannel(String channel) {
-        // channel 为用户选择的支付渠道
-    }
-}
-```
-
-**调起支付**
-
-``` java
-// 参数一: context 上下文对象
-// 参数二: data  charge/order 字符串
-// 参数三: PaymentHandler 支付结果回调类
-PingppUI.createPay(context, data, new PaymentHandler() {
-    @Override public void handlePaymentResult(Intent data) {
-        int code = data.getExtras().getInt("code");
-        String result = data.getExtras().getString("result");
-    }
-});
-```
-
-##### 方法二：使用 Ping++ UI 中选择渠道面板和成功页, 获取 charge/order 由 SDK 实现
-
-``` java
-// 参数一: context 上下文对象
-// 参数二: bill 获取charge参数字符串 例: {"order_no":"123456789", "amount":10, "custom_params":{"extra1":"extra1"}}
-// 参数三: CHARGE_URL  获取 charge 的 URL
-// 参数四: PaymentHandler 支付结果回调类
-PingppUI.showPaymentChannels(this, bill, CHARGE_URL, new PaymentHandler() {
-    @Override public void handlePaymentResult(Intent data) {
-        // code：支付结果码  -2:服务端错误、 -1：失败、 0：取消、1：成功
-        int code = data.getExtras().getInt("code");
-        // result：支付结果信息
-        String result = data.getExtras().getString("result");
-    }
-});
-```
-
 ## 混淆设置
+
 <font color='red'>(注：将以下对应渠道的混淆代码加到主 module 以及该 SDK 依赖所在的 module 中，不然会出现 jar 包重复或者找不到该类的问题，如：[问题二](#issue2))</font>
 
 ```

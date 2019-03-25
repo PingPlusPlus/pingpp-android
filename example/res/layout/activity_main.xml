@@ -13,11 +13,4 @@
         android:text="client_sdk"
         android:onClick="btnClick"/>
 
-    <Button
-        android:id="@+id/one_sdk"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="壹收款"
-        android:onClick="btnClick"/>
-
 </LinearLayout>

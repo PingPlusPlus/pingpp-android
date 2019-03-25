@@ -48,7 +48,5 @@ dependencies {
     implementation 'com.pingxx:pingpp-cmbwallet:2.1.19'
     // 使用建行支付时添加
     implementation 'com.pingxx:pingpp-ccbpay:2.1.19'
-    // (Ping++ UI 控件) 使用 Ping++ UI 时添加
-    implementation 'com.pingxx:pingpp-ui:2.1.19'
     compileOnly files('libs/org.simalliance.openmobileapi.jar')
 }
