@@ -15,14 +15,14 @@
 
 ## <h2 id='1'>简介</h2>
 
-lib 目录包含 Library Project: `pingpp`。
-可以直接将两个 Library Project 作为依赖库，导入到你的项目。支持 Android Studio（建议）和 Eclipse。
-example 文件夹里面是一个简单的接入示例，该示例仅供参考。想使用该示例，请直接将本仓库导入。
+lib 目录包含 Library Project: `pingpp`。  
+可以直接将两个 Library Project 作为依赖库，导入到你的项目。支持 Android Studio。  
+example 文件夹里面是一个简单的接入示例，该示例仅供参考。想使用该示例，请直接将本仓库导入。  
 docs 目录里面是 Android SDK 的接入指南。
 
 ## <h2 id='2'>版本要求</h2>
 
-Android SDK 要求 `Android 4.1` 及以上版本
+Android SDK 要求 `Android 4.1` 及以上版本  
 请使用 `Java 8` 或以上版本
 
 ## <h2 id='3'>快速体验</h2>
@@ -31,7 +31,7 @@ Android SDK 要求 `Android 4.1` 及以上版本
 
 导入 pingpp-android 整个项目，即可运行该 demo。
 
-<font color="red">需要注意: </font>测试微信支付，需要签名和包名与微信开放平台上的一致，才可支付成功。给出的 demo 并没给出正确的签名，会返回微信支付失败的结果。
+<font color="red">需要注意: </font>测试微信支付，需要签名和包名与微信开放平台上的一致，才可支付成功。给出的 demo 并没给出正确的签名，会返回微信支付失败的结果。  
 <font color="red">导入 demo 中可能会遇到的开发环境版本问题，修改 build.gradle 中的版本</font>
 
 ## <h2 id='4'>工程配置及使用</h2>
@@ -240,7 +240,7 @@ charge/order 对象是一个包含支付信息的 JSON 对象，是 Ping++ SDK �
 
 ##### 调起支付
 
-因为 Ping++ 已经封装好了相应的调用方法，所以只需要调用支付方法即可调起支付控件：
+因为 Ping++ 已经封装好了相应的调用方法，所以只需要调用支付方法即可调起支付控件：  
 (<font color='red'>注：该调用方法需要在主线程(UI 线程)完成</font>)
 
 ```java
