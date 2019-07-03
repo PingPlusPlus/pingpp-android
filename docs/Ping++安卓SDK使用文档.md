@@ -38,13 +38,14 @@ Android SDK 要求 Android 4.1 及以上版本
 
 ```groovy
 dependencies {
-   implementation 'com.pingxx:pingpp-android:2.2.1' // (Ping++ 标准版 SDK) 必须添加
-   implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+' // 使用微信支付时添加,具体版本参考微信官方文档
-   implementation 'com.pingxx:pingpp-android-alipay:2.2.0' // 使用支付宝时添加
-   implementation 'com.pingxx:pingpp-android-upacp:2.2.0' // 使用银联支付时添加
-   implementation 'com.pingxx:pingpp-qpay:2.1.19' // 使用QQ钱包时添加
-   implementation 'com.pingxx:pingpp-cmbwallet:2.1.19' // 使用招行一网通时添加
-   implementation 'com.pingxx:pingpp-ccbpay:2.1.19' // 使用建行支付时添加
+    implementation 'com.pingxx:pingpp-android:2.2.3' // (Ping++ 标准版 SDK) 必须添加
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:5.4.0' // 使用微信支付时添加,具体版本参考微信官方文档
+    implementation 'com.pingxx:pingpp-android-alipay:2.2.3' // 使用支付宝时添加
+    implementation 'com.pingxx:pingpp-android-upacp:2.2.3' // 使用银联支付时添加
+    implementation 'com.pingxx:pingpp-qpay:2.1.19' // 使用QQ钱包时添加
+    implementation 'com.pingxx:pingpp-cmbwallet:2.1.19' // 使用招行一网通时添加
+    implementation 'com.pingxx:pingpp-ccbpay:2.1.19' // 使用建行支付时添加
+    implementation 'com.pingxx:pingpp-android-cmpay:2.2.2' // 使用和包支付时添加
 }
 ```
 
@@ -124,6 +125,7 @@ dependencies {
    <data android:scheme="qwalletXXXXXXXX"/>
 </intent-filter>
 ```
+
 将以上代码添加到Ping++ SDK注册的Activity，如：
 
 ```xml
@@ -132,14 +134,12 @@ dependencies {
     android:configChanges="orientation|keyboardHidden|navigation|screenSize"
     android:launchMode="singleTop"
     android:theme="@android:style/Theme.Translucent.NoTitleBar" >
- 
     <intent-filter>
         <action android:name="android.intent.action.VIEW"/>
         <category android:name="android.intent.category.BROWSABLE"/>
         <category android:name="android.intent.category.DEFAULT"/>
         <data android:scheme="qwallet1234567890"/>
     </intent-filter>
- 
 </activity>
 ```
 
