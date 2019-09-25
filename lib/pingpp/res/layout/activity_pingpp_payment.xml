@@ -14,7 +14,8 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_margin="5dp"
-        android:src="@drawable/pingpp_back"/>
+        android:src="@drawable/pingpp_img_btn_back"
+        android:contentDescription="@string/pingpp_back_btn_description" />
     </FrameLayout>
 
     <FrameLayout
@@ -29,8 +30,7 @@
         <com.pingplusplus.android.WebViewEx
             android:id="@+id/pingpp_webView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
+            android:layout_height="match_parent" />
         </LinearLayout>
 
         <ProgressBar
@@ -38,7 +38,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
-            android:background="@drawable/tips_bg"
+            android:background="@drawable/pingpp_img_tips_bg"
             />
 
     </FrameLayout>

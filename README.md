@@ -60,10 +60,10 @@ allprojects {
 
 ```groovy
 dependencies {
-    implementation 'com.pingxx:pingpp-android:2.2.3' // (Ping++ 标准版 SDK) 必须添加
-    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:5.4.0' // 使用微信支付时添加,具体版本参考微信官方文档
-    implementation 'com.pingxx:pingpp-android-alipay:2.2.3' // 使用支付宝时添加
-    implementation 'com.pingxx:pingpp-android-upacp:2.2.3' // 使用银联支付时添加
+    implementation 'com.pingxx:pingpp-android:2.2.4' // (Ping++ 标准版 SDK) 必须添加
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:5.4.3' // 使用微信支付时添加,具体版本参考微信官方文档
+    implementation 'com.pingxx:pingpp-android-alipay:15.6.5' // 使用支付宝时添加
+    implementation 'com.pingxx:pingpp-android-upacp:3.4.8' // 使用银联支付时添加
     implementation 'com.pingxx:pingpp-qpay:2.1.19' // 使用QQ钱包时添加
     implementation 'com.pingxx:pingpp-cmbwallet:2.1.19' // 使用招行一网通时添加
     implementation 'com.pingxx:pingpp-ccbpay:2.1.19' // 使用建行支付时添加
@@ -112,6 +112,7 @@ dependencies {
 ```
 
 ### <h3 id='4.3'>三、使用 Ping++ 标准版 SDK</h3>
+
 #### 1. 清单文件注册相关类
 
 - Ping++ SDK 所需要注册
@@ -275,16 +276,19 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 ```
 
 #### 4. 其他辅助方法及变量
+
 ##### 1. 判断是否安装了招商银行客户端
+
 ```
 // isInstalled   true: 已安装    false: 未安装
 boolean isInstalled = Pingpp.isCmbWalletInstalled(context);
 ```
 
 ##### 2. 是否允许使用手机 Pay
+
 ```
 // true: 允许 (默认)   false: 不允许
-Pingpp.isPermissionSEPay(false);
+Pingpp.useSEPay(false);
 ```
 
 #### 5. 调起签约接口

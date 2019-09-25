@@ -1,5 +1,13 @@
 # ChangeLog
 
+### 2.2.4
+
+- 更新: 银联 SDK 更新至 3.4.8
+- 更新: 支付宝 SDK 更新至 15.6.5
+- 更新：渠道 SDK 版本号换成渠道的版本号
+- 新增：`Pingpp.useSEPay(boolean);` 代替 `Pingpp.isPermissionSEPay = false;`
+- 更新：银联渠道去掉请求权限
+
 ### 2.2.3
 
 - 更新: 银联 SDK 更新至 3.4.6

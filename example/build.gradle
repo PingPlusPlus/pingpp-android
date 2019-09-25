@@ -35,13 +35,13 @@ dependencies {
     implementation 'com.android.support:support-fragment:28.0.0'
     implementation 'com.android.support:support-core-utils:28.0.0'
     implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.pingxx:pingpp-android:2.2.3'
+    implementation 'com.pingxx:pingpp-android:2.2.4'
     // 使用微信支付时添加
-    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:5.4.0'
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:5.4.3'
     // 使用支付宝时添加
-    implementation 'com.pingxx:pingpp-android-alipay:2.2.3'
+    implementation 'com.pingxx:pingpp-android-alipay:15.6.5'
     // 使用银联支付时添加
-    implementation 'com.pingxx:pingpp-android-upacp:2.2.3'
+    implementation 'com.pingxx:pingpp-android-upacp:3.4.8'
     // 使用QQ钱包时添加
     implementation 'com.pingxx:pingpp-qpay:2.1.19'
     // 使用招行一网通时添加
