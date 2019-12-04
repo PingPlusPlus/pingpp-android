@@ -20,6 +20,8 @@ lib 目录包含 Library Project: `pingpp`。
 example 文件夹里面是一个简单的接入示例，该示例仅供参考。想使用该示例，请直接将本仓库导入。  
 docs 目录里面是 Android SDK 的接入指南。
 
+* **推荐使用 Gradle 方式**，本项目的库文件更新可能有延迟。
+
 ## <h2 id='2'>版本要求</h2>
 
 Android SDK 要求 `Android 4.1` 及以上版本  
@@ -60,9 +62,9 @@ allprojects {
 
 ```groovy
 dependencies {
-    implementation 'com.pingxx:pingpp-android:2.2.4' // (Ping++ 标准版 SDK) 必须添加
-    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:5.4.3' // 使用微信支付时添加,具体版本参考微信官方文档
-    implementation 'com.pingxx:pingpp-android-alipay:15.6.5' // 使用支付宝时添加
+    implementation 'com.pingxx:pingpp-android:2.2.6' // (Ping++ 标准版 SDK) 必须添加
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:5.5.8' // 使用微信支付时添加,具体版本参考微信官方文档或者 jcenter
+    implementation 'com.pingxx:pingpp-android-alipay:15.6.8' // 使用支付宝时添加
     implementation 'com.pingxx:pingpp-android-upacp:3.4.8' // 使用银联支付时添加
     implementation 'com.pingxx:pingpp-qpay:2.1.19' // 使用QQ钱包时添加
     implementation 'com.pingxx:pingpp-cmbwallet:2.1.19' // 使用招行一网通时添加
@@ -70,6 +72,8 @@ dependencies {
     implementation 'com.pingxx:pingpp-android-cmpay:2.2.2' // 使用和包支付时添加
 }
 ```
+
+[微信 SDK jcenter](https://bintray.com/wechat-sdk-team/maven/com.tencent.mm.opensdk%3Awechat-sdk-android-without-mta)
 
 #### Maven 导入方式
 
