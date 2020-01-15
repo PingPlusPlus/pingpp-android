@@ -10,7 +10,7 @@
         android:id="@+id/client_sdk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="client_sdk"
+        android:text="Client SDK"
         android:onClick="btnClick"/>
 
 </LinearLayout>

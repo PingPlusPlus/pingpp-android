@@ -111,8 +111,9 @@ public class ClientSDKActivity extends Activity implements OnClickListener {
         jdpayButton.setOnClickListener(ClientSDKActivity.this);
         qpayButton.setOnClickListener(ClientSDKActivity.this);
 
-        Pingpp.DEBUG = true;
-        
+        Log.d("Pingpp.VERSION", Pingpp.VERSION);
+        Pingpp.enableDebugLog(true);
+
         amountEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -183,7 +184,6 @@ public class ClientSDKActivity extends Activity implements OnClickListener {
 
         @Override
         protected String doInBackground(PaymentRequest... pr) {
-
             PaymentRequest paymentRequest = pr[0];
             String data = null;
             try {
@@ -211,18 +211,28 @@ public class ClientSDKActivity extends Activity implements OnClickListener {
         	}
         	Log.d("charge", data);
 
-            //除QQ钱包外，其他渠道调起支付方式：
-            //参数一：Activity  当前调起支付的Activity
-            //参数二：data  获取到的charge或order的JSON字符串
+            /*
+              启用中间跳转页面，并且设置延迟 1.0s 才显示页面内容，
+              SDK 自带非常简陋的页面布局，用户需要自定义该页面，
+              参考示例增加一个 pingpp_payment_activity_main.xml 布局文件。
+              必须保证包含三个按钮，id 分别为：
+                pingpp_button_reopen 用于重试调用打开支付组件
+                pingpp_button_cancel 当 SDK 无法获取结果时，用户点击这个，会返回值为 "user_cancel" 的 pay_result
+                pingpp_button_success 同上，会返回值为 "user_success" 的 pay_result
+             */
+        	Pingpp.enableMiddlePage(true, 1.0);
+
+            // 除 QQ 钱包外，其他渠道调起支付方式：
+            // 参数一：Activity 当前调起支付的 Activity
+            // 参数二：data 获取到的 charge 或 order 的 JSON 字符串
             Pingpp.createPayment(ClientSDKActivity.this, data);
 
-            //QQ钱包调用方式
-            //参数一：Activity  当前调起支付的Activity
-            //参数二：data  获取到的charge或order的JSON字符串
-            //参数三：“qwalletXXXXXXX”需与AndroidManifest.xml中的scheme值一致
-            //Pingpp.createPayment(ClientSDKActivity.this, data, "qwalletXXXXXXX");
+            // QQ 钱包调用方式
+            // 参数一：Activity  当前调起支付的 Activity
+            // 参数二：data 获取到的 charge 或 order 的 SON 字符串
+            // 参数三：“qwalletXXXXXXX” 需与 AndroidManifest.xml 中的 scheme 值一致
+            // Pingpp.createPayment(ClientSDKActivity.this, data, "qwalletXXXXXXX");
         }
-
     }
     
 	/**

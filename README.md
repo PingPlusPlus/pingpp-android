@@ -27,6 +27,12 @@ docs 目录里面是 Android SDK 的接入指南。
 Android SDK 要求 `Android 4.1` 及以上版本  
 请使用 `Java 8` 或以上版本
 
+**需要 Kotlin 标准库**
+
+## 额外说明
+
+1. [中间页说明](/docs/支付中间页面说明.md)
+
 ## <h2 id='3'>快速体验</h2>
 
 ### Android Studio
@@ -62,7 +68,7 @@ allprojects {
 
 ```groovy
 dependencies {
-    implementation 'com.pingxx:pingpp-android:2.2.6' // (Ping++ 标准版 SDK) 必须添加
+    implementation 'com.pingxx:pingpp-android:2.3.0' // (Ping++ 标准版 SDK) 必须添加
     implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:5.5.8' // 使用微信支付时添加,具体版本参考微信官方文档或者 jcenter
     implementation 'com.pingxx:pingpp-android-alipay:15.6.8' // 使用支付宝时添加
     implementation 'com.pingxx:pingpp-android-upacp:3.4.8' // 使用银联支付时添加
@@ -87,20 +93,9 @@ dependencies {
 </dependency>
 ```
 
-#### 下载 SDK 导入
-
-在 lib 目录中包含 pingpp（标准版 SDK）资源，其中包含支付所需的 jar 包和资源包，请按需拷贝相应的文件到项目中。
-
-##### pingpp
-
-- Ping++ 依赖包：`libpingpp-x.x.x`、`res` 资源文件和 `libpingpp.so` 文件(必须依赖的)
-- 微信依赖包：`wechat-sdk-android-without-mta-VERSION.jar`
-- 支付宝依赖包：`alipaySdkxxxxxxxx.jar`
-- 银联支付依赖包：`UPPayAssistEx.jar`、`UPPayPluginExPro.jar`、`libentryexpro.so`、`libuptsmaddon.so` 和 `assets` 目录下 `data.bin` 文件
-- QQ钱包依赖包：`mqqopenpay.jar`
-- 招行一网通(混淆加密方式可不配置相关的参数,非混淆加密方式需配置)：`cmbkeyboard.jar` 和 `res` 目录下 `cmb_` 开头的资源文件
-
 ### <h3 id='4.2'>二、清单文件配置所需权限</h3>
+
+> 缺少时或者需要覆盖时可按下述说明添加
 
 <font color='red'>(注：有些权限是需要动态注册的,如 `READ_PHONE_STATE` 权限)</font>
 
@@ -347,7 +342,7 @@ SDK 提供了日志功能，默认日志为关闭状态。 开发者可以通过
 
 ``` java
 //开启调试模式
-Pingpp.DEBUG = true;
+Pingpp.enableDebugLog(true);
 ```
 
 ## <h2 id='6'>注意事项</h2>

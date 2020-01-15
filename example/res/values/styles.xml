@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <style name="Theme" parent="@android:style/Theme.Black.NoTitleBar">
-        <item name="android:windowBackground">@android:color/white</item>
+    <style name="AppTheme" parent="@style/Theme.MaterialComponents.Light.NoActionBar">
     </style>
 
     <style name="TextField" parent="@android:style/Widget.EditText">
