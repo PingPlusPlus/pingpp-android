@@ -31,16 +31,16 @@ android {
 }
 
 dependencies {
-    implementation 'com.google.android.material:material:1.2.0-alpha03'
+    implementation 'com.google.android.material:material:1.2.0-alpha05'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
-    implementation 'com.pingxx:pingpp-android:2.3.1'
+    implementation 'com.pingxx:pingpp-android:2.3.2'
     // 使用微信支付时添加
     implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:5.5.8'
     // 使用支付宝时添加
-    implementation 'com.pingxx:pingpp-android-alipay:15.6.8'
+    implementation 'com.pingxx:pingpp-android-alipay:15.7.4'
     // 使用银联支付时添加
-    implementation 'com.pingxx:pingpp-android-upacp:3.4.8'
+    implementation 'com.pingxx:pingpp-android-upacp:3.4.9'
     // 使用QQ钱包时添加
     implementation 'com.pingxx:pingpp-qpay:2.1.19'
     // 使用招行一网通时添加

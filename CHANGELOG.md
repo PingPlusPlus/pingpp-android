@@ -1,5 +1,14 @@
 # ChangeLog
 
+### 2.3.2
+
+- 更新: webView 类渠道关闭中间页
+- 更新: qpay 报错修复
+- 更新：webView settings 更新
+- 更新：alipay sdk 更新至 15.7.4；unionpay sdk 更新至 3.4.9
+
+---
+
 ### 2.3.1
 
 - 更新: 银联设备支付判断修改
