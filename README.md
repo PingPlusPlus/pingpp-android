@@ -68,13 +68,13 @@ allprojects {
 
 ```groovy
 dependencies {
-    implementation 'com.pingxx:pingpp-android:2.3.2' // (Ping++ 标准版 SDK) 必须添加
+    implementation 'com.pingxx:pingpp-android:2.3.4' // (Ping++ 标准版 SDK) 必须添加
     implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:5.5.8' // 使用微信支付时添加,具体版本参考微信官方文档或者 jcenter
     implementation 'com.pingxx:pingpp-android-alipay-with-utdid:15.7.4' // 使用支付宝时添加(包含 UTDID)
     // implementation 'com.pingxx:pingpp-android-alipay:15.7.4' // 使用支付宝时添加(不包含 UTDID)
     implementation 'com.pingxx:pingpp-android-upacp:3.4.9' // 使用银联支付时添加
     implementation 'com.pingxx:pingpp-qpay:2.1.19' // 使用QQ钱包时添加
-    implementation 'com.pingxx:pingpp-cmbwallet:2.1.19' // 使用招行一网通时添加
+    implementation 'com.pingxx:pingpp-android-cmbwallet:1.1.1' // 使用招行一网通时添加
     implementation 'com.pingxx:pingpp-ccbpay:2.1.19' // 使用建行支付时添加
     implementation 'com.pingxx:pingpp-android-cmpay:2.2.2' // 使用和包支付时添加
     implementation 'com.pingxx:pingpp-android-lakala:2.0.0' // 使用拉卡拉支付时添加
@@ -118,6 +118,8 @@ dependencies {
 
 - Ping++ SDK 所需要注册
 
+> 已默认包含于 aar 文件中，如果不需要自定义，可以忽略。
+
 ```xml
 <activity
     android:name="com.pingplusplus.android.PaymentActivity"
@@ -155,10 +157,7 @@ dependencies {
 
 ```xml
 <activity
-    android:name="com.pingplusplus.android.PaymentActivity"
-    android:configChanges="orientation|keyboardHidden|navigation|screenSize"
-    android:launchMode="singleTop"
-    android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+    android:name="com.pingplusplus.android.PaymentActivity">
 
     <intent-filter>
         <action android:name="android.intent.action.VIEW"/>
@@ -169,30 +168,13 @@ dependencies {
 </activity>
 ```
 
-- 招行一网通(非混淆加密方式)需注册
-
-```xml
-<service android:name="cmb.pb.cmbsafe.CmbService" android:exported="false"/>
-<activity
-    android:name="cmb.pb.ui.PBKeyboardActivity"
-    android:theme="@style/CmbDialogStyleBottom" />
-```
-
-(<font color='red'>招行一网通在非混淆加密方式下：需在 string.xml 中配置 cmbkb_publickey 字段，如：</font>)
-
-```xml
-<string name="cmbkb_publickey">填写自己的 publickey</string>
-```
-
-- 招行一网通 app 需注册 (格式：`<SCHEME>://pingppcmbwallet`，其中 `<SCHEME>` 是你自定的 `URL Schemes`)
+- 招行一网通 app 需注册 `scheme`
 
 ```xml
 <intent-filter>
    <action android:name="android.intent.action.VIEW"/>
-   <category android:name="android.intent.category.BROWSABLE"/>
    <category android:name="android.intent.category.DEFAULT"/>
-   <data android:scheme="自定义 URL Scheme"/>
-   <data android:host="pingppcmbwallet"/>
+   <data android:scheme="招行分配的 scheme"/>
 </intent-filter>
 ```
 
@@ -200,17 +182,12 @@ dependencies {
 
 ```xml
 <activity
-    android:name="com.pingplusplus.android.PaymentActivity"
-    android:configChanges="orientation|keyboardHidden|navigation|screenSize"
-    android:launchMode="singleTop"
-    android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+    android:name="com.pingplusplus.android.PaymentActivity">
 
     <intent-filter>
         <action android:name="android.intent.action.VIEW"/>
-        <category android:name="android.intent.category.BROWSABLE"/>
         <category android:name="android.intent.category.DEFAULT"/>
-        <data android:scheme="自定义 URL Scheme"/>
-        <data android:host="pingppcmbwallet"/>
+        <data android:scheme="招行分配的 scheme"/>
     </intent-filter>
 </activity>
 ```
@@ -237,6 +214,7 @@ dependencies {
 ```
 
 #### 2. 获取到 charge/order 后，调起支付
+
 ##### 获取 charge/order
 
 charge/order 对象是一个包含支付信息的 JSON 对象，是 Ping++ SDK 发起支付的必要参数。该参数需要请求用户服务器获得，服务端生成 charge 或 order 的方式参考 服务端接入简介。SDK 中的 demo 里面提供了如何获取 charge/order 的实例方法，供用户参考。
@@ -292,6 +270,28 @@ boolean isInstalled = Pingpp.isCmbWalletInstalled(context);
 Pingpp.useSEPay(false);
 ```
 
+##### 3. 控制招行支付方式
+
+```
+// 自动判断，安装有招行 app 时打开 app 支付，否则通过 webView 打开 H5 页面支付
+Pingpp.setCmbPayMethod(CmbPayMethod.AUTO);
+// 仅通过 webView 打开 H5 页面支付
+Pingpp.setCmbPayMethod(CmbPayMethod.H5_ONLY);
+// 仅通过打开招行 app 支付
+Pingpp.setCmbPayMethod(CmbPayMethod.APP_ONLY);
+```
+
+##### 3. 设置招行 H5 地址
+
+> 生产环境不需要设置
+
+```
+// 参数 1，Boolean，是否启用招行测试地址；
+// 参数 2，String，招行测试 H5 地址。仅参数 1 为 true 时生效。如果参数 2 传 null，则会使用默认测试地址。
+Pingpp.setCmbEnv(true, null);
+Pingpp.setCmbEnv(true, "https://...");
+```
+
 #### 5. 调起签约接口
 
 ```java
@@ -306,18 +306,23 @@ Pingpp.signAgreement(YourActivity.this, data);
 
 ## 混淆设置
 
+> 使用 aar/jcenter 方式导入的不需要额外设置混淆。
+
 <font color='red'>(注：将以下对应渠道的混淆代码加到主 module 以及该 SDK 依赖所在的 module 中，不然会出现 jar 包重复或者找不到该类的问题，如：[问题二](#issue2))</font>
 
 ```
 # Ping++ 混淆过滤
 -dontwarn com.pingplusplus.**
 -keep class com.pingplusplus.** {*;}
+-keep public class com.pingplusplus.android.Pingpp$CmbPayMethod {
+    *;
+}
 
 # 支付宝混淆过滤
 -dontwarn com.alipay.**
 -keep class com.alipay.** {*;}
 
-# 微信或QQ钱包混淆过滤
+# 微信或 QQ 钱包混淆过滤
 -dontwarn  com.tencent.**
 -keep class com.tencent.** {*;}
 
@@ -325,14 +330,7 @@ Pingpp.signAgreement(YourActivity.this, data);
 -dontwarn  com.unionpay.**
 -keep class com.unionpay.** {*;}
 
-# 招行一网通混淆过滤
--keepclasseswithmembers class cmb.pb.util.CMBKeyboardFunc {
-    public <init>(android.app.Activity);
-    public boolean HandleUrlCall(android.webkit.WebView,java.lang.String);
-    public void callKeyBoardActivity();
-}
-
-# 内部WebView混淆过滤
+# 内部 WebView 混淆过滤
 -keepclassmembers class * {
     @android.webkit.JavascriptInterface <methods>;
 }
@@ -350,7 +348,6 @@ Pingpp.enableDebugLog(true);
 ## <h2 id='6'>注意事项</h2>
 
 - Pingpp Android SDK 可能会与友盟、百度地图等其他第三方 jar 包冲突，当同时使用这些 jar 包的时候用户需要根据情况判断保留哪一方的 jar 包。
-- 新版建议使用 Android Studio
 - 请勿直接使用客户端支付结果作为最终判定订单状态的依据，由于 Ping++ 没有参与你的客户端和第三方渠道的交互，无法保证客户端支付结果的安全性，建议订单状态的更新对比客户端的渠道同步回调信息和服务端的 Ping++ Webhooks 通知来确定是否修改。
 
 ## <span id = "issues">常见问题</span>
@@ -376,7 +373,7 @@ java.util.zip.ZipException: duplicate entry: a/a/a/a.class
 
 - 报错原因:
     1. 没有加过滤混淆的代码
-    2. 有重复的jar包存在
+    2. 有重复的 jar 包存在
 
 - 解决方案:
     1. 加上混淆过滤的代码(出现 a/a/a/a.class 的 log 时)
@@ -415,17 +412,6 @@ java.lang.ClassNotFoundException: org.simalliance.openmobileapi.SEService
     dependencies {
         compileOnly files('libs/org.simalliance.openmobileapi.jar') // 使用 compileOnly, 不打包进 apk
     }
-    ```
-
-### 问题五：招行一网通键盘奔溃或弹不出键盘
-
-- 报错原因:
-    没有在 `string.xml` 中配置 `cmbkb_publickey` 字段
-- 解决方案:
-    在自己项目中 `res/values/string.xml` 下配置该字段
-
-    ```xml
-    <string name="cmbkb_publickey">填写自己的 publickey</string>
     ```
 
 ### 更多问题请到[帮助中心](https://help.pingxx.com/)搜索
