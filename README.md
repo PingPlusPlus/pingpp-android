@@ -68,7 +68,7 @@ allprojects {
 
 ```groovy
 dependencies {
-    implementation 'com.pingxx:pingpp-android:2.3.4' // (Ping++ 标准版 SDK) 必须添加
+    implementation 'com.pingxx:pingpp-android:2.3.5' // (Ping++ 标准版 SDK) 必须添加
     implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:5.5.8' // 使用微信支付时添加,具体版本参考微信官方文档或者 jcenter
     implementation 'com.pingxx:pingpp-android-alipay-with-utdid:15.7.4' // 使用支付宝时添加(包含 UTDID)
     // implementation 'com.pingxx:pingpp-android-alipay:15.7.4' // 使用支付宝时添加(不包含 UTDID)
@@ -211,6 +211,20 @@ dependencies {
 <activity android:name="com.ccb.ccbnetpay.activity.CcbH5PayActivity"
     android:configChanges="orientation|keyboardHidden|screenSize"
     android:screenOrientation="portrait" />
+```
+
+- 使用拉卡拉微信(wx_app_lakala)需要添加声明
+
+```xml
+<activity
+    android:name="com.swwx.paymax.PaymentActivity"
+    android:launchMode="singleTask"
+    android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+<activity-alias
+    android:name="${applicationId}.wxapi.WXEntryActivity"
+    android:exported="true"
+    android:targetActivity="com.swwx.paymax.PaymentActivity" />
 ```
 
 #### 2. 获取到 charge/order 后，调起支付
