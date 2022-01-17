@@ -1,12 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 31
     defaultConfig {
         applicationId "com.pingxx.demoapp"
-        minSdkVersion 16
-        targetSdkVersion 29
+        minSdkVersion 19
+        targetSdkVersion 31
     }
+
     buildTypes {
         release {
             minifyEnabled true
@@ -36,12 +37,12 @@ dependencies {
 
     implementation 'com.pingxx:pingpp-android:2.3.5'
     // 使用微信支付时添加
-    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:5.5.8'
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.8.0'
     // 使用支付宝时添加不包含 UTDID (当同时使用阿里百川等 SDK 时出现 UTDID 相关冲突可以用这个)
-    implementation 'com.pingxx:pingpp-android-alipay:15.7.4'
+    implementation(group: "", name: "alipaysdk-noutdid-15.8.06.211122165332", ext: "aar")
 
     // 使用支付宝时添加(包含 UTDID)
-    // implementation 'com.pingxx:pingpp-android-alipay-with-utdid:15.7.4'
+    // implementation(group = "", name = "alipaysdk-15.8.06.211122170115", ext = "aar")
     // 使用银联支付时添加
     implementation 'com.pingxx:pingpp-android-upacp:3.4.9'
     // 使用QQ钱包时添加

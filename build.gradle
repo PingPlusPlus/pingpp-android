@@ -2,20 +2,28 @@
 buildscript {
     repositories {
         google()
-        jcenter()
+        maven {
+            url "https://maven.aliyun.com/repository/jcenter"
+        }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.3'
+        classpath 'com.android.tools.build:gradle:7.0.4'
     }
 }
 
 allprojects {
     repositories {
         google()
-        jcenter()
-
+        mavenCentral()
         maven {
-            url  "https://dl.bintray.com/pingxx/maven"
+            url "https://maven.aliyun.com/repository/jcenter"
+        }
+
+        // 本地 aar 目录
+        flatDir {
+            dirs(
+                project(":lib:pingpp").file("libs")
+            )
         }
     }
 }

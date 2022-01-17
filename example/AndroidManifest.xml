@@ -22,8 +22,9 @@
 
         <!-- 示例 Activity 供用户参考 -->
         <activity
-            android:name=".MainActivity"
-            android:screenOrientation="portrait">
+            android:name="com.pingxx.demoapp.MainActivity"
+            android:screenOrientation="portrait"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,14 +32,15 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ClientSDKActivity" >
+        <activity android:name="com.pingxx.demoapp.ClientSDKActivity" >
         </activity>
 
         <!-- Ping++ sdk -->
         <activity
             android:name="com.pingplusplus.android.PaymentActivity"
             android:theme="@style/AppTheme"
-            tools:replace="theme">
+            tools:replace="theme"
+            android:exported="true">
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
@@ -65,7 +67,8 @@
         <!-- 建行 SDK -->
         <activity android:name="com.ccb.ccbnetpay.activity.appresult.ResultActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:exported="false">
             <intent-filter>
                 <action android:name="pingppdemowv"/>
                 <category android:name="android.intent.category.DEFAULT"/>

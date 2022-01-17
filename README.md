@@ -56,11 +56,16 @@ Android SDK 要求 `Android 4.1` 及以上版本
 allprojects {
     repositories {
         // ...其他仓库地址...
-        jcenter()
-
-        // 添加下面的 bintray 仓库地址
+        mavenCentral()
         maven {
-            url  "https://dl.bintray.com/pingxx/maven"
+            url "https://maven.aliyun.com/repository/jcenter"
+        }
+
+        // 本地 aar 目录，根据实际 aar 放置的目录修改 dirs 中内容。以下为当前项目的示例
+        flatDir {
+            dirs(
+                project(":lib:pingpp").file("libs")
+            )
         }
     }
 }
@@ -69,9 +74,9 @@ allprojects {
 ```groovy
 dependencies {
     implementation 'com.pingxx:pingpp-android:2.3.5' // (Ping++ 标准版 SDK) 必须添加
-    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:5.5.8' // 使用微信支付时添加,具体版本参考微信官方文档或者 jcenter
-    implementation 'com.pingxx:pingpp-android-alipay-with-utdid:15.7.4' // 使用支付宝时添加(包含 UTDID)
-    // implementation 'com.pingxx:pingpp-android-alipay:15.7.4' // 使用支付宝时添加(不包含 UTDID)
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.8.0' // 使用微信支付时添加,具体版本参考微信官方文档或者 jcenter
+    implementation(group: "", name: "alipaysdk-noutdid-15.8.06.211122165332", ext: "aar") // 使用支付宝时添加(包含 UTDID)
+    // implementation(group = "", name = "alipaysdk-15.8.06.211122170115", ext = "aar") // 使用支付宝时添加(不包含 UTDID)
     implementation 'com.pingxx:pingpp-android-upacp:3.4.9' // 使用银联支付时添加
     implementation 'com.pingxx:pingpp-qpay:2.1.19' // 使用QQ钱包时添加
     implementation 'com.pingxx:pingpp-android-cmbwallet:1.1.1' // 使用招行一网通时添加
