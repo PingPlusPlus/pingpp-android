@@ -57,9 +57,9 @@ allprojects {
     repositories {
         // ...其他仓库地址...
         mavenCentral()
-        maven {
-            url "https://maven.aliyun.com/repository/jcenter"
-        }
+        // maven {
+        //     url "https://maven.aliyun.com/repository/jcenter"
+        // }
 
         // 本地 aar 目录，根据实际 aar 放置的目录修改 dirs 中内容。以下为当前项目的示例
         flatDir {
@@ -73,9 +73,9 @@ allprojects {
 
 ```groovy
 dependencies {
-    implementation 'com.pingxx:pingpp-android:2.3.5' // (Ping++ 标准版 SDK) 必须添加
-    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.8.0' // 使用微信支付时添加,具体版本参考微信官方文档
-    implementation "com.alipay.sdk:alipaysdk-android:15.8.11" // 使用支付宝时添加。可参考 https://opendocs.alipay.com/open/04km1h
+    implementation 'com.pingxx:pingpp-android:2.3.6' // (Ping++ 标准版 SDK) 必须添加
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android:6.8.26' // 使用微信支付时添加,具体版本参考微信官方文档
+    implementation "com.alipay.sdk:alipaysdk-android:15.8.17" // 使用支付宝时添加。可参考 https://opendocs.alipay.com/open/04km1h
     implementation "com.pingxx:pingpp-android-upacp:3.5.9" // 使用银联支付时添加
     implementation 'com.pingxx:pingpp-qpay:2.1.19' // 使用QQ钱包时添加
     implementation 'com.pingxx:pingpp-android-cmbwallet:1.1.1' // 使用招行一网通时添加
@@ -85,7 +85,7 @@ dependencies {
 }
 ```
 
-[微信 SDK jcenter](https://bintray.com/wechat-sdk-team/maven/com.tencent.mm.opensdk%3Awechat-sdk-android-without-mta)
+[微信 SDK](https://developers.weixin.qq.com/doc/oplatform/Downloads/Android_Resource.html)
 
 #### Maven 导入方式
 
