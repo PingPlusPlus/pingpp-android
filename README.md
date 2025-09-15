@@ -4,7 +4,7 @@
 
 * [1. 简介](#1)
 * [2. 环境要求](#2)
-* [3. 快速体验](#3)
+* [3. 版本说明](#3)
 * [4. 工程配置及使用](#4)
     * [4.1 导入依赖包](#4.1)
     * [4.2 权限配置](#4.2)
@@ -13,69 +13,51 @@
 * [6. 注意事项](#6)
 * [7. 常见问题](#issues)
 
-## <h2 id='1'>简介</h2>
+<a name="1"></a>
+## 1. 简介
 
-lib 目录包含 Library Project: `pingpp`。  
-可以直接将两个 Library Project 作为依赖库，导入到你的项目。支持 Android Studio。  
-example 文件夹里面是一个简单的接入示例，该示例仅供参考。想使用该示例，请直接将本仓库导入。  
-docs 目录里面是 Android SDK 的接入指南。
+- `example` 文件夹里面是一个简单的接入示例，该示例仅供参考。
+- `docs` 目录里面是 Android SDK 的部分接入指南。
 
 * **推荐使用 Gradle 方式**，本项目的库文件更新可能有延迟。
 
-## <h2 id='2'>版本要求</h2>
+<a name="2"></a>
+## 2. 环境要求
 
-Android SDK 要求 `Android 4.1` 及以上版本  
+Android SDK 要求 `Android 4.1` 及以上版本
 请使用 `Java 8` 或以上版本
 
 **需要 Kotlin 标准库**
 
 ## 额外说明
 
-1. [中间页说明](/docs/支付中间页面说明.md)
+1. [中间页说明](./docs/支付中间页面说明.md)
 
-## <h2 id='3'>快速体验</h2>
+## 混淆设置
 
-### Android Studio
+<a name="3"></a>
+## 3. 版本说明
 
-导入 pingpp-android 整个项目，即可运行该 demo。
+当前项目下的内容可能不会实时与最新版本同步。最新版本请关注 maven central repository
 
-<font color="red">需要注意: </font>测试微信支付，需要签名和包名与微信开放平台上的一致，才可支付成功。给出的 demo 并没给出正确的签名，会返回微信支付失败的结果。  
-<font color="red">导入 demo 中可能会遇到的开发环境版本问题，修改 build.gradle 中的版本</font>
+- [Maven Central(Sonatype)](https://central.sonatype.com/artifact/com.pingxx/pingpp-android)
+- [Maven Central(mvnrepository)](https://mvnrepository.com/artifact/com.pingxx/pingpp-android)
 
-## <h2 id='4'>工程配置及使用</h2>
+<a name="4"></a>
+## 4. 工程配置及使用
 
-### <h3 id='4.1'>一、导入依赖包</h3>
+<a name="4.1"></a>
+### 4.1 导入依赖包
 
 <font color='red'>(注：依赖渠道 SDK 时，可能会和其他第三方SDK有冲突，移除依赖冲突的包就可以。如：[问题二](#issue2)、[问题三](#issue3))</font>
 
 #### Gradle 导入方式
 
-修改项目的 `build.gradle` 文件，添加 `bintray` 仓库地址
-
-```groovy
-allprojects {
-    repositories {
-        // ...其他仓库地址...
-        mavenCentral()
-        // maven {
-        //     url "https://maven.aliyun.com/repository/jcenter"
-        // }
-
-        // 本地 aar 目录，根据实际 aar 放置的目录修改 dirs 中内容。以下为当前项目的示例
-        flatDir {
-            dirs(
-                project(":lib:pingpp").file("libs")
-            )
-        }
-    }
-}
-```
-
 ```groovy
 dependencies {
-    implementation 'com.pingxx:pingpp-android:2.3.6' // (Ping++ 标准版 SDK) 必须添加
-    implementation 'com.tencent.mm.opensdk:wechat-sdk-android:6.8.26' // 使用微信支付时添加,具体版本参考微信官方文档
-    implementation "com.alipay.sdk:alipaysdk-android:15.8.17" // 使用支付宝时添加。可参考 https://opendocs.alipay.com/open/04km1h
+    implementation 'com.pingxx:pingpp-android:2.3.7' // (Ping++ 标准版 SDK) 必须添加
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android:6.8.34' // 使用微信支付时添加,具体版本参考微信官方文档 https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/Android.html
+    implementation "com.alipay.sdk:alipaysdk-android:15.8.38" // 使用支付宝时添加。可参考 https://opendocs.alipay.com/open/04km1h
     implementation "com.pingxx:pingpp-android-upacp:3.5.9" // 使用银联支付时添加
     implementation 'com.pingxx:pingpp-qpay:2.1.19' // 使用QQ钱包时添加
     implementation 'com.pingxx:pingpp-android-cmbwallet:1.1.1' // 使用招行一网通时添加
@@ -99,24 +81,16 @@ dependencies {
 </dependency>
 ```
 
-### <h3 id='4.2'>二、清单文件配置所需权限</h3>
-
-> 缺少时或者需要覆盖时可按下述说明添加
-
-<font color='red'>(注：有些权限是需要动态注册的,如 `READ_PHONE_STATE` 权限)</font>
+<a name="4.2"></a>
+### 4.2 权限配置
 
 ``` xml
-<!-- 通用权限 -->
+<!-- 网络权限 -->
 <uses-permission android:name="android.permission.INTERNET"/>
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-<!-- 银联需要的权限 -->
-<uses-permission android:name="android.permission.NFC"/>
 ```
 
-### <h3 id='4.3'>三、使用 Ping++ 标准版 SDK</h3>
+<a name="4.3"></a>
+### 4.3 使用 Ping++ 标准版 SDK
 
 #### 1. 清单文件注册相关类
 
@@ -239,7 +213,7 @@ charge/order 对象是一个包含支付信息的 JSON 对象，是 Ping++ SDK �
 
 ##### 调起支付
 
-因为 Ping++ 已经封装好了相应的调用方法，所以只需要调用支付方法即可调起支付控件：  
+因为 Ping++ 已经封装好了相应的调用方法，所以只需要调用支付方法即可调起支付控件：
 (<font color='red'>注：该调用方法需要在主线程(UI 线程)完成</font>)
 
 ```java
@@ -274,21 +248,21 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 #### 4. 其他辅助方法及变量
 
-##### 1. 判断是否安装了招商银行客户端
+##### a. 判断是否安装了招商银行客户端
 
 ```
 // isInstalled   true: 已安装    false: 未安装
 boolean isInstalled = Pingpp.isCmbWalletInstalled(context);
 ```
 
-##### 2. 是否允许使用手机 Pay
+##### b. 是否允许使用手机 Pay
 
 ```
 // true: 允许 (默认)   false: 不允许
 Pingpp.useSEPay(false);
 ```
 
-##### 3. 控制招行支付方式
+##### c. 控制招行支付方式
 
 ```
 // 自动判断，安装有招行 app 时打开 app 支付，否则通过 webView 打开 H5 页面支付
@@ -299,7 +273,7 @@ Pingpp.setCmbPayMethod(CmbPayMethod.H5_ONLY);
 Pingpp.setCmbPayMethod(CmbPayMethod.APP_ONLY);
 ```
 
-##### 3. 设置招行 H5 地址
+##### d. 设置招行 H5 地址
 
 > 生产环境不需要设置
 
@@ -354,7 +328,8 @@ Pingpp.signAgreement(YourActivity.this, data);
 }
 ```
 
-## <h2 id='5'>日志开关</h2>
+<a name="5"></a>
+## 5. 日志开关
 
 SDK 提供了日志功能，默认日志为关闭状态。 开发者可以通过下面设置打开日志开关。通过 PING++ 来对日志进行筛选。
 
@@ -363,12 +338,14 @@ SDK 提供了日志功能，默认日志为关闭状态。 开发者可以通过
 Pingpp.enableDebugLog(true);
 ```
 
-## <h2 id='6'>注意事项</h2>
+<a name="6"></a>
+## 6. 注意事项
 
 - Pingpp Android SDK 可能会与友盟、百度地图等其他第三方 jar 包冲突，当同时使用这些 jar 包的时候用户需要根据情况判断保留哪一方的 jar 包。
 - 请勿直接使用客户端支付结果作为最终判定订单状态的依据，由于 Ping++ 没有参与你的客户端和第三方渠道的交互，无法保证客户端支付结果的安全性，建议订单状态的更新对比客户端的渠道同步回调信息和服务端的 Ping++ Webhooks 通知来确定是否修改。
 
-## <span id = "issues">常见问题</span>
+<a name="issues"></a>
+## 7. 常见问题
 ### 问题一： 微信支付失败，返回 wx_err_code:-1
 
 - 报错原因:
@@ -379,7 +356,8 @@ Pingpp.enableDebugLog(true);
     3. 清理微信缓存；
     4. 如果签名包名均正确，仍旧返回 -1 报错，请检查时间戳格式是否有问题或重置微信开放平台的安卓版本的签名包名。
 
-###  <span id = "issue2">问题二：与其他第三方SDK有冲突(如:友盟SDK)</span>
+<a name="issue2"></a>
+### 问题二：与其他第三方SDK有冲突(如:友盟SDK)
 
 - 报错Log:
 
@@ -397,7 +375,8 @@ java.util.zip.ZipException: duplicate entry: a/a/a/a.class
     1. 加上混淆过滤的代码(出现 a/a/a/a.class 的 log 时)
     2. 删除重复的 jar 包(可以是第三方 SDK 中的，也可以是 Ping++ SDK 中的 jar 包)
 
-### <span id = "issue3">问题三：Ping++ 和其他第三方 SDK(如：高德地图)同时存在，使用 gradle 导入 Ping++, 会导致其他第三方 SDK（如：高德地图）找不到 so 而无法使用</span>
+<a name="issue3"></a>
+### 问题三：Ping++ 和其他第三方 SDK(如：高德地图)同时存在，使用 gradle 导入 Ping++, 会导致其他第三方 SDK（如：高德地图）找不到 so 而无法使用
 
 - 报错原因:
     Ping++ SDK 提供了 `armeabi-v7a`、`arm64-v8a`，而其他第三方 SDK(如：高德地图)提供了 `armeabi-v7a`, 当手机是 `arm64-v8a` 的会去加载 `arm64-v8a` 包下的 so 文件，这时会报其他第三方 SDK (如：高德地图)的 so 文件找不到，而你上面的代码在打包的时候就只打包了 `armeabi-v7a`，所以只会去 `armeabi-v7a` 包下找，因此不会出现报错 建议使用各种 SDK 时保持相同的 so 文件。
